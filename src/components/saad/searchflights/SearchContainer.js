@@ -6,7 +6,7 @@ import Flight from "./Flight";
 
 const SearchContainer = () => {
   return (
-    <div className="absolute top-[25rem]  left-[5rem]">
+    <div className="absolute top-[25rem] left-[5rem]">
       <div
         style={{ lineHeight: "17px", fontWeight: 700 }}
         className=" justify-start   flex items-center gap-[6px] text-[14px]"
