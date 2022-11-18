@@ -1,5 +1,7 @@
 import React from "react";
-import logo from '../../images/logo.png'
+import logo from "../../images/logo.png";
+import { AiOutlineMore } from "react-icons/ai";
+import { FaUserAlt } from "react-icons/fa";
 
 const BottomNav = () => {
   return (
@@ -11,13 +13,19 @@ const BottomNav = () => {
         <h4 className="text-[#FFFFFF] text-[25px]">SALARA AIRLINES</h4>
       </div>
       <div className="flex items-center">
-        <ul className="flex flex-row gap-3 text-[#FFFFFF] text-[15px] mr-5">
-          <li>PLAN & BOOK</li>
-          <li>FLY DIFFERENT</li>
-          <li>DISCOVER</li>
-          <li>Sign up</li>
+        <ul className="flex flex-row gap-3 items-center text-[#FFFFFF] text-[15px] mr-5">
+          <li className="text-[14px]">PLAN & BOOK</li>
+          <AiOutlineMore />
+          <li className="text-[14px]">FLY DIFFERENT</li>
+          <AiOutlineMore />
+          <li className="text-[14px]">DISCOVER</li>
+          <AiOutlineMore />
+          <li className="text-[14px]">Sign up</li>
         </ul>
-        <button className="text-[#FFFFFF] border-solid border-2 border-white rounded-[20px] mr-5 p-2">SIGN IN</button>
+        <button className="text-[#FFFFFF] text-[12px] hover:bg-[#444B56] border-solid border-[1px] border-white rounded-[20px] mr-5 p-2 flex items-center gap-2">
+          <p>SIGN IN</p>
+          <FaUserAlt />
+        </button>
       </div>
     </div>
   );
