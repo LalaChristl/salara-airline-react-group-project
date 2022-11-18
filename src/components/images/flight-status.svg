@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="16.19" viewBox="0 0 24 16.19">
+  <g id="Flight_Status" transform="translate(0 -3.81)">
+    <path id="Path_108" data-name="Path 108" d="M21.4,7.49H6.09L1,3.81H0L1.9,8a4,4,0,0,0,3.7,2.26H21.4c1.19,0,2.6-.62,2.6-1.38h0C24,8.1,22.59,7.49,21.4,7.49Z" fill="#647280"/>
+    <path id="Path_109" data-name="Path 109" d="M8.37,16h1l6-4.55H11.89a2.19,2.19,0,0,0-2,1.25Z" fill="#647280"/>
+    <path id="Path_110" data-name="Path 110" d="M18,12a4,4,0,1,0,4,4A4,4,0,0,0,18,12Zm0,7a3,3,0,1,1,3-3A3,3,0,0,1,18,19Z" fill="#647280"/>
+    <path id="Path_111" data-name="Path 111" d="M18,16.09H16V17h3V14H18Z" fill="#647280"/>
+  </g>
+</svg>
