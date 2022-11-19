@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 const DateDropDown = () => {
   const month = new Date().toLocaleString("en-US", {
     month: "short",
   });
 
-  const [defaultVal, setDefaultVal] = useState(nextDate(0));
+  // const [defaultVal, setDefaultVal] = useState(nextDate(0));
 
   function nextDate(day) {
     const next_date = new Date().getDate() + day;

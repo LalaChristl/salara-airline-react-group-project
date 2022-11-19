@@ -24,9 +24,10 @@ const DatePickerFunc = () => {
       firstDate: firstDate,
       secondDate: secondDate,
     });
-  }, [secondDate]);
+  }, [firstDate, secondDate, dispatch]);
 
   const calcDays = moment(endDate).diff(startDate, "days");
+  console.log(calcDays);
 
   console.log(state?.firstDate, state?.secondDate);
 

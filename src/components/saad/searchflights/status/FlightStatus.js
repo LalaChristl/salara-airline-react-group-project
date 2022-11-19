@@ -1,31 +1,28 @@
 import React from "react";
 
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import DateDropDown from "./DateDropDown";
 import arrow from "../../../images/aroow.svg";
 
 const FlightStatus = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   watch,
+  //   formState: { errors },
+  // } = useForm();
   return (
     <div className="flex items-center gap-2 h-full">
       <div>
         {" "}
         <select
-          className={`w-[147.98px] h-[66px] text-[16px] font-bold text-center  rounded-lg ${
-            errors.arrival &&
-            " focus:border-red-500 focus:ring-red-500 border-red-500"
-          }`}
-          {...register("arrival", {
-            required: {
-              value: true,
-              message: "Arrival is required",
-            },
-          })}
+          className={`w-[147.98px] h-[66px] text-[16px] font-bold text-center  rounded-lg ${" focus:border-red-500 focus:ring-red-500 border-red-500"}`}
+          // {...register("arrival", {
+          //   required: {
+          //     value: true,
+          //     message: "Arrival is required",
+          //   },
+          // })}
         >
           <option value="" selected disabled hidden>
             Flight no.

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { FaPlaneArrival, FaPlaneDeparture, FaChild } from "react-icons/fa";
+import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa";
 import { GiPerson } from "react-icons/gi";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import DatePickerFunc from "./DatePicker";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import dates from "../../../images/booking.svg";
@@ -16,12 +16,12 @@ const CityDate = () => {
 
   const [showDate, setShowDate] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   watch,
+  //   formState: { errors },
+  // } = useForm();
   return (
     <div>
       {" "}
@@ -37,10 +37,7 @@ const CityDate = () => {
                 onChange={(e) =>
                   dispatch({ type: "departure", payload: e.target.value })
                 }
-                className={`w-[187.49px] h-[66px] text-[16px] font-bold pl-[3.2rem] rounded-lg ${
-                  errors.departure &&
-                  " focus:border-red-500 focus:ring-red-500 border-red-500"
-                }`}
+                className={`w-[187.49px] h-[66px] text-[16px] font-bold pl-[3.2rem] rounded-lg ${" focus:border-red-500 focus:ring-red-500 border-red-500"}`}
                 // {...register("departure", {
                 //   required: {
                 //     value: true,
@@ -58,13 +55,13 @@ const CityDate = () => {
               </select>
               <FaPlaneDeparture className="text-2xl absolute left-5 top-10 " />
             </div>
-            <div>
+            {/* <div>
               {errors.departure && (
                 <span className="text-sm text-red-500">
                   {errors.departure.message}
                 </span>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -79,10 +76,7 @@ const CityDate = () => {
                 onChange={(e) =>
                   dispatch({ type: "arrival", payload: e.target.value })
                 }
-                className={`w-[187.49px] h-[66px] text-[16px] font-bold pl-[3.2rem]  rounded-lg ${
-                  errors.arrival &&
-                  " focus:border-red-500 focus:ring-red-500 border-red-500"
-                }`}
+                className={`w-[187.49px] h-[66px] text-[16px] font-bold pl-[3.2rem]  rounded-lg ${" focus:border-red-500 focus:ring-red-500 border-red-500"}`}
                 // {...register("arrival", {
                 //   required: {
                 //     value: true,
@@ -101,11 +95,11 @@ const CityDate = () => {
               <FaPlaneArrival className="text-2xl absolute left-5 top-10 " />
             </div>
             <div>
-              {errors.arrival && (
+              {/* {errors.arrival && (
                 <span className="text-sm text-red-500">
                   {errors.arrival.message}
                 </span>
-              )}
+              )} */}
             </div>
           </div>
         </div>
@@ -137,11 +131,11 @@ const CityDate = () => {
                   </div>
                 )}
 
-                {errors.departureDate && (
+                {/* {errors.departureDate && (
                   <span className="text-sm text-red-500">
                     {errors.departureDate.message}
                   </span>
-                )}
+                )} */}
               </div>
             </div>
           </div>
@@ -165,12 +159,12 @@ const CityDate = () => {
                 </p>
                 <select
                   className="w-full h-[66px] rounded-lg text-2xl pl-20"
-                  {...register("adult", {
-                    required: {
-                      value: true,
-                      message: "Trip type is required",
-                    },
-                  })}
+                  // {...register("adult", {
+                  //   required: {
+                  //     value: true,
+                  //     message: "Trip type is required",
+                  //   },
+                  // })}
                 >
                   <option>1</option>
                   <option>2</option>
