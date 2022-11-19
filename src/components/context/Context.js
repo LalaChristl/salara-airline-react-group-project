@@ -7,6 +7,10 @@ const ContextProvider = ({ children }) => {
     flightTab: true,
     checkinTab: false,
     statusTab: false,
+    firstDate: "",
+    secondDate: "",
+    departure: "",
+    arrival: "",
   };
 
   const reducer = (state, action) => {
@@ -20,8 +24,6 @@ const ContextProvider = ({ children }) => {
           statusTab: false,
         };
       case "checkIn":
-        console.log("checkin", state);
-
         return {
           ...state,
           flightTab: false,
@@ -35,6 +37,18 @@ const ContextProvider = ({ children }) => {
           checkinTab: false,
           statusTab: true,
         };
+
+      case "firstSecondDate":
+        return {
+          ...state,
+          firstDate: action.firstDate,
+          secondDate: action.secondDate,
+        };
+
+      case "departure":
+        return { ...state, departure: action.payload };
+      case "arrival":
+        return { ...state, arrival: action.payload };
 
       default:
         return;
