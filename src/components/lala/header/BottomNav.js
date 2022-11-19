@@ -22,7 +22,7 @@ const BottomNav = () => {
           <AiOutlineMore />
           <li className="text-[14px]">Sign up</li>
         </ul>
-        <button className="text-[#FFFFFF] text-[12px] hover:bg-[#444B56] border-solid border-[1px] border-white rounded-[20px] mr-5 p-2 flex items-center gap-2">
+        <button className="text-[#FFFFFF] text-[12px] hover:bg-[#444B56] border-solid border-[1px] border-white rounded-[20px] mr-5 py-2 px-3 flex items-center gap-2">
           <p>SIGN IN</p>
           <FaUserAlt />
         </button>
