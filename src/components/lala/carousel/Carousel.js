@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import imgGirl from '../../images/logo.png';
-import img1 from '../../images/carousel-1.jpeg';
-import img2 from '../../images/carousel-2.jpeg';
-import img3 from '../../images/carousel-3.jpeg';
-import img4 from '../../images/carousel-4.jpeg';
+import React, { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import imgGirl from "../../images/logo.png";
+import img1 from "../../images/carousel-1.jpeg";
+import img2 from "../../images/carousel-2.jpeg";
+import img3 from "../../images/carousel-3.jpeg";
+import img4 from "../../images/carousel-4.jpeg";
 
 const dataset = [
   {
@@ -35,12 +35,12 @@ const dataset = [
 ];
 
 const CarouselFunction = () => {
-
   const [defaultImage, setDefaultImage] = useState({});
   const settings = {
     dots: true,
     infinite: false,
     speed: 500,
+
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
@@ -81,32 +81,33 @@ const CarouselFunction = () => {
   };
 
   return (
-    <div className="App w-[80%]">
+    <div className="App">
       <Slider {...settings}>
-        {dataset.map((item) => (
-          <div style={{width: '10rem'}} className="card border-2">
-            <div className="card-top">
-              <img
-                src={
-                  defaultImage[item.title] === item.title
-                    ? defaultImage.linkDefault
-                    : item.image
-                }
-                alt={item.title}
-                onError={handleErrorImage}
-              />
-              <h1>{item.title}</h1>
+
+          {dataset.map((item) => (
+            <div  className=" card border-2">
+              <div className="card-top" style={{maxWidth: '150px'}}>
+                <img
+                style={{marginRight: 0}}
+                  src={
+                    defaultImage[item.title] === item.title
+                      ? defaultImage.linkDefault
+                      : item.image
+                  }
+                  alt={item.title}
+                  onError={handleErrorImage}
+                />
+                <h1 style={{maxWidth: '150px'}}>{item.title}</h1>
+              </div>
+              <div className="card-bottom" style={{ width: "150px" }}>
+                <h3>{item.details}</h3>
+              </div>
             </div>
-            <div className="card-bottom">
-              <h3>{item.details}</h3>
-          
-            </div>
-          </div>
-        ))}
+          ))}
+       
       </Slider>
     </div>
   );
-}
-
+};
 
 export default CarouselFunction;
