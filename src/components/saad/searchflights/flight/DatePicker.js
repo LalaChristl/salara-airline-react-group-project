@@ -12,6 +12,7 @@ const DatePickerFunc = () => {
   };
   return (
     <DatePicker
+      wrapperClassName="datePicker"
       selected={startDate}
       onChange={onChange}
       startDate={startDate}
