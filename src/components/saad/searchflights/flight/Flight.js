@@ -1,7 +1,7 @@
 import React from "react";
-import RadioButtons from "./RadioButton";
+import RadioButtons from "../flight/RadioButton";
 import Checkbox from "@mui/material/Checkbox";
-import CityDate from "./CityDate";
+import CityPicker from "./CityPicker";
 
 const Flight = () => {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
@@ -16,8 +16,8 @@ const Flight = () => {
           <p>Award ticket - Buy a ticket with Miles</p>
         </div>
       </div>
-      <CityDate />
-      <div className="font-[700] text-[#232B38]">Recent searches</div>
+      <CityPicker />
+      <div className="font-[700] text-[#232B38] ">Recent searches</div>
     </div>
   );
 };

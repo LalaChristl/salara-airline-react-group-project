@@ -4,13 +4,51 @@ export const Context = createContext();
 
 const ContextProvider = ({ children }) => {
   const initialState = {
-    toggle: true,
+    flightTab: true,
+    checkinTab: false,
+    statusTab: false,
+    firstDate: "",
+    secondDate: "",
+    departure: "",
+    arrival: "",
   };
 
   const reducer = (state, action) => {
     switch (action.type) {
-      case "":
-        return;
+      case "flight":
+        console.log("flight", state);
+        return {
+          ...state,
+          flightTab: true,
+          checkinTab: false,
+          statusTab: false,
+        };
+      case "checkIn":
+        return {
+          ...state,
+          flightTab: false,
+          checkinTab: true,
+          statusTab: false,
+        };
+      case "status":
+        return {
+          ...state,
+          flightTab: false,
+          checkinTab: false,
+          statusTab: true,
+        };
+
+      case "firstSecondDate":
+        return {
+          ...state,
+          firstDate: action.firstDate,
+          secondDate: action.secondDate,
+        };
+
+      case "departure":
+        return { ...state, departure: action.payload };
+      case "arrival":
+        return { ...state, arrival: action.payload };
 
       default:
         return;

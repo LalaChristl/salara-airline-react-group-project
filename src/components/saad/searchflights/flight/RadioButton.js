@@ -30,6 +30,7 @@ export default function RowRadioButtonsGroup() {
           value="One way"
           control={
             <Radio
+              checked
               sx={{
                 "&.Mui-checked": {
                   color: "#00548A",
