@@ -11,6 +11,7 @@ const ContextProvider = ({ children }) => {
     secondDate: "",
     departure: "",
     arrival: "",
+    radio: "One way",
   };
 
   const reducer = (state, action) => {
@@ -49,6 +50,9 @@ const ContextProvider = ({ children }) => {
         return { ...state, departure: action.payload };
       case "arrival":
         return { ...state, arrival: action.payload };
+
+      case "radio":
+        return { ...state, radio: action.payload };
 
       default:
         return;

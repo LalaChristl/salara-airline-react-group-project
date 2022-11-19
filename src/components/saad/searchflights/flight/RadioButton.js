@@ -7,20 +7,15 @@ import { Context } from "../../../context/Context";
 
 export default function RowRadioButtonsGroup() {
   const { state, dispatch } = React.useContext(Context);
-  console.log(state);
-
-  const [value, setValue] = React.useState("One Way");
-  console.log(value);
 
   return (
     <FormControl>
       <RadioGroup
-        value={value}
-        // defaultValue="One Way"
+        value={state.radio}
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => dispatch({ type: "radio", payload: e.target.value })}
       >
         <FormControlLabel
           value="Round trip"

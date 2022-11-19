@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const CityDate = () => {
   const { state, dispatch } = useContext(Context);
-  console.log(state.departure, state.arrival);
+  // console.log(state.departure, state.arrival);
   // handle event
   const navigate = useNavigate();
 

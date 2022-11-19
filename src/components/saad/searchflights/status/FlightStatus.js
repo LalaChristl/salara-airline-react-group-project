@@ -17,20 +17,15 @@ const FlightStatus = () => {
         {" "}
         <select
           className={`w-[147.98px] h-[66px] text-[16px] font-bold text-center  rounded-lg ${" focus:border-red-500 focus:ring-red-500 border-red-500"}`}
-          // {...register("arrival", {
-          //   required: {
-          //     value: true,
-          //     message: "Arrival is required",
-          //   },
-          // })}
+          defaultValue="Flight no."
         >
-          <option value="" selected disabled hidden>
+          <option value="Flight no." disabled hidden>
             Flight no.
           </option>
-          <option value="ENIA"> Arrival</option>
-          <option value="INIA"> Departure</option>
-          <option value="MMA"> Flight no.</option>
-          <option value="KMA"> Route</option>
+          <option value="Arrival"> Arrival</option>
+          <option value="Departure"> Departure</option>
+          <option value="Flight no."> Flight no.</option>
+          <option value="Route"> Route</option>
         </select>
       </div>
 
