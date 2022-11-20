@@ -95,19 +95,35 @@ const CityDate = () => {
                 {state?.firstDate ? (
                   state?.radio !== "One way" ? (
                     <div className="flex  gap-3 justify-center pl-5">
-                      <p className="text-[18px] font-bold">
-                        {state?.firstDate}
-                      </p>
+                      <div>
+                        <p className="text-[18px] font-bold">
+                          {state?.firstDate}
+                        </p>
+                        <p className="text-[12px] text-center font-bold">
+                          {" "}
+                          {state?.firstDateDay}
+                        </p>
+                      </div>
                       <p className="text-[18px] font-bold">-</p>
-                      <p className="text-[18px] font-bold">
-                        {" "}
-                        {state?.secondDate}
-                      </p>
+                      <div>
+                        <p className="text-[18px] font-bold">
+                          {" "}
+                          {state?.secondDate}
+                        </p>
+                        <p className="text-[12px] text-center font-bold">
+                          {" "}
+                          {state?.secondDateDay}
+                        </p>
+                      </div>
                     </div>
                   ) : (
-                    <div className="flex  gap-3 justify-center mx-auto">
+                    <div className="flex flex-col   justify-center mx-auto">
                       <p className="text-[18px] font-bold">
                         {state?.firstDate}
+                      </p>
+                      <p className="text-[12px] text-center font-bold">
+                        {" "}
+                        {state?.firstDateDay}
                       </p>
                     </div>
                   )
