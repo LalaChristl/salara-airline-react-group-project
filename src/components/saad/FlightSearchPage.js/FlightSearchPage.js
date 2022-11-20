@@ -6,6 +6,7 @@ const FlightSearchPage = () => {
 
   return (
     <div>
+      <div className="h-[61px] bg-black"></div>
       <p>{state?.firstDate}</p>
       <p>{state?.firstDateDay}</p>
       <p>{state?.secondDate}</p>
