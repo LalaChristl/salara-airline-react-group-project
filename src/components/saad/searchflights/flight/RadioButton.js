@@ -3,15 +3,19 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import { Context } from "../../../context/Context";
 
 export default function RowRadioButtonsGroup() {
+  const { state, dispatch } = React.useContext(Context);
+
   return (
     <FormControl>
       <RadioGroup
+        value={state.radio}
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"
+        onChange={(e) => dispatch({ type: "radio", payload: e.target.value })}
       >
         <FormControlLabel
           value="Round trip"
@@ -30,7 +34,6 @@ export default function RowRadioButtonsGroup() {
           value="One way"
           control={
             <Radio
-              checked
               sx={{
                 "&.Mui-checked": {
                   color: "#00548A",

@@ -10,7 +10,7 @@ const Header = () => {
       <TopNav />
       <BottomNav />
       <ImageHeader />
-      {/* <CarouselFunction/> */}
+      <CarouselFunction />
     </div>
   );
 };

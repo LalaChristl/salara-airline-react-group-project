@@ -81,14 +81,14 @@ const CarouselFunction = () => {
   };
 
   return (
-    <div className="App">
+    <div className="App w-full">
       <Slider {...settings}>
-
-          {dataset.map((item) => (
-            <div  className=" card border-2">
-              <div className="card-top" style={{maxWidth: '150px'}}>
+        {dataset.map((item, i) => (
+          <div key={i} style={{ width: 100 }}>
+            <div className=" card border-2 h-[20rem]">
+              <div className="card-top">
                 <img
-                style={{marginRight: 0}}
+                  style={{ marginRight: 0 }}
                   src={
                     defaultImage[item.title] === item.title
                       ? defaultImage.linkDefault
@@ -97,14 +97,14 @@ const CarouselFunction = () => {
                   alt={item.title}
                   onError={handleErrorImage}
                 />
-                <h1 style={{maxWidth: '150px'}}>{item.title}</h1>
+                <h1>{item.title}</h1>
               </div>
-              <div className="card-bottom" style={{ width: "150px" }}>
+              <div className="card-bottom">
                 <h3>{item.details}</h3>
               </div>
             </div>
-          ))}
-       
+          </div>
+        ))}
       </Slider>
     </div>
   );
