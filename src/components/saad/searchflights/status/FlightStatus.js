@@ -5,12 +5,6 @@ import DateDropDown from "./DateDropDown";
 import arrow from "../../../images/aroow.svg";
 
 const FlightStatus = () => {
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   watch,
-  //   formState: { errors },
-  // } = useForm();
   return (
     <div className="flex items-center gap-2 h-full">
       <div>

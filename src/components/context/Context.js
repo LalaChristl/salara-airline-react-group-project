@@ -52,7 +52,12 @@ const ContextProvider = ({ children }) => {
         return { ...state, arrival: action.payload };
 
       case "radio":
-        return { ...state, radio: action.payload };
+        return {
+          ...state,
+          radio: action.payload,
+          firstDate: "",
+          secondDate: "",
+        };
 
       default:
         return;

@@ -83,8 +83,8 @@ const CarouselFunction = () => {
   return (
     <div className="App w-full">
       <Slider {...settings}>
-        {dataset.map((item) => (
-          <div style={{ width: 100 }}>
+        {dataset.map((item, i) => (
+          <div key={i} style={{ width: 100 }}>
             <div className=" card border-2 h-[20rem]">
               <div className="card-top">
                 <img

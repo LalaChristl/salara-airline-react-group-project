@@ -16,12 +16,6 @@ const CityDate = () => {
 
   const [showDate, setShowDate] = useState(false);
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   watch,
-  //   formState: { errors },
-  // } = useForm();
   return (
     <div>
       {" "}
@@ -44,8 +38,9 @@ const CityDate = () => {
                 //     message: "Departure is required",
                 //   },
                 // })}
+                defaultValue="Select Airport"
               >
-                <option value="" selected disabled hidden>
+                <option value="Select Airport" disabled hidden>
                   Select Airport
                 </option>
                 <option value="BER"> Berlin Airport (BER)</option>
@@ -55,13 +50,6 @@ const CityDate = () => {
               </select>
               <FaPlaneDeparture className="text-2xl absolute left-5 top-10 " />
             </div>
-            {/* <div>
-              {errors.departure && (
-                <span className="text-sm text-red-500">
-                  {errors.departure.message}
-                </span>
-              )}
-            </div> */}
           </div>
         </div>
 
@@ -77,14 +65,9 @@ const CityDate = () => {
                   dispatch({ type: "arrival", payload: e.target.value })
                 }
                 className={`w-[187.49px] h-[66px] text-[16px] font-bold pl-[3.2rem]  rounded-lg ${" focus:border-red-500 focus:ring-red-500 border-red-500"}`}
-                // {...register("arrival", {
-                //   required: {
-                //     value: true,
-                //     message: "Arrival is required",
-                //   },
-                // })}
+                defaultValue="Select Airport"
               >
-                <option value="" selected disabled hidden>
+                <option value="Select Airport" disabled hidden>
                   Select Airport
                 </option>
                 <option value="BER"> Berlin Airport (BER)</option>
@@ -94,13 +77,7 @@ const CityDate = () => {
               </select>
               <FaPlaneArrival className="text-2xl absolute left-5 top-10 " />
             </div>
-            <div>
-              {/* {errors.arrival && (
-                <span className="text-sm text-red-500">
-                  {errors.arrival.message}
-                </span>
-              )} */}
-            </div>
+            <div></div>
           </div>
         </div>
 
@@ -115,33 +92,39 @@ const CityDate = () => {
                 </p>
               </div>
               <div className="flex gap-[3rem] items-center rounded-[8px] w-[187px] h-[66px] bg-[#EFEFEF]">
-                {state?.secondDate ? (
-                  <div className="flex  gap-3 justify-center pl-5">
-                    <p className="text-[18px] font-bold">{state?.firstDate}</p>
-                    <p className="text-[18px] font-bold">-</p>
-                    <p className="text-[18px] font-bold">
-                      {" "}
-                      {state?.secondDate}
-                    </p>
-                  </div>
+                {state?.firstDate ? (
+                  state?.radio !== "One way" ? (
+                    <div className="flex  gap-3 justify-center pl-5">
+                      <p className="text-[18px] font-bold">
+                        {state?.firstDate}
+                      </p>
+                      <p className="text-[18px] font-bold">-</p>
+                      <p className="text-[18px] font-bold">
+                        {" "}
+                        {state?.secondDate}
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="flex  gap-3 justify-center mx-auto">
+                      <p className="text-[18px] font-bold">
+                        {state?.firstDate}
+                      </p>
+                    </div>
+                  )
                 ) : (
                   <div className="flex pl-5 items-center justify-center gap-10">
                     <img className="w-[24px]" src={dates} alt={dates} />
                     <p className="text-[18px] font-bold">Date</p>
                   </div>
                 )}
-
-                {/* {errors.departureDate && (
-                  <span className="text-sm text-red-500">
-                    {errors.departureDate.message}
-                  </span>
-                )} */}
               </div>
             </div>
           </div>
           <div
             style={{ zIndex: 5 }}
-            className="absolute top-[14rem] left-[17rem] "
+            className={`absolute top-[14rem] ${
+              state?.radio === "One way" ? "left-[25rem]" : "left-[17rem]"
+            } `}
           >
             {showDate && <DatePickerFunc />}
           </div>
@@ -157,15 +140,7 @@ const CityDate = () => {
                   {" "}
                   Passengers
                 </p>
-                <select
-                  className="w-full h-[66px] rounded-lg text-2xl pl-20"
-                  // {...register("adult", {
-                  //   required: {
-                  //     value: true,
-                  //     message: "Trip type is required",
-                  //   },
-                  // })}
-                >
+                <select className="w-full h-[66px] rounded-lg text-2xl pl-20">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
