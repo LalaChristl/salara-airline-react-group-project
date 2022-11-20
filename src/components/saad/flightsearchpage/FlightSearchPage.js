@@ -3,6 +3,7 @@ import { Context } from "../../context/Context";
 import SearchNav from "../../lala/header/SearchNav";
 import { FaGreaterThan } from "react-icons/fa";
 import { FaLessThan } from "react-icons/fa";
+import FlightCard from "./FlightCard";
 
 const FlightSearchPage = () => {
   const { state } = useContext(Context);
@@ -11,7 +12,7 @@ const FlightSearchPage = () => {
     <div>
       <SearchNav />
 
-      <div className="px-[15px] pt-[30px] pb-[5px] w-[1024px] mx-auto">
+      <div className="px-[15px] pt-[30px] pb-[5px] w-[1024px] mx-auto mb-[20px] ">
         <p className="bg-[#E81932] text-[#FFFFFF] text-[14px] mb-[10px] pt-[7px] px-[44px] pb-[5px] w-[222.23px] font-[700] leading-[15px] ">
           OUTBOUND FLIGHT
         </p>
@@ -34,12 +35,14 @@ const FlightSearchPage = () => {
         </div>
       </div>
 
-      <p>{state?.firstDate}</p>
-      <p>{state?.firstDateDay}</p>
-      <p>{state?.secondDate}</p>
-      <p>{state?.secondDateDay}</p>
-      <p>{state?.departure}</p>
-      <p>{state?.arrival}</p>
+      <div className="w-[994px] mx-auto">
+        <div className="bg-[#232B38] rounded-t-[5px] text-white text-[14px] h-[49.13px] px-[15px]">
+          Sort By
+        </div>
+        <div className="pt-[15px] px-[15px] border-2 rounded-b-[5px] bg-[#F9F9F9]">
+          <FlightCard />
+        </div>
+      </div>
     </div>
   );
 };
