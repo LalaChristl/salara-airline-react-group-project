@@ -1,0 +1,133 @@
+@import url(https://db.onlinewebfonts.com/c/b1de76f2d448dcdf44d092114d6ba04a?family=Museo+Sans+700);
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Museo-Sans, sans-serif;
+}
+.main-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.top-container {
+  padding: 0 15px;
+  margin-bottom: 20px;
+}
+.card-ul {
+  display: flex;
+}
+.top-card {
+  display: flex;
+  flex-direction: row;
+  width: 318px;
+  height: 179px;
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-right: 20px;
+}
+.top-card3 {
+  margin-right: 0;
+}
+.top-card-text {
+  padding: 20px 20px 10px 0;
+}
+.top-card-h2 {
+  font-size: 16px;
+  color: #232b38;
+  font-weight: 700;
+}
+.top-card-p {
+  font-size: 12px;
+  color: #647280;
+  margin: 7px 0px 10px;
+  font-weight: 300;
+}
+/* .icon {
+  width: 79.5px;
+  height: 110px;
+  padding: 20px;
+  margin: 25px 0 0;
+  border: 2px solid red;
+} */
+.icon {
+  width: 79px;
+  height: 110px;
+  padding: 15px;
+  margin: 25px 0 0;
+}
+.icon-img-1 {
+  width: 48px;
+  height: 48px;
+}
+
+.top-para {
+  padding: 15px;
+  display: flex;
+  font-size: 14px;
+  color: #232b38;
+  max-width: 1024px;
+}
+.info {
+  width: 49px;
+  height: 80px;
+}
+.info-paragraph p {
+  margin-bottom: 10px;
+}
+.info {
+  width: 49px;
+  height: 80px;
+  margin: 0 15px 0 0;
+  position: relative;
+}
+.info p {
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 20px;
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  left: 0;
+  bottom: 30%;
+}
+
+.card {
+  width: 512px;
+  height: 456.06px;
+  color: #232b38;
+  border: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0;
+  font-size: 12px;
+}
+.card-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 10px 0 0 0;
+}
+.card-text {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  background-color: red;
+  font-size: 14;
+  font-weight: 700;
+  color: white;
+  padding: 6px 12px;
+}
+/* just for dev purpose between this two comment */
+
+.hr {
+  margin-bottom: 20px;
+}
+/* just for dev purpose */
