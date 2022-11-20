@@ -35,14 +35,18 @@ const FlightSearchPage = () => {
         </div>
       </div>
 
-      <div className="w-[994px] mx-auto">
+      <div className="w-[994px] mx-auto ">
         <div className="bg-[#232B38] rounded-t-[5px] text-white text-[14px] h-[49.13px] px-[15px]">
           Sort By
         </div>
-        <div className="pt-[15px] px-[15px] border-2 rounded-b-[5px] bg-[#F9F9F9]">
+        <div className="pt-[15px] h-[137px]  px-[15px] border-2 rounded-b-[5px] bg-[#F9F9F9]">
           <FlightCard />
         </div>
       </div>
+      <p className="text-[20px] mt-[15px] mb-[10px] text-center font-[300] text-[#232B38]">
+        The fares shown in this page are valid for single Adult. The total fare
+        can be seen on the payment page after completing your flight selection.
+      </p>
     </div>
   );
 };
