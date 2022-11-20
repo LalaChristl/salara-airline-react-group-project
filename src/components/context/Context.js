@@ -11,6 +11,8 @@ const ContextProvider = ({ children }) => {
     secondDate: "",
     firstDateDay: "",
     secondDateDay: "",
+    startDate: "",
+    endDate: "",
     departure: "",
     arrival: "",
     radio: "One way",
@@ -48,6 +50,8 @@ const ContextProvider = ({ children }) => {
           secondDate: action.secondDate,
           firstDateDay: action.firstDateDay,
           secondDateDay: action.secondDateDay,
+          startDate: action.startDate,
+          endDate: action.endDate,
         };
 
       case "departure":

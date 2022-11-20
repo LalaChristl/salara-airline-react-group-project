@@ -10,11 +10,24 @@ const DatePickerFunc = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const firstDate = startDate?.toString().slice(4, 10);
-  const secondDate = endDate?.toString().slice(4, 10);
+  // const firstDate = startDate?.toString().slice(4, 10);
+  // const secondDate = endDate?.toString().slice(4, 10);
 
-  const firstDateDay = startDate?.toString().slice(0, 4);
-  const secondDateDay = endDate?.toString().slice(0, 4);
+  const firstDate = startDate?.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+  const secondDate = endDate?.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+
+  const firstDateDay = startDate?.toLocaleDateString("en-US", {
+    weekday: "long",
+  });
+  const secondDateDay = endDate?.toLocaleDateString("en-US", {
+    weekday: "long",
+  });
 
   const onChange = (dates) => {
     const [start, end] = dates;
@@ -26,18 +39,27 @@ const DatePickerFunc = () => {
     const start = dates;
     setStartDate(start);
   };
-  console.log(state);
-  // console.log(state.firstDate, state.secondDate);
+  // console.log(state);
 
   useEffect(() => {
     dispatch({
       type: "firstSecondDate",
       firstDate: firstDate,
       secondDate: secondDate,
+      startDate: startDate,
+      endDate: endDate,
       firstDateDay: firstDateDay,
       secondDateDay: secondDateDay,
     });
-  }, [firstDate, secondDate, dispatch]);
+  }, [
+    firstDate,
+    secondDate,
+    startDate,
+    endDate,
+    firstDateDay,
+    secondDateDay,
+    dispatch,
+  ]);
 
   // const calcDays = moment(endDate).diff(startDate, "days");
 
