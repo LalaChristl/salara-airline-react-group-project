@@ -45,13 +45,7 @@ body {
   margin: 7px 0px 10px;
   font-weight: 300;
 }
-/* .icon {
-  width: 79.5px;
-  height: 110px;
-  padding: 20px;
-  margin: 25px 0 0;
-  border: 2px solid red;
-} */
+
 .icon {
   width: 79px;
   height: 110px;
@@ -97,7 +91,7 @@ body {
   bottom: 30%;
 }
 
-.card {
+.bottom-card {
   width: 512px;
   height: 456.06px;
   color: #232b38;
@@ -131,3 +125,5 @@ body {
   margin-bottom: 20px;
 }
 /* just for dev purpose */
+
+/* Footer part start from here --------------------------------------------------------*/
