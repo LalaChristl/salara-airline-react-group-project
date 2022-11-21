@@ -8,7 +8,7 @@ import FooterHero from "./footer/FooterHero";
 
 const MainPage = () => {
   return (
-    <div>
+    <div className="mt-[10rem]">
       <TopHomeCard />
       <hr />
       <BottomHomeCard />
