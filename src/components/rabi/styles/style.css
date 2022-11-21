@@ -124,6 +124,11 @@ body {
 .hr {
   margin-bottom: 20px;
 }
-/* just for dev purpose */
+/* just for dev purpose =====================================*/
 
 /* Footer part start from here --------------------------------------------------------*/
+.footer-nav li {
+  font-size: 11px;
+  border-right: 1px solid #232b38;
+  border-left: 1px solid #232b38;
+}
