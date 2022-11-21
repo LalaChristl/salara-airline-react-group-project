@@ -13,7 +13,7 @@ const FlightSearchPage = () => {
       <SearchNav />
 
       <div className="px-[15px] pt-[30px] pb-[5px] w-[1024px] mx-auto mb-[20px] ">
-        <p className="bg-[#E81932] text-[#FFFFFF] text-[14px] mb-[10px] pt-[7px] px-[44px] pb-[5px] w-[222.23px] font-[700] leading-[15px] ">
+        <p className="bg-[#E81932] text-[#FFFFFF] text-[14px] mb-[10px] pt-[7px] text-center pb-[5px] w-[222.23px] font-[700] leading-[15px] ">
           OUTBOUND FLIGHT
         </p>
         <div className="flex items-center justify-between">
@@ -36,10 +36,22 @@ const FlightSearchPage = () => {
       </div>
 
       <div className="w-[994px] mx-auto ">
-        <div className="bg-[#232B38] rounded-t-[5px] text-white text-[14px] h-[49.13px] px-[15px]">
-          Sort By
+        <div className="bg-[#232B38] rounded-t-[5px] text-white text-[14px] h-[49.13px] px-[15px] flex items-center justify-end">
+          <p className="text-[12px] font-[300] mr-[15px] pr-[8px]">Sort by</p>
+          <p className="text-[12px] font-[700] border-2 bg-white text-[#232B38] py-[5px] px-[15px] mr-[8px] rounded-[5px] border-white  h-[29.63px] flex items-center">
+            Departure time
+          </p>
+          <p className="text-[12px] font-[700] border-2  py-[5px] px-[15px] rounded-[5px] border-white mr-[8px] h-[29.63px] flex items-center">
+            Arrival time
+          </p>
+          <p className="text-[12px] font-[700] border-2  py-[5px] px-[15px] rounded-[5px] border-white mr-[8px] h-[29.63px] flex items-center">
+            Fare
+          </p>
+          <p className="text-[12px] font-[700] border-2  py-[5px] px-[15px] rounded-[5px] border-white  h-[29.63px] flex items-center">
+            Duration
+          </p>
         </div>
-        <div className="pt-[15px] h-[137px]  px-[15px] border-2 rounded-b-[5px] bg-[#F9F9F9]">
+        <div className="pt-[15px] h-[385.53px]  px-[15px] border-2 rounded-b-[5px] bg-[#F9F9F9]">
           <FlightCard />
         </div>
       </div>
