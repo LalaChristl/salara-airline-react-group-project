@@ -4,6 +4,7 @@ import BottomHomeCard from "./card/BottomHomeCard";
 import FooterTop from "./footer/FooterTop";
 import FooterNav from "./footer/FooterNav";
 import FooterBottom from "./footer/FooterBottom";
+import FooterHero from "./footer/FooterHero";
 
 const MainPage = () => {
   return (
@@ -12,6 +13,7 @@ const MainPage = () => {
       <hr />
       <BottomHomeCard />
       <hr />
+      <FooterHero />
       <FooterTop />
       <FooterNav />
       <FooterBottom />

@@ -6,7 +6,7 @@ function BottomHomeCard() {
   return (
     <div>
       <div className="bottom-card-wrapper py-[30px] flex justify-center">
-        <div className="card px-[15px]">
+        <div className="bottom-card px-[15px]">
           <h4 className="card-title">
             Stopover in Istanbul: The most enjoyable surprise!
           </h4>
@@ -25,7 +25,7 @@ function BottomHomeCard() {
             </a>
           </div>
         </div>
-        <div className="card col-sm-6 px-[15px]">
+        <div className="bottom-card col-sm-6 px-[15px]">
           <h4 className="card-title ">Touristanbul: An amazing experience!</h4>
           <hr className="m-[20px]" />
           <img src={cardImg2} className="card-img-top" alt="..." /> <br />
