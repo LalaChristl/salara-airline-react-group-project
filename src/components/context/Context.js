@@ -16,6 +16,7 @@ const ContextProvider = ({ children }) => {
     departure: "",
     arrival: "",
     radio: "One way",
+    itinerary: false,
   };
 
   const reducer = (state, action) => {
@@ -66,6 +67,8 @@ const ContextProvider = ({ children }) => {
           firstDate: "",
           secondDate: "",
         };
+      case "itinerary":
+        return { ...state, itinerary: !state.itinerary };
 
       default:
         return;
