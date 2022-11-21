@@ -51,7 +51,11 @@ const FlightSearchPage = () => {
             Duration
           </p>
         </div>
-        <div className="pt-[15px] h-[385.53px]  px-[15px] border-2 rounded-b-[5px] bg-[#F9F9F9]">
+        <div
+          className={`pt-[15px] ${
+            state?.itinerary ? "h-[385.53px]" : "h-[137px]"
+          } px-[15px] border-2 rounded-b-[5px] bg-[#F9F9F9]`}
+        >
           <FlightCard />
         </div>
       </div>
