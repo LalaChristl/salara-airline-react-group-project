@@ -11,9 +11,12 @@ const ContextProvider = ({ children }) => {
     secondDate: "",
     firstDateDay: "",
     secondDateDay: "",
+    startDate: "",
+    endDate: "",
     departure: "",
     arrival: "",
     radio: "One way",
+    itinerary: false,
   };
 
   const reducer = (state, action) => {
@@ -48,6 +51,8 @@ const ContextProvider = ({ children }) => {
           secondDate: action.secondDate,
           firstDateDay: action.firstDateDay,
           secondDateDay: action.secondDateDay,
+          startDate: action.startDate,
+          endDate: action.endDate,
         };
 
       case "departure":
@@ -62,6 +67,8 @@ const ContextProvider = ({ children }) => {
           firstDate: "",
           secondDate: "",
         };
+      case "itinerary":
+        return { ...state, itinerary: !state.itinerary };
 
       default:
         return;

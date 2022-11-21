@@ -14,7 +14,7 @@ const DateDropDown = () => {
 
   function nextDay(monthNumber) {
     let day = new Date();
-    day.setDate(monthNumber - 2);
+    day.setDate(monthNumber - 1);
 
     return day.toLocaleString("en-US", {
       weekday: "long",

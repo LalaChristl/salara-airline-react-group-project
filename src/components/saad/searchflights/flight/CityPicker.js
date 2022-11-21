@@ -43,10 +43,10 @@ const CityDate = () => {
                 <option value="Select Airport" disabled hidden>
                   Select Airport
                 </option>
-                <option value="BER"> Berlin Airport (BER)</option>
-                <option value="BRE"> Bremen Airport (BRE)</option>
-                <option value="MUN"> Munich Airport (MUN)</option>
-                <option value="HAM"> Hamburg Airport (HAM)</option>
+                <option value="Berlin"> Berlin Airport (BER)</option>
+                <option value="Bremen"> Bremen Airport (BRE)</option>
+                <option value="Munich"> Munich Airport (MUN)</option>
+                <option value="Hamburg"> Hamburg Airport (HAM)</option>
               </select>
               <FaPlaneDeparture className="text-2xl absolute left-5 top-10 " />
             </div>
@@ -70,10 +70,10 @@ const CityDate = () => {
                 <option value="Select Airport" disabled hidden>
                   Select Airport
                 </option>
-                <option value="BER"> Berlin Airport (BER)</option>
-                <option value="BRE"> Bremen Airport (BRE)</option>
-                <option value="MUN"> Munich Airport (MUN)</option>
-                <option value="HAM"> Hamburg Airport (HAM)</option>
+                <option value="Berlin"> Berlin Airport (BER)</option>
+                <option value="Bremen"> Bremen Airport (BRE)</option>
+                <option value="Munich"> Munich Airport (MUN)</option>
+                <option value="Hamburg"> Hamburg Airport (HAM)</option>
               </select>
               <FaPlaneArrival className="text-2xl absolute left-5 top-10 " />
             </div>
