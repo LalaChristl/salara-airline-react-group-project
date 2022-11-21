@@ -2,12 +2,13 @@ import * as React from "react";
 
 import { data } from "../../data/Data";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowUp } from "react-icons/md";
 import Radio from "@mui/material/Radio";
 import { Context } from "../../context/Context";
 
 const FlightCard = () => {
   const [selectedValue, setSelectedValue] = React.useState(false);
-  //   const [itinerary, setItinerary] = React.useState(false);
+
   const { state, dispatch } = React.useContext(Context);
 
   const handleChange = (event) => {
@@ -65,7 +66,11 @@ const FlightCard = () => {
             <p className="text-[12px] text-[#697886] font-[700]">
               Itinerary details
             </p>
-            <MdKeyboardArrowDown className="mx-auto w-[30px] h-[23px] " />
+            {state?.itinerary ? (
+              <MdKeyboardArrowUp className="mx-auto w-[30px] h-[23px] " />
+            ) : (
+              <MdKeyboardArrowDown className="mx-auto w-[30px] h-[23px] " />
+            )}
           </div>
         </div>
 
