@@ -10,7 +10,7 @@ const TopHomeCard = () => {
       <div className="top-container">
         <br />
         <ul className="card-ul">
-          <li className="top-card top-card1">
+          <li className="top-card top-card1 rounded-md">
             {/* <div className="icon icon-1"> </div> */}
             <div class=" icon icon-1 col-md-3">
               <img className="icon-img-1 " src={firstIcon} />
@@ -24,7 +24,7 @@ const TopHomeCard = () => {
               </p>
             </div>
           </li>
-          <li className="top-card top-card2">
+          <li className="top-card top-card2 rounded-md">
             <div className="icon icon-2 col-md-3">
               <img src={secondIcon} alt="" className="icon-img" />
             </div>
@@ -36,7 +36,7 @@ const TopHomeCard = () => {
               </p>
             </div>
           </li>
-          <li className="top-card top-card3">
+          <li className="top-card top-card3 rounded-md">
             <div className="icon icon-3 col-md-3">
               <img src={thirdIcon} alt="" className="icon-img" />
             </div>

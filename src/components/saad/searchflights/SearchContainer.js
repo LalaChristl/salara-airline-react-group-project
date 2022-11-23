@@ -11,7 +11,7 @@ const SearchContainer = () => {
   return (
     <div className="absolute top-[24rem] left-1/2 transform -translate-x-1/2  ">
       <SearchTopDiv />
-      <div className="bg-white mx-auto shadow-md w-[994px] h-[220px] px-[28px] pt-[30px] pb-[20px] ">
+      <div className="bg-white mx-auto shadow-md w-[994px] h-[220px] px-[28px] rounded-tr-md pt-[30px] pb-[20px] rounded-b-md rounded-">
         {state?.flightTab && <Flight />}
         {state?.checkinTab && <CheckIn />}
         {state?.statusTab && <FlightStatus />}
