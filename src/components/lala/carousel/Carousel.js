@@ -40,10 +40,11 @@ const CarouselFunction = () => {
   const [defaultImage, setDefaultImage] = useState({});
   const settings = {
     dots: true,
-    infinite: false,
-    speed: 500,
+    autoplay: true,
+    infinite: true,
+    speed: 1000,
 
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 4,
     initialSlide: 1,
     // responsive: [
