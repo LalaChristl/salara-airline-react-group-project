@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../header/Header";
 import Line from "../../images/flightline.png";
 import GreenLine from "../../images/flightlinegreen2.png";
-
 import { AiFillWarning } from "react-icons/ai";
+import { useEffect, useState } from "react";
+import {data} from '../../data/Data';
+import { Context } from "../../context/Context";
 
-const FlightStatusPage = () => {
+const FlightStatusPage = (props) => {
+
+    const [flight, setFlight] = useState({});
+
+    const {state, dispatch} = useContext(Context);
+    console.log(state)
+
+
+
   return (
     <div>
       <Header />
@@ -31,7 +41,7 @@ const FlightStatusPage = () => {
               </div>
               <div className=" flex justify-between mt-[.5rem]">
                 <p className=" w-[768px] text-[36px] font-[100] ">
-                  TK1661 | Istanbul to Hamburg Monday, November 21
+                  TK{state?.flightNumber} | Istanbul to Hamburg Monday, November 21
                 </p>
                 <p className="text-[20px] text-[#53C172] font-bold">Landed</p>
               </div>

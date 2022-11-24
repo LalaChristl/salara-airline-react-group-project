@@ -18,9 +18,9 @@ const BottomNav = () => {
             PLAN & BOOK
           </li>
           <AiOutlineMore />
-          <li className="text-[14px]">FLY DIFFERENT</li>
+          <li className="text-[14px] h-[60px] w-[118.92px] hover:bg-black flex items-center justify-center hover:border-b-4 border-orange-700">FLY DIFFERENT</li>
           <AiOutlineMore />
-          <li className="text-[14px]">DISCOVER</li>
+          <li className="text-[14px] h-[60px] w-[118.92px] hover:bg-black flex items-center justify-center hover:border-b-4 border-orange-700">DISCOVER</li>
           <AiOutlineMore />
           <li className="text-[14px]">Sign up</li>
         </ul>
