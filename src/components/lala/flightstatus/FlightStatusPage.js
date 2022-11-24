@@ -115,7 +115,7 @@ const FlightStatusPage = () => {
 
             <tbody className="h-[165.17px]">
               <tr className="border-b-[1px] border-[#ddd] ">
-                <td className="px-[15px] pt-[5px] pb-[12px] border-r-[1px] border-[#ddd] ">
+                <td className="px-[15px] pt-[5px] pb-[12px] border-r-[1px] border-[#ddd] flex flex-col ">
                   <div className="flex items-center my-[10px] gap-1 font-[700] text-[16px]">
                     <h4>TK1334</h4>
                   </div>
@@ -169,7 +169,7 @@ const FlightStatusPage = () => {
                     </div>
                   </div>
                 </td>
-                <td className="px-[15px] pt-[5px] pb-[12px] border-r-[1px] border-[#ddd] ">
+                <td className="px-[15px] pt-[5px] pb-[12px]  border-[#ddd] flex flex-col  ">
                   <h4 className="text-[16px] font-[700] mt-[10px] mb-[5px] text-[#0665E4]">
                     18:15
                   </h4>
@@ -190,15 +190,19 @@ const FlightStatusPage = () => {
                   </div>
                 </td>
 
-                <td className=" pt-[5px] pb-[12px] text-[16px] font-[900]">
-                  <h4>3h 5m</h4>
+                <td className=" pt-[5px] pb-[12px] text-[16px] font-[900] px-0 relative border-[.5px]">
+                  <div className="absolute top-[1rem]  left-[2.2rem]  ">
+                    <h4>3h 5m</h4>
+                  </div>
 
-                  <tr className="bg-[#647286] text-white font-[500] w-full text-[12px] h-[34.22px] ">
-                    <th className="px-[25px] py-[8px] border-[1px] border-[#ddd]  w-[118.9px] ">
+                  <tr className="bg-[#647286] text-white font-[500] w-full text-[12px] h-[34.22px]  ">
+                    <th className="px-[25px] py-[8px] border-[1px] border-[#ddd]  w-[118.95px] ">
                       DISTANCE
                     </th>
                   </tr>
-                  <h4>1960 km</h4>
+                  <h4 className="absolute top-[7rem] left-[1.8rem] text-center">
+                    <p>1960 km</p>
+                  </h4>
                 </td>
               </tr>
             </tbody>
