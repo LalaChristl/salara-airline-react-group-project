@@ -11,14 +11,15 @@ export const data = [
 
     travelDuration: "3h 5m",
     elapsedDays: 0,
-    totalTravelDistance: 339,
-    totalTravelDistanceUnits: "miles",
+    totalTravelDistance: 1990,
+    totalTravelDistanceUnits: "km",
 
     // Departure
 
     departureTime: "09:15",
+    actualDepartureTime: '09:15',
     departureAirportCode: "(BRE)",
-    departureAirportCity: "Bremen",
+    departureAirportCity: "BREMEN",
     departureAirportLocation: "Bremen, Germany",
     departureAirportLatitude: 33.94415,
     departureAirportLongitude: -118.4032,
@@ -26,8 +27,9 @@ export const data = [
     // Arrival
 
     arrivalTime: "14:20",
+    actualArrivalTime: "14:20",
     arrivalAirportCode: "(IST)",
-    arrivalAirportCity: "Istanbul",
+    arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
     arrivalAirportLatitude: 37.61594,
     arrivalAirportLongitude: -122.387996,
@@ -62,14 +64,15 @@ export const data = [
 
     travelDuration: "3h 5m",
     elapsedDays: 0,
-    totalTravelDistance: 339,
-    totalTravelDistanceUnits: "miles",
+    totalTravelDistance: 1990,
+    totalTravelDistanceUnits: "km",
 
     // Departure
 
     departureTime: "18:15",
+    actualDepartureTime: "18:45",
     departureAirportCode: "(BRE)",
-    departureAirportCity: "Bremen",
+    departureAirportCity: "BREMEN",
     departureAirportLocation: "Bremen, Germany",
     departureAirportLatitude: 33.94415,
     departureAirportLongitude: -118.4032,
@@ -77,8 +80,9 @@ export const data = [
     // Arrival
 
     arrivalTime: "23:20",
+    actualArrivalTime: "23:50",
     arrivalAirportCode: "(IST)",
-    arrivalAirportCity: "Istanbul",
+    arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
     arrivalAirportLatitude: 37.61594,
     arrivalAirportLongitude: -122.387996,
@@ -116,12 +120,13 @@ export const data = [
 
     travelDuration: "2h 50m",
     elapsedDays: 0,
-    totalTravelDistance: 339,
-    totalTravelDistanceUnits: "miles",
+    totalTravelDistance: 1779,
+    totalTravelDistanceUnits: "km",
 
     // Departure
 
     departureTime: "06:55",
+    actualDepartureTime: "07:10",
     departureAirportCode: "(BER)",
     departureAirportCity: "BERLIN",
     departureAirportLocation: "Berlin, Germany",
@@ -131,8 +136,9 @@ export const data = [
     // Arrival
 
     arrivalTime: "11:45",
+    actualArrivalTime: "12:01",
     arrivalAirportCode: "(IST)",
-    arrivalAirportCity: "Istanbul",
+    arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
     arrivalAirportLatitude: 37.61594,
     arrivalAirportLongitude: -122.387996,
@@ -167,12 +173,13 @@ export const data = [
 
     travelDuration: "2h 55m",
     elapsedDays: 0,
-    totalTravelDistance: 339,
-    totalTravelDistanceUnits: "miles",
+    totalTravelDistance: 1779,
+    totalTravelDistanceUnits: "km",
 
     // Departure
 
     departureTime: "11:05",
+    actualDepartureTime: "11:05",
     departureAirportCode: "(BER)",
     departureAirportCity: "BERLIN",
     departureAirportLocation: "Berlin, Germany",
@@ -182,8 +189,9 @@ export const data = [
     // Arrival
 
     arrivalTime: "16:00",
+    actualArrivalTime: "16:04",
     arrivalAirportCode: "(IST)",
-    arrivalAirportCity: "Istanbul",
+    arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
     arrivalAirportLatitude: 37.61594,
     arrivalAirportLongitude: -122.387996,
@@ -218,12 +226,13 @@ export const data = [
 
     travelDuration: "2h 50m",
     elapsedDays: 0,
-    totalTravelDistance: 339,
-    totalTravelDistanceUnits: "miles",
+    totalTravelDistance: 1779,
+    totalTravelDistanceUnits: "km",
 
     // Departure
 
     departureTime: "18:35",
+    actualDepartureTime: '18:35',
     departureAirportCode: "(BER)",
     departureAirportCity: "BERLIN",
     departureAirportLocation: "Berlin, Germany",
@@ -233,8 +242,9 @@ export const data = [
     // Arrival
 
     arrivalTime: "23:25",
+    actualArrivalTime: '23:25',
     arrivalAirportCode: "(IST)",
-    arrivalAirportCity: "Istanbul",
+    arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
     arrivalAirportLatitude: 37.61594,
     arrivalAirportLongitude: -122.387996,
