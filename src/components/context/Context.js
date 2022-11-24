@@ -16,7 +16,7 @@ const ContextProvider = ({ children }) => {
     departure: "",
     arrival: "",
     radio: "One way",
-    itinerary: false,
+    itinerary: { id1: false, id2: false, id3: false },
     itineraryCard: {},
   };
 
@@ -69,9 +69,10 @@ const ContextProvider = ({ children }) => {
           secondDate: "",
         };
       case "itinerary":
+        console.log(action.id);
         return {
           ...state,
-          itinerary: !state.itinerary,
+          itinerary: { ...state, id1: !state.itinerary.id1 },
           itineraryCard: action.payload,
         };
 

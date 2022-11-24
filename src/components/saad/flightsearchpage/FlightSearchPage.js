@@ -54,7 +54,7 @@ const FlightSearchPage = () => {
         </div>
         <div
           className={`pt-[15px] ${
-            state?.itinerary ? "h-auto" : "h-auto"
+            state?.itinerary?.id1 ? "h-auto" : "h-auto"
           } px-[15px] border-2 rounded-b-[5px] bg-[#F9F9F9]`}
         >
           <FlightCard />
