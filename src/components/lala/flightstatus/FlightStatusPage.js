@@ -2,10 +2,25 @@ import React from "react";
 import Header from "../header/Header";
 import Line from "../../images/flightline.png";
 import GreenLine from "../../images/flightlinegreen2.png";
-
 import { AiFillWarning } from "react-icons/ai";
+import { useEffect, useState } from "react";
 
 const FlightStatusPage = () => {
+  // useState
+
+//   useEffect(() => {
+//     async function getData() {
+//       const response = await fetch("https://app.goflightlabs.com/flights?access_key=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNThlMDYwNTU5OTFkMjYyOTA2M2E3ZjAyMGM2NGUzYjhmNDYxODljZGE2MDE1MjExMmI4N2YwYTRiZjFlNGJmYmRkZDYzMTNjODUwYjFiNzAiLCJpYXQiOjE2NjkyMzMyNTAsIm5iZiI6MTY2OTIzMzI1MCwiZXhwIjoxNzAwNzY5MjUwLCJzdWIiOiIxODk4MCIsInNjb3BlcyI6W119.ReGP4WRXR66ttGgOKXdubfpQmv5JivpuIEqEZ0Xzv2w3nfVkyAQY8UEIQFhRK6gtXP9I-vZ0-pbrFxxAUGITrw&flight_status=active");
+
+//       console.log(response)
+
+//       const data = await response.json();
+
+//       console.log(data);
+//     }
+//     getData();
+//   }, []);
+
   return (
     <div>
       <Header />
