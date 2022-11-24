@@ -16,10 +16,10 @@ const ContextProvider = ({ children }) => {
     departure: "",
     arrival: "",
     radio: "One way",
-    itinerary: false,
+    itinerary: { id1: false },
     itineraryCard: {},
-    flightNumber: '',
-    flightDate: '',
+    flightNumber: "",
+    flightDate: "",
   };
 
   const reducer = (state, action) => {
@@ -71,22 +71,22 @@ const ContextProvider = ({ children }) => {
           secondDate: "",
         };
       case "itinerary":
+        console.log(action.id);
         return {
           ...state,
-          itinerary: !state.itinerary,
+          itinerary: { ...state, id1: !state.itinerary.id1 },
           itineraryCard: action.payload,
         };
-        case "flightNumber":
-          return {
-            ...state,
-            flightNumber: action.flightNumber,
-          }
-          case "flightDate":
-          return {
-            ...state,
-            flightDate: action.payload,
-          }
-
+      case "flightNumber":
+        return {
+          ...state,
+          flightNumber: action.flightNumber,
+        };
+      case "flightDate":
+        return {
+          ...state,
+          flightDate: action.payload,
+        };
 
       default:
         return;
