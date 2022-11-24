@@ -33,13 +33,21 @@ const FlightCard = () => {
     <div>
       {filteredArr.map((item, i) => (
         <div key={i}>
-          <div className="text-[14px] flex  mb-[1rem]">
+          <div
+            className={`text-[14px] flex ${
+              state?.itinerary?.id1 && showCard.id === i
+                ? "pb-[0rem]"
+                : "pb-[1rem]"
+            }  `}
+          >
             <div
               className={` flex items-center w-[498.41px] ${
-                state?.itinerary?.id1
+                state?.itinerary?.id1 && showCard.id === i
                   ? "h-[120px]"
                   : "h-[105px] hover:shadow-2xl"
-              }  px-[10px] py-[20px] bg-[#FFFFFF]`}
+              }  px-[10px] py-[20px] bg-[#FFFFFF]  ${
+                state?.itinerary?.id1 && showCard.id === i ? "" : "shadow-md"
+              } `}
             >
               <div className="w-[277.44px] px-[10px] flex ">
                 <div className="w-[114.83px] flex flex-col justify-center">
@@ -91,14 +99,14 @@ const FlightCard = () => {
                 <p className="text-[12px] text-[#697886] font-[700]">
                   Itinerary details
                 </p>
-                {showCard.id === i ? (
+                {showCard.id === i && state?.itinerary?.id1 ? (
                   <MdKeyboardArrowUp className="mx-auto w-[30px] h-[23px] " />
                 ) : (
                   <MdKeyboardArrowDown className="mx-auto w-[30px] h-[23px] " />
                 )}
               </div>
             </div>
-            <div className="hover:shadow-2xl w-[220.8px]  h-[105px] ml-[10px]  pb-[15px] bg-white ">
+            <div className="hover:shadow-2xl w-[220.8px]  h-[105px] ml-[10px] shadow-md  pb-[15px] bg-white ">
               <h2 className="bg-[#DFE4ED] w-[220.8px] pl-[10px] text-[12px] h-[22px] flex items-center font-[600]">
                 ECONOMY
               </h2>
@@ -120,7 +128,7 @@ const FlightCard = () => {
                 <MdKeyboardArrowDown className=" w-[30px] h-[23px] mt-[1rem]" />
               </div>
             </div>
-            <div className="hover:shadow-2xl w-[220.8px] relative  h-[105px] ml-[10px]  pb-[15px] bg-white">
+            <div className="hover:shadow-2xl shadow-md w-[220.8px] relative  h-[105px] ml-[10px]  pb-[15px] bg-white">
               <h2 className="bg-[#F7EAE4] w-[220.8px] pl-[10px] text-[12px] h-[22px] flex items-center font-[600]">
                 BUSINESS
               </h2>
@@ -147,8 +155,8 @@ const FlightCard = () => {
             </div>
           </div>
           {showCard.id === i && state?.itinerary?.id1 && (
-            <div className="bg-white z-30 ">
-              <div className="w-[960px] px-[15px] py-[10px] h-[234.53px]">
+            <div className="bg-white z-30 pt-[1rem] shadow-md">
+              <div className="w-[960px] px-[15px] mb-[10px] h-[234.53px]">
                 <table className="w-[927.78px] border-[1px]">
                   <thead className="bg-[#647286] text-white font-[500] text-[12px] h-[34.22px] ">
                     <tr>
@@ -168,7 +176,7 @@ const FlightCard = () => {
                   </thead>
 
                   <tbody>
-                    <tr className="border-b-[1px] border-[#ddd] ">
+                    <tr className="border-b-[1px] border-[#ddd] hover:bg-[#f1f1f1] ">
                       <td className="px-[25px] pt-[5px] pb-[12px] border-r-[1px] border-[#ddd] ">
                         <div className="flex items-center my-[10px] gap-1 font-[700] text-[16px]">
                           <img
