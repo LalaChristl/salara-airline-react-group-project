@@ -1,25 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../header/Header";
 import Line from "../../images/flightline.png";
 import GreenLine from "../../images/flightlinegreen2.png";
 import { AiFillWarning } from "react-icons/ai";
 import { useEffect, useState } from "react";
+import {data} from '../../data/Data';
+import { Context } from "../../context/Context";
 
-const FlightStatusPage = () => {
-  // useState
+const FlightStatusPage = (props) => {
 
-//   useEffect(() => {
-//     async function getData() {
-//       const response = await fetch("https://app.goflightlabs.com/flights?access_key=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNThlMDYwNTU5OTFkMjYyOTA2M2E3ZjAyMGM2NGUzYjhmNDYxODljZGE2MDE1MjExMmI4N2YwYTRiZjFlNGJmYmRkZDYzMTNjODUwYjFiNzAiLCJpYXQiOjE2NjkyMzMyNTAsIm5iZiI6MTY2OTIzMzI1MCwiZXhwIjoxNzAwNzY5MjUwLCJzdWIiOiIxODk4MCIsInNjb3BlcyI6W119.ReGP4WRXR66ttGgOKXdubfpQmv5JivpuIEqEZ0Xzv2w3nfVkyAQY8UEIQFhRK6gtXP9I-vZ0-pbrFxxAUGITrw&flight_status=active");
+    const [flight, setFlight] = useState({});
 
-//       console.log(response)
+    const {state, dispatch} = useContext(Context);
+    console.log(state)
 
-//       const data = await response.json();
 
-//       console.log(data);
-//     }
-//     getData();
-//   }, []);
 
   return (
     <div>
@@ -46,7 +41,7 @@ const FlightStatusPage = () => {
               </div>
               <div className=" flex justify-between mt-[.5rem]">
                 <p className=" w-[768px] text-[36px] font-[100] ">
-                  TK1661 | Istanbul to Hamburg Monday, November 21
+                  TK{state?.flightNumber} | Istanbul to Hamburg Monday, November 21
                 </p>
                 <p className="text-[20px] text-[#53C172] font-bold">Landed</p>
               </div>

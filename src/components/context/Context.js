@@ -18,6 +18,8 @@ const ContextProvider = ({ children }) => {
     radio: "One way",
     itinerary: false,
     itineraryCard: {},
+    flightNumber: '',
+    flightDate: '',
   };
 
   const reducer = (state, action) => {
@@ -74,6 +76,17 @@ const ContextProvider = ({ children }) => {
           itinerary: !state.itinerary,
           itineraryCard: action.payload,
         };
+        case "flightNumber":
+          return {
+            ...state,
+            flightNumber: action.flightNumber,
+          }
+          case "flightDate":
+          return {
+            ...state,
+            flightDate: action.payload,
+          }
+
 
       default:
         return;
