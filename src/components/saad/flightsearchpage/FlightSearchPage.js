@@ -65,7 +65,7 @@ const FlightSearchPage = () => {
         The fares shown in this page are valid for single Adult. The total fare
         can be seen on the payment page after completing your flight selection.
       </p>
-      <EconomyCardContainer />
+      {/* <EconomyCardContainer /> */}
       {/* <BusinessCardContainer /> */}
     </div>
   );

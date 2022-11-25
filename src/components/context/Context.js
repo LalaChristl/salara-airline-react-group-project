@@ -17,6 +17,8 @@ const ContextProvider = ({ children }) => {
     arrival: "",
     radio: "One way",
     itinerary: { id1: false },
+    economy: { id1: false },
+    business: { id1: false },
     itineraryCard: {},
     flightNumber: "",
     flightDate: "",
@@ -71,11 +73,28 @@ const ContextProvider = ({ children }) => {
           secondDate: "",
         };
       case "itinerary":
-        console.log(action.id);
         return {
           ...state,
           itinerary: { ...state, id1: !state.itinerary.id1 },
           itineraryCard: action.payload,
+          business: { ...state, id1: false },
+          economy: { ...state, id1: false },
+        };
+
+      case "economy":
+        return {
+          ...state,
+          economy: { ...state, id1: !state.economy.id1 },
+          business: { ...state, id1: false },
+          itinerary: { ...state, id1: false },
+        };
+
+      case "business":
+        return {
+          ...state,
+          business: { ...state, id1: !state.business.id1 },
+          economy: { ...state, id1: false },
+          itinerary: { ...state, id1: false },
         };
       case "flightNumber":
         return {

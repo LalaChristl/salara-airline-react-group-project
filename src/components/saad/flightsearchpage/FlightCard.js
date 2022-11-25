@@ -5,6 +5,8 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import Radio from "@mui/material/Radio";
 import { Context } from "../../context/Context";
+import EconomyCardContainer from "./EconomyCardContainer";
+import BusinessCardContainer from "./BusinessCardContainer";
 
 const FlightCard = () => {
   const [selectedValue, setSelectedValue] = React.useState(false);
@@ -12,6 +14,8 @@ const FlightCard = () => {
   const { state, dispatch } = React.useContext(Context);
 
   const [showCard, setShowCard] = React.useState({ id: "" });
+  const [showEconomy, setEconomy] = React.useState({ id: "" });
+  const [showBusiness, setShowBusiness] = React.useState({ id: "" });
 
   console.log("Show Card", showCard);
 
@@ -35,7 +39,9 @@ const FlightCard = () => {
         <div key={i}>
           <div
             className={`text-[14px] flex ${
-              state?.itinerary?.id1 && showCard.id === i
+              (state?.itinerary?.id1 && showCard.id === i) ||
+              (state?.economy?.id1 && showEconomy.id === i) ||
+              (state?.business?.id1 && showBusiness.id === i)
                 ? "pb-[0rem]"
                 : "pb-[1rem]"
             }  `}
@@ -106,7 +112,23 @@ const FlightCard = () => {
                 )}
               </div>
             </div>
-            <div className="hover:shadow-2xl w-[220.8px]  h-[105px] ml-[10px] shadow-md  pb-[15px] bg-white ">
+            <div
+              onClick={() => {
+                setEconomy({ id: i });
+                // console.log(showCard.id, i);
+                dispatch({
+                  type: "economy",
+                  payload: item,
+                });
+              }}
+              className={`w-[220.8px] ml-[10px] pb-[15px] bg-white ${
+                state?.economy?.id1 && showEconomy.id === i
+                  ? "h-[120px]"
+                  : "h-[105px] hover:shadow-2xl"
+              } ${
+                state?.economy?.id1 && showEconomy.id === i ? "" : "shadow-md"
+              }  `}
+            >
               <h2 className="bg-[#DFE4ED] w-[220.8px] pl-[10px] text-[12px] h-[22px] flex items-center font-[600]">
                 ECONOMY
               </h2>
@@ -125,10 +147,30 @@ const FlightCard = () => {
                   </p>
                   <p className="text-[16px] font-[700]">EUR {item.ecoFly}</p>
                 </div>
-                <MdKeyboardArrowDown className=" w-[30px] h-[23px] mt-[1rem]" />
+                {showEconomy.id === i && state?.economy?.id1 ? (
+                  <MdKeyboardArrowUp className="mx-auto w-[30px] h-[23px] " />
+                ) : (
+                  <MdKeyboardArrowDown className="mx-auto w-[30px] h-[23px] " />
+                )}
               </div>
             </div>
-            <div className="hover:shadow-2xl shadow-md w-[220.8px] relative  h-[105px] ml-[10px]  pb-[15px] bg-white">
+            <div
+              onClick={() => {
+                setShowBusiness({ id: i });
+                // console.log(showCard.id, i);
+                dispatch({
+                  type: "business",
+                  payload: item,
+                });
+              }}
+              className={`  w-[220.8px] relative  ml-[10px]  pb-[15px] bg-white ${
+                state?.business?.id1 && showBusiness.id === i
+                  ? "h-[120px]"
+                  : "h-[105px] hover:shadow-2xl"
+              } ${
+                state?.business?.id1 && showBusiness.id === i ? "" : "shadow-md"
+              }  `}
+            >
               <h2 className="bg-[#F7EAE4] w-[220.8px] pl-[10px] text-[12px] h-[22px] flex items-center font-[600]">
                 BUSINESS
               </h2>
@@ -243,6 +285,16 @@ const FlightCard = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          )}
+          {showEconomy.id === i && state?.economy?.id1 && (
+            <div className="p-[16px] bg-white">
+              <EconomyCardContainer />
+            </div>
+          )}
+          {showBusiness.id === i && state?.business?.id1 && (
+            <div className="p-[16px] bg-white">
+              <BusinessCardContainer />
             </div>
           )}
         </div>

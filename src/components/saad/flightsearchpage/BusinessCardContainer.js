@@ -140,9 +140,7 @@ const BusinessCardContainer = () => {
                 alt=""
               />
 
-              <p>
-                Full refund(Up to 12 hours) <p>Refund with deduction</p>
-              </p>
+              <p>Full refund(Up to 12 hours)</p>
               <BiCircle />
             </li>
             <li className="flex gap-2 items-center border-t px-[12px] border-gray-300 h-[37px] text-[12px]">
@@ -180,7 +178,7 @@ const BusinessCardContainer = () => {
             {/* <li className="h-[17px] border border-gray-300"></li> */}
           </ul>
         </div>
-        <div className="card-footer w-[303.33px]  bg-[#F3E5E0] flex  justify-center  hover:text-white  hover:bg-[#C5724E] text-[#BE745B] cursor-pointer ">
+        <div className="card-footer w-[303.33px]   flex  justify-center text-white  bg-[#C5724E] text-[#BE745B] cursor-pointer ">
           <p className="h-[39px]  text-[14px]font-[500]  flex items-center">
             Select this flight
           </p>
