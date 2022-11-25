@@ -47,6 +47,7 @@ const CityDate = () => {
                 <option value="Bremen"> Bremen Airport (BRE)</option>
                 <option value="Munich"> Munich Airport (MUN)</option>
                 <option value="Hamburg"> Hamburg Airport (HAM)</option>
+                <option value="Istanbul"> Istanbul Airport (IST)</option>
               </select>
               <FaPlaneDeparture className="text-2xl absolute left-5 top-10 " />
             </div>
@@ -74,6 +75,7 @@ const CityDate = () => {
                 <option value="Bremen"> Bremen Airport (BRE)</option>
                 <option value="Munich"> Munich Airport (MUN)</option>
                 <option value="Hamburg"> Hamburg Airport (HAM)</option>
+                <option value="Istanbul"> Istanbul Airport (IST)</option>
               </select>
               <FaPlaneArrival className="text-2xl absolute left-5 top-10 " />
             </div>
@@ -149,7 +151,7 @@ const CityDate = () => {
         {/* passenger section */}
         <div className="flex space-x-2">
           {/* adult section */}
-          <div className="w-[187px] ">
+          <div className="w-[175px] ">
             <div>
               <div className="relative">
                 <p className="font-bold text-[#647280] text-[11px] uppercase">
@@ -171,9 +173,9 @@ const CityDate = () => {
         </div>
         <div
           onClick={() => navigate("/flightsearch")}
-          className="flex cursor-pointer bg-[#E81932] rounded-[5px] px-[10px] w-[147.98px] h-[66px] items-center gap-2"
+          className="flex cursor-pointer bg-[#E81932] rounded-[5px] px-[10px] w-[147.98px] h-[66px] items-center justify-between"
         >
-          <p className="text-[14px]  text-white font-bold">Search flight</p>
+          <p className="text-[14px] text-white font-[700]">Search flight</p>
           <AiOutlineArrowRight
             className="text-[1.4rem] font-bold"
             style={{ fill: "white" }}

@@ -7,6 +7,7 @@ import img1 from "../../images/carousel-1.jpeg";
 import img2 from "../../images/carousel-2.jpeg";
 import img3 from "../../images/carousel-3.jpeg";
 import img4 from "../../images/carousel-4.jpeg";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 const dataset = [
   {
@@ -29,8 +30,9 @@ const dataset = [
   },
   {
     image: img4,
-    title:
-      "You can buy tickets on the app, create a mobile boarding pass and check-in in the fastest way. We'll also send useful notifications on campaigns and important announcements.",
+    title: "Discover the Turkish Airlines mobile app and relax!",
+    details:
+      "You can buy tickets on the app, create a mobile boarding pass and check-in in the fastest way. We’ll also send useful notifications on campaigns and important announcements.",
   },
 ];
 
@@ -38,38 +40,39 @@ const CarouselFunction = () => {
   const [defaultImage, setDefaultImage] = useState({});
   const settings = {
     dots: true,
-    infinite: false,
-    speed: 500,
+    autoplay: true,
+    infinite: true,
+    speed: 1000,
 
     slidesToShow: 3,
-    slidesToScroll: 3,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+    slidesToScroll: 4,
+    initialSlide: 1,
+    // responsive: [
+    //   {
+    //     breakpoint: 1024,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 2,
+    //       infinite: true,
+    //       dots: true,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 600,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 2,
+    //       initialSlide: 2,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 480,
+    //     settings: {
+    //       slidesToShow: 1,
+    //       slidesToScroll: 1,
+    //     },
+    //   },
+    // ],
   };
 
   const handleErrorImage = (data) => {
@@ -101,6 +104,12 @@ const CarouselFunction = () => {
               </div>
               <div className="card-bottom">
                 <h3>{item.details}</h3>
+              </div>
+              <div className="flex items-center justify-center font-bold mt-[1rem]">
+                <button className="text-[14px] text-[#E81932]">
+                  Learn more
+                </button>
+                <MdOutlineKeyboardArrowRight className="text-[#E81932] " />
               </div>
             </div>
           </div>

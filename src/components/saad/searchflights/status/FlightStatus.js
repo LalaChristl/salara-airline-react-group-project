@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 
 // import { useForm } from "react-hook-form";
 import DateDropDown from "./DateDropDown";
 import arrow from "../../../images/aroow.svg";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../../../context/Context";
 
 
 const FlightStatus = () => {
 
-  const navigate = useNavigate()
+
+
+const {state, dispatch} = useContext(Context);
+
+  const navigate = useNavigate();
   return (
     <div className="flex items-center gap-2 h-full">
       <div>
@@ -33,12 +38,16 @@ const FlightStatus = () => {
           className="font-[700] text-[18px] "
           type="text"
           placeholder="Enter flight number"
+          onChange={(e) => dispatch({type: 'flightNumber', flightNumber: e.target.value})}
           name=""
           id=""
         />
       </div>
       <DateDropDown />
-      <div onClick={ () => navigate('/flightstatus')} className="bg-[#E81932] rounded-[5px] w-[95.33px] flex items-center justify-center h-[66px]">
+      <div
+        onClick={() => navigate("/flightstatus")}
+        className="bg-[#E81932] cursor-pointer rounded-[5px] w-[95.33px] flex items-center justify-center h-[66px]"
+      >
         <img style={{ width: "30px", height: "30px" }} src={arrow} alt="" />
       </div>
     </div>

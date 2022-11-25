@@ -4,7 +4,9 @@ import SearchNav from "../../lala/header/SearchNav";
 import { FaGreaterThan } from "react-icons/fa";
 import { FaLessThan } from "react-icons/fa";
 import FlightCard from "./FlightCard";
-import SelectFlightCard from './SelectFlightCard';
+import SelectFlightCard from "./SelectFlightCard";
+import BusinessCardContainer from "./BusinessCardContainer";
+import EconomyCardContainer from "./EconomyCardContainer";
 
 const FlightSearchPage = () => {
   const { state } = useContext(Context);
@@ -53,9 +55,8 @@ const FlightSearchPage = () => {
           </p>
         </div>
         <div
-          className={`pt-[15px] ${
-            state?.itinerary ? "h-[385.53px]" : "h-[137px]"
-          } px-[15px] border-2 rounded-b-[5px] bg-[#F9F9F9]`}
+          className={`pt-[15px] h-auto 
+           px-[15px] border-2 rounded-b-[5px] bg-[#F9F9F9]`}
         >
           <FlightCard />
         </div>
@@ -64,7 +65,8 @@ const FlightSearchPage = () => {
         The fares shown in this page are valid for single Adult. The total fare
         can be seen on the payment page after completing your flight selection.
       </p>
-      <SelectFlightCard/>
+      {/* <EconomyCardContainer /> */}
+      {/* <BusinessCardContainer /> */}
     </div>
   );
 };

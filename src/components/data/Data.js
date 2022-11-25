@@ -1,72 +1,263 @@
 export const data = [
+  // Bremen - Istanbul
   {
-    legId: "BRE-BER",
+    legId: "BRE-IST",
     fareCode: "Economy",
-    price: "EUR 200",
-    travelDuration: "1h 40m",
+    ecoFly: "314",
+    extraFly: "329",
+    primeFly: "359",
+    business: "700",
+    businessPrime: "750",
+
+    travelDuration: "3h 5m",
     elapsedDays: 0,
-    totalTravelDistance: 339,
-    totalTravelDistanceUnits: "miles",
+    totalTravelDistance: 1990,
+    totalTravelDistanceUnits: "km",
 
-    departureTime: "07:00",
-    //   "departureTimeEpochSeconds": 1531490400,
-    //   "departureTimeRaw": "2018-07-13T07:00:00.000-07:00",
-    //   "departureTimeZoneOffsetSeconds": -25200,
-    arrivalTime: "08:40",
-    //   "arrivalTimeEpochSeconds": 1531496400,
-    //   "arrivalTimeRaw": "2018-07-13T08:40:00.000-07:00",
-    //   "arrivalTimeZoneOffsetSeconds": -25200,
+    // Departure
 
-    arrivalAirportCode: "BER",
-    arrivalAirportCity: "Berlin",
-    arrivalAirportLocation: "Berlin, Germany",
-    //   "arrivalAirportTimeZoneName": "America/Los_Angeles",
-    arrivalAirportLatitude: 37.61594,
-    arrivalAirportLongitude: -122.387996,
-    //   "arrivalAirportName": "San Francisco Intl.",
-    //   "arrivalAirportAddress": {
-    //     "city": "San Francisco",
-    //     "state": " CA",
-    //     "country": "USA"
-    //   },
-    departureAirportCode: "BRE",
-    departureAirportCity: "Bremen",
+    departureTime: "09:15",
+    actualDepartureTime: '09:15',
+    departureAirportCode: "(BRE)",
+    departureAirportCity: "BREMEN",
     departureAirportLocation: "Bremen, Germany",
-    //   "departureAirportTimeZoneName": "America/Los_Angeles",
     departureAirportLatitude: 33.94415,
     departureAirportLongitude: -118.4032,
-    //   "departureAirportName": "Los Angeles Intl.",
-    //   "departureAirportAddress": {
-    //     "city": "Los Angeles",
-    //     "state": " CA",
-    //     "country": "USA"
-    //   },
+
+    // Arrival
+
+    arrivalTime: "14:20",
+    actualArrivalTime: "14:20",
+    arrivalAirportCode: "(IST)",
+    arrivalAirportCity: "ISTANBUL",
+    arrivalAirportLocation: "Istanbul, Turkey",
+    arrivalAirportLatitude: 37.61594,
+    arrivalAirportLongitude: -122.387996,
+
     airlineName: "Turkish Airlines",
     airlineCode: "TK",
-    //   "externalAirlineCode": "DL",
     flightNumber: "1334",
-    //   "onTimePercentage": "100",
-    //   "equipmentCode": "738",
-    equipmentDescription: "Boeing 737-800 Narrow body",
-    //   "duration": "PT1H40M",
-    //   "elapsedDays": 0,
-    //   "distance": 339,
-    //   "distanceUnits": "miles",
-    stops: 0,
-    //   "providerCode": "Sabre",
-    //   "hasSeatMap": true
 
-    // freeCancellationBy: {
-    //   raw: "2018-06-14T23:59:00Z",
-    //   localized: "Jun 14, 2018 11:59:00 PM",
-    //   epochSeconds: 1529020740,
-    //   timeZoneOffsetSeconds: 0,
-    //   localizedShortDate: "Thu, 14 Jun",
-    //   localizedMediumDate: "Jun 14, 2018",
-    //   localizedFullDate: "Thursday, June 14, 2018",
-    //   localizedLongDate: "June 14, 2018",
-    //   localizedShortTime: "11:59 PM",
-    // },
+    plane: "Boeing 737 MAX 8",
+    type: "Narrow-body",
+
+    stops: 0,
+
+    isBasicEconomy: true,
+    basicEconomyTooltipInfo: [
+      {
+        fareRulesTitle: "Delta Basic Economy Fare",
+        fareRules: ["Seats assigned after check-in.", "No changes or refunds."],
+      },
+    ],
+    isRefundable: false,
+    isNonStop: true,
+  },
+  {
+    legId: "BRE-IST",
+    fareCode: "Economy",
+    ecoFly: "472",
+    extraFly: "487",
+    primeFly: "517",
+    business: "720",
+    businessPrime: "770",
+
+    travelDuration: "3h 5m",
+    elapsedDays: 0,
+    totalTravelDistance: 1990,
+    totalTravelDistanceUnits: "km",
+
+    // Departure
+
+    departureTime: "18:15",
+    actualDepartureTime: "18:45",
+    departureAirportCode: "(BRE)",
+    departureAirportCity: "BREMEN",
+    departureAirportLocation: "Bremen, Germany",
+    departureAirportLatitude: 33.94415,
+    departureAirportLongitude: -118.4032,
+
+    // Arrival
+
+    arrivalTime: "23:20",
+    actualArrivalTime: "23:50",
+    arrivalAirportCode: "(IST)",
+    arrivalAirportCity: "ISTANBUL",
+    arrivalAirportLocation: "Istanbul, Turkey",
+    arrivalAirportLatitude: 37.61594,
+    arrivalAirportLongitude: -122.387996,
+
+    airlineName: "Turkish Airlines",
+    airlineCode: "TK",
+    flightNumber: "1364",
+
+    plane: "Boeing 737 MAX 8",
+    type: "Narrow-body",
+
+    stops: 0,
+
+    isBasicEconomy: true,
+    basicEconomyTooltipInfo: [
+      {
+        fareRulesTitle: "Delta Basic Economy Fare",
+        fareRules: ["Seats assigned after check-in.", "No changes or refunds."],
+      },
+    ],
+    isRefundable: false,
+    isNonStop: true,
+  },
+
+  // Berlin - Istanbul
+
+  {
+    legId: "BER-IST",
+    fareCode: "Economy",
+    ecoFly: "452",
+    extraFly: "467",
+    primeFly: "497",
+    business: "710",
+    businessPrime: "750",
+
+    travelDuration: "2h 50m",
+    elapsedDays: 0,
+    totalTravelDistance: 1779,
+    totalTravelDistanceUnits: "km",
+
+    // Departure
+
+    departureTime: "06:55",
+    actualDepartureTime: "07:10",
+    departureAirportCode: "(BER)",
+    departureAirportCity: "BERLIN",
+    departureAirportLocation: "Berlin, Germany",
+    departureAirportLatitude: 33.94415,
+    departureAirportLongitude: -118.4032,
+
+    // Arrival
+
+    arrivalTime: "11:45",
+    actualArrivalTime: "12:01",
+    arrivalAirportCode: "(IST)",
+    arrivalAirportCity: "ISTANBUL",
+    arrivalAirportLocation: "Istanbul, Turkey",
+    arrivalAirportLatitude: 37.61594,
+    arrivalAirportLongitude: -122.387996,
+
+    airlineName: "Turkish Airlines",
+    airlineCode: "TK",
+    flightNumber: "1728",
+
+    plane: "Airbus A321",
+    type: "Narrow-body",
+
+    stops: 0,
+
+    isBasicEconomy: true,
+    basicEconomyTooltipInfo: [
+      {
+        fareRulesTitle: "Delta Basic Economy Fare",
+        fareRules: ["Seats assigned after check-in.", "No changes or refunds."],
+      },
+    ],
+    isRefundable: false,
+    isNonStop: true,
+  },
+  {
+    legId: "BER-IST",
+    fareCode: "Economy",
+    ecoFly: "687",
+    extraFly: "702",
+    primeFly: "732",
+    business: "720",
+    businessPrime: "770",
+
+    travelDuration: "2h 55m",
+    elapsedDays: 0,
+    totalTravelDistance: 1779,
+    totalTravelDistanceUnits: "km",
+
+    // Departure
+
+    departureTime: "11:05",
+    actualDepartureTime: "11:05",
+    departureAirportCode: "(BER)",
+    departureAirportCity: "BERLIN",
+    departureAirportLocation: "Berlin, Germany",
+    departureAirportLatitude: 33.94415,
+    departureAirportLongitude: -118.4032,
+
+    // Arrival
+
+    arrivalTime: "16:00",
+    actualArrivalTime: "16:04",
+    arrivalAirportCode: "(IST)",
+    arrivalAirportCity: "ISTANBUL",
+    arrivalAirportLocation: "Istanbul, Turkey",
+    arrivalAirportLatitude: 37.61594,
+    arrivalAirportLongitude: -122.387996,
+
+    airlineName: "Turkish Airlines",
+    airlineCode: "TK",
+    flightNumber: "1722",
+
+    plane: "Airbus A330-300",
+    type: "Wide-body",
+
+    stops: 0,
+
+    isBasicEconomy: true,
+    basicEconomyTooltipInfo: [
+      {
+        fareRulesTitle: "Delta Basic Economy Fare",
+        fareRules: ["Seats assigned after check-in.", "No changes or refunds."],
+      },
+    ],
+    isRefundable: false,
+    isNonStop: true,
+  },
+  {
+    legId: "BER-IST",
+    fareCode: "Economy",
+    ecoFly: "472",
+    extraFly: "487",
+    primeFly: "517",
+    business: "870",
+    businessPrime: "920",
+
+    travelDuration: "2h 50m",
+    elapsedDays: 0,
+    totalTravelDistance: 1779,
+    totalTravelDistanceUnits: "km",
+
+    // Departure
+
+    departureTime: "18:35",
+    actualDepartureTime: '18:35',
+    departureAirportCode: "(BER)",
+    departureAirportCity: "BERLIN",
+    departureAirportLocation: "Berlin, Germany",
+    departureAirportLatitude: 33.94415,
+    departureAirportLongitude: -118.4032,
+
+    // Arrival
+
+    arrivalTime: "23:25",
+    actualArrivalTime: '23:25',
+    arrivalAirportCode: "(IST)",
+    arrivalAirportCity: "ISTANBUL",
+    arrivalAirportLocation: "Istanbul, Turkey",
+    arrivalAirportLatitude: 37.61594,
+    arrivalAirportLongitude: -122.387996,
+
+    airlineName: "Turkish Airlines",
+    airlineCode: "TK",
+    flightNumber: "1724",
+
+    plane: "Airbus A321",
+    type: "Narrow-body",
+
+    stops: 0,
+
     isBasicEconomy: true,
     basicEconomyTooltipInfo: [
       {
