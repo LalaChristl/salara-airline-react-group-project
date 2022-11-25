@@ -11,7 +11,8 @@ function BottomHomeCard() {
             Stopover in Istanbul: The most enjoyable surprise!
           </h4>
           <hr className="m-[20px]" />
-          <img src={cardImg} className="card-img-top" alt="..." /> <br />
+          <img src={cardImg} className="card-img-top col-sm-6" alt="" />
+          <br />
           <div className="card-body p-0">
             <p className="card-text">
               Stopover in Istanbul, which we have prepared for our transit
@@ -20,7 +21,10 @@ function BottomHomeCard() {
               discover the city.
             </p>
             <br />
-            <a href="#" className="btn ">
+            <a
+              href="https://www.turkishairlines.com/en-de/flights/stopover/"
+              className="card-btn "
+            >
               Discover
             </a>
           </div>
@@ -28,14 +32,17 @@ function BottomHomeCard() {
         <div className="bottom-card col-sm-6 px-[15px]">
           <h4 className="card-title ">Touristanbul: An amazing experience!</h4>
           <hr className="m-[20px]" />
-          <img src={cardImg2} className="card-img-top" alt="..." /> <br />
+          <img src={cardImg2} className="card-img-top" alt="" /> <br />
           <div className="card-body p-0">
             <p className="card-text ">
               Touristanbul offers you to see the beautiful sights of Istanbul
               where has hosted major civilizations of the world.
             </p>
             <br />
-            <a href="#" className="btn ">
+            <a
+              href="https://www.turkishairlines.com/en-de/flights/fly-different/touristanbul/"
+              className="card-btn "
+            >
               Discover
             </a>
           </div>
