@@ -9,7 +9,7 @@ function FooterTop() {
         backgroundColor: "#232b38",
       }}
     >
-      <div className="container " style={{ fontSize: "20px" }}>
+      <div className="container" style={{ fontSize: "20px" }}>
         <ul className="footer-social-list d-flex justify-content-center cursor-pointer  hvr-pulse ">
           <li className="footer-li px-[10px] py-[15px]">
             <a href="https://www.facebook.com/turkishairlines" target="_blank">
@@ -39,9 +39,10 @@ function FooterTop() {
               href="https://tr.linkedin.com/company/turkish-airlines"
               target="_blank"
             >
-              <i className="fa fa-linkedin"></i>
+              <i className="fa fa-linkedin "></i>
             </a>
           </li>
+
           <li className="footer-li px-[10px] py-[15px]">
             <a href="https://www.turkishairlines.com/theme/img/icons/tkblog-icon.png">
               <img className="fa fa-tkblog" src={tkIcon} />
