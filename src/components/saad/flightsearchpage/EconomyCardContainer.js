@@ -10,9 +10,9 @@ import { IoMdInformationCircle } from "react-icons/io";
 
 const EconomyCardContainer = () => {
   return (
-    <div className="business-class-card flex justify-center gap-3">
+    <div className="business-class-card flex justify-center gap-2">
       {/* EcoFly */}
-      <div className=" hover: border-[#2173E2] hover:border-2 hover:cursor-pointer  h-[451px] ">
+      <div className=" hover: border-[#2173E2] hover:border-2 hover:cursor-pointer  h-[453px] ">
         <div className="card-header bg-[#F4F5F8] border-l-[5px] h-[65px] px-[10px] border-[#5199DB] flex justify-between items-center w-[303.33px]">
           <div>
             <p className="text-[#232B38] mb-[8px] font-[700]">EcoFly</p>
@@ -65,7 +65,7 @@ const EconomyCardContainer = () => {
 
       {/* ExtraFly */}
 
-      <div className="  border-[#2173E2] border-[1px]  hover:cursor-pointer  h-[451px] ">
+      <div className="  border-[#2173E2] border-[2px]  hover:cursor-pointer  h-[453px] ">
         <div className="card-header bg-[#F4F5F8] border-l-[5px] h-[65px] px-[10px] border-[#245E94] flex justify-between  w-[303.33px]">
           <div className="flex flex-col justify-center">
             <p className="text-[#232B38] mb-[8px] font-[700]">ExtraFly</p>
@@ -140,7 +140,7 @@ const EconomyCardContainer = () => {
 
       {/* PrimeFly */}
 
-      <div className=" hover: border-[#2173E2] hover:border-2 hover:cursor-pointer  h-[451px] ">
+      <div className=" hover: border-[#2173E2] hover:border-2 hover:cursor-pointer  h-[453px] ">
         <div className="card-header bg-[#F4F5F8] border-l-[5px] h-[65px] px-[10px] border-[#245E94] flex justify-between items-center w-[303.33px]">
           <div>
             <p className="text-[#232B38] mb-[8px] font-[700]">PrimeFly</p>
