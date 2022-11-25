@@ -5,6 +5,8 @@ import { FaGreaterThan } from "react-icons/fa";
 import { FaLessThan } from "react-icons/fa";
 import FlightCard from "./FlightCard";
 import SelectFlightCard from "./SelectFlightCard";
+import BusinessCardContainer from "./BusinessCardContainer";
+import EconomyCardContainer from "./EconomyCardContainer";
 
 const FlightSearchPage = () => {
   const { state } = useContext(Context);
@@ -63,7 +65,8 @@ const FlightSearchPage = () => {
         The fares shown in this page are valid for single Adult. The total fare
         can be seen on the payment page after completing your flight selection.
       </p>
-      {/* <SelectFlightCard /> */}
+      <EconomyCardContainer />
+      {/* <BusinessCardContainer /> */}
     </div>
   );
 };
