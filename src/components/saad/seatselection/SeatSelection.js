@@ -119,7 +119,7 @@ const SeatAllocationComponent = () => {
                 </div>
 
                 {/* Seat Map */}
-                <div className="my-[50px] w-[434px] h-[1576px] shadow-lg flex justify-center">
+                <div className="my-[50px] w-[434px] h-[1576px] shadow-lg flex justify-center rounded-br-[12rem] rounded-bl-[12rem]">
                   <div className="pt-[20px] w-[404px] shadow-sm h-[1435px] text-[14px] font-[600]">
                     {/* A B C D E F */}
                     <div>
@@ -301,7 +301,501 @@ const SeatAllocationComponent = () => {
                       </ul>
                     </div>
 
-                    <div></div>
+                    {/* Emergency Exit */}
+                    <div className="flex justify-between h-[42px]">
+                      <div className="w-[135.51px] text-[12px] font-[400] flex items-center ">
+                        <div className="bg-[#7C8799] w-[8px] h-[42px] rounded-tr-[10px] rounded-br-[10px]"></div>
+                        <p className="ml-[20px] ">EMERGENCY EXIT</p>
+                      </div>
+                      <div className="w-[135.51px] text-[12px] font-[400] flex items-center ">
+                        <p className="mr-[20px] ">EMERGENCY EXIT</p>
+                        <div className="bg-[#7C8799] w-[8px] h-[42px] rounded-tl-[10px] rounded-bl-[10px]"></div>
+                      </div>
+                    </div>
+
+                    {/* Row 11 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          11
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <ExitSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <ExitSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <ExitSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Emergency Exit */}
+                    <div className="flex justify-between h-[42px]">
+                      <div className="w-[135.51px] text-[12px] font-[400] flex items-center ">
+                        <div className="bg-[#7C8799] w-[8px] h-[42px] rounded-tr-[10px] rounded-br-[10px]"></div>
+                        <p className="ml-[20px] ">EMERGENCY EXIT</p>
+                      </div>
+                      <div className="w-[135.51px] text-[12px] font-[400] flex items-center ">
+                        <p className="mr-[20px] ">EMERGENCY EXIT</p>
+                        <div className="bg-[#7C8799] w-[8px] h-[42px] rounded-tl-[10px] rounded-bl-[10px]"></div>
+                      </div>
+                    </div>
+
+                    {/* Row 12 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          12
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <ExitSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <ExitSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <ExitSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <ExitSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 13 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          13
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 14 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          14
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 15 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          15
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 16 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          16
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 17 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          17
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 18 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          18
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 19 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          19
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 20*/}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          20
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 21*/}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          21
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 22*/}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          22
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 23 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          23
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 24 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          24
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 25 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          25
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 26*/}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          26
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 27*/}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          27
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  "></li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row End */}
                   </div>
                 </div>
               </div>
