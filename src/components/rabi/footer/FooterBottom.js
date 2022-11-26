@@ -7,19 +7,31 @@ function FooterBottom() {
       style={{ fontSize: "11px", fontWeight: "300" }}
     >
       <div
-        className="flex justify-content-around mx-auto cursor-pointer"
+        className="footer-bottom flex justify-content-around mx-auto cursor-pointer"
         style={{ maxWidth: "1024px" }}
       >
-        <a href="/en-de/accessibility/" target="_blank">
+        <a
+          href="https://www.turkishairlines.com/en-de/accessibility/"
+          target="_blank"
+        >
           Accessibility
         </a>
-        <a href="/en-de/legal-notice/privacy-policy/" target="_blank">
+        <a
+          href="https://www.turkishairlines.com/en-de/legal-notice/privacy-policy/"
+          target="_blank"
+        >
           Privacy &amp; Cookie Policy
         </a>
-        <a href="/en-de/legal-notice/" target="_blank">
+        <a
+          href="https://www.turkishairlines.com/en-de/legal-notice/"
+          target="_blank"
+        >
           Legal Notice
         </a>
-        <a href="/en-de/legal-notice/passenger-rights/" target="_blank">
+        <a
+          href="https://www.turkishairlines.com/en-de/legal-notice/passenger-rights/"
+          target="_blank"
+        >
           Passenger Rights
         </a>
         <a href="/en-de/legal-notice/gdpr-privacy-notice/" target="_blank">
