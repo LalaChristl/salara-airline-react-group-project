@@ -27,6 +27,11 @@ export const data = [
 
     departureTime: "09:15",
     actualDepartureTime: "09:15",
+    departureAirport: "Bremen Airport",
+    departureAirportTerminal: "Terminal 1",
+    departureAirportGateNumber: "B102",
+    departureBoardingTime: "08 : 55",
+
     departureAirportCode: "(BRE)",
     departureAirportCity: "BREMEN",
     departureAirportLocation: "Bremen, Germany",
@@ -37,6 +42,8 @@ export const data = [
 
     arrivalTime: "14:20",
     actualArrivalTime: "14:20",
+    arrivalAirport: "Istanbul Airport",
+    arrivalAirportTerminal: " International / Dış Hatlar",
     arrivalAirportCode: "(IST)",
     arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
@@ -89,6 +96,11 @@ export const data = [
 
     departureTime: "18:15",
     actualDepartureTime: "18:45",
+    departureAirport: "Bremen Airport",
+    departureAirportTerminal: "Terminal 1",
+    departureAirportGateNumber: "B105",
+    departureBoardingTime: "17 : 55",
+
     departureAirportCode: "(BRE)",
     departureAirportCity: "BREMEN",
     departureAirportLocation: "Bremen, Germany",
@@ -99,6 +111,8 @@ export const data = [
 
     arrivalTime: "23:20",
     actualArrivalTime: "23:50",
+    arrivalAirport: "Istanbul Airport",
+    arrivalAirportTerminal: " International / Dış Hatlar",
     arrivalAirportCode: "(IST)",
     arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
@@ -154,6 +168,10 @@ export const data = [
 
     departureTime: "06:55",
     actualDepartureTime: "07:10",
+    departureAirport: "Berlin Brandenburg Airport",
+    departureAirportTerminal: "Terminal 2",
+    departureAirportGateNumber: "102",
+    departureBoardingTime: "06 : 35",
     departureAirportCode: "(BER)",
     departureAirportCity: "BERLIN",
     departureAirportLocation: "Berlin, Germany",
@@ -164,6 +182,8 @@ export const data = [
 
     arrivalTime: "11:45",
     actualArrivalTime: "12:01",
+    arrivalAirport: "Istanbul Airport",
+    arrivalAirportTerminal: " International / Dış Hatlar",
     arrivalAirportCode: "(IST)",
     arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
@@ -216,6 +236,10 @@ export const data = [
 
     departureTime: "11:05",
     actualDepartureTime: "11:05",
+    departureAirport: "Berlin Brandenburg Airport",
+    departureAirportTerminal: "Terminal 2",
+    departureAirportGateNumber: "106",
+    departureBoardingTime: "10 : 45",
     departureAirportCode: "(BER)",
     departureAirportCity: "BERLIN",
     departureAirportLocation: "Berlin, Germany",
@@ -226,6 +250,8 @@ export const data = [
 
     arrivalTime: "16:00",
     actualArrivalTime: "16:04",
+    arrivalAirport: "Istanbul Airport",
+    arrivalAirportTerminal: " International / Dış Hatlar",
     arrivalAirportCode: "(IST)",
     arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
@@ -278,6 +304,11 @@ export const data = [
 
     departureTime: "18:35",
     actualDepartureTime: "18:35",
+    departureAirport: "Berlin Brandenburg Airport",
+    departureAirportTerminal: "Terminal 2",
+    departureAirportGateNumber: "109",
+    departureBoardingTime: "18 : 15",
+
     departureAirportCode: "(BER)",
     departureAirportCity: "BERLIN",
     departureAirportLocation: "Berlin, Germany",
@@ -288,6 +319,8 @@ export const data = [
 
     arrivalTime: "23:25",
     actualArrivalTime: "23:25",
+    arrivalAirport: "Istanbul Airport",
+    arrivalAirportTerminal: " International / Dış Hatlar",
     arrivalAirportCode: "(IST)",
     arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",

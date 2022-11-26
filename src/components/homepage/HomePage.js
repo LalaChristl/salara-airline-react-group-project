@@ -9,6 +9,8 @@ const HomePage = () => {
       <Header />
       <MainPage />
       <SearchContainer />
+
+
     </div>
   );
 };
