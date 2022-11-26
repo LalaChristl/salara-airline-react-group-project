@@ -234,7 +234,7 @@ const SelectFlightPage = () => {
             </div>
             <div
               onClick={() => navigate("/seatselection")}
-              className="px-[15px]"
+              className="px-[15px] cursor-pointer"
             >
               <div className="bg-[#E81932] px-[12px] py-[6px] rounded-[4px] w-[140.66px] h-[68px] flex items-center justify-between text-white ">
                 <p className="font-[700] text-[14px]">Continue</p>

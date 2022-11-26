@@ -1,68 +1,154 @@
 import React from "react";
-import Seatmap from "react-seatmap";
+import additional from "../../images/additional.png";
+import SearchNav from "../../lala/header/SearchNav";
+import { FaInfoCircle } from "react-icons/fa";
+
+import Radio from "@mui/material/Radio";
+import SingleSeat from "./SingleSeat";
 
 const SeatAllocationComponent = () => {
-  const rows = [
-    [
-      { id: 1, number: 1, isSelected: true, tooltip: "Reserved by you" },
-      { id: 2, number: 2, tooltip: "Cost: 15$" },
-      {
-        id: 3,
-        number: "3",
-        isReserved: true,
-        orientation: "east",
-        tooltip: "Reserved by Rogger",
-      },
-      null,
-    ],
-    [
-      {
-        id: 7,
-        number: 1,
-        isReserved: true,
-        tooltip: "Reserved by Matthias Nadler",
-      },
-      { id: 8, number: 2, isReserved: true },
-      { id: 9, number: "3", isReserved: true, orientation: "east" },
-      null,
-      { id: 10, number: "4", orientation: "west" },
-      { id: 11, number: 5 },
-      { id: 12, number: 6 },
-    ],
-    [
-      { id: 13, number: 1 },
-      { id: 14, number: 2 },
-      { id: 15, number: 3, isReserved: true, orientation: "east" },
-      null,
-      { id: 16, number: "4", orientation: "west" },
-      { id: 17, number: 5 },
-      { id: 18, number: 6 },
-    ],
-    [
-      { id: 19, number: 1, tooltip: "Cost: 25$" },
-      { id: 20, number: 2 },
-      { id: 21, number: 3, orientation: "east" },
-      null,
-      { id: 22, number: "4", orientation: "west" },
-      { id: 23, number: 5 },
-      { id: 24, number: 6 },
-    ],
-    [
-      { id: 25, number: 1, isReserved: true },
-      { id: 26, number: 2, orientation: "east" },
-      { id: 27, number: "3", isReserved: true },
-      null,
-      { id: 28, number: "4", orientation: "west" },
-      { id: 29, number: 5, tooltip: "Cost: 11$" },
-      { id: 30, number: 6, isReserved: true },
-    ],
-  ];
+  const [selectedValue, setSelectedValue] = React.useState("a");
 
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
   return (
     <div>
-      <h1>Seat Picker</h1>
-      <div style={{ marginTop: "100px" }}>
-        <Seatmap rows={rows} maxReservableSeats={3} alpha />,
+      <SearchNav />
+      <div className="w-[1024px] mx-auto">
+        <div className="pt-[30px]">
+          <img src={additional} alt="" />
+        </div>
+        <div className="pt-[30px] pb-[70px]">
+          <div className="p-[25px]">
+            <div className="flex items-center pb-[20px] gap-4">
+              <p className="text-[18px] font-[600]">Seat selection</p>
+              <div className="flex items-center gap-1">
+                <p className="text-[12px] text-[#2073E3]">
+                  Terms and Conditions
+                </p>
+                <FaInfoCircle className="text-[#2073E3] w-[24px] h-[24px]" />
+              </div>
+            </div>
+
+            <div className="flex">
+              <div className="w-[487px] px-[15px] bg-[#F4F5F8] border-2 h-[305.44px] pb-[15px] mb-[15px]">
+                <div className="text-center mt-[20px] font-[600] mb-[30px]">
+                  Bremen - Istanbul Flight
+                </div>
+                <div className="bg-white mt-[5px] py-[15px] px-[20px] ">
+                  <p className="font-[600] text-[#232B38]">1. Flight</p>
+                  <div className="flex items-center gap-2 text-[11px] font-[600] mt-[5px]">
+                    <p>BREMEN (BRE)</p>
+                    <div className="mx-[10px]">
+                      <img
+                        src="https://www.turkishairlines.com/theme/img/additional-services-card/plane-icon.svg"
+                        alt=""
+                      />
+                    </div>
+                    <p>ISTANBUL (IST)</p>
+                  </div>
+                  <div className="flex items-center gap-2 font-[600] text-[14px] mt-[5px]">
+                    <p>Date</p>
+                    <p>Time</p>
+                    <p>1 Passenger</p>
+                  </div>
+                  <hr className="my-[15px]" />
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center ">
+                      <Radio
+                        checked={selectedValue === "a"}
+                        onChange={handleChange}
+                        value="a"
+                        name="radio-buttons"
+                        inputProps={{ "aria-label": "A" }}
+                      />
+                      <div className="pr-[15px]">
+                        <p className="text-[13px]">1 Passenger</p>
+                        <p className="text-[12px] font-[600]">Saad Malik</p>
+                        <p className="text-[11px] ">Adult</p>
+                      </div>
+                    </div>
+                    <div className="">
+                      <p className="w-[48.83px] text-[14px] font-[600] text-[#7C8799]">
+                        Seat Number
+                      </p>
+                      <p className="text-[12px] font-[600]">05E</p>
+                    </div>
+                    <div>
+                      <p className="text-[#7C8799] font-[600]">Price</p>
+                      <p className="font-[600] text-[12px]">EUR 0,00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="w-[487px] h-[1748.83px] mt-[15px] px-[15px] flex flex-col items-center">
+                {/* Top Seat Types */}
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center gap-2 flex-wrap text-[11px] font-[600] w-[320px] ">
+                    <div className="flex items-center gap-2 w-[118.57px]">
+                      <SingleSeat />
+                      <p>Standard Seat</p>
+                    </div>
+                    <div className="flex items-center gap-2 w-[118.57px]">
+                      <img
+                        src="https://www.turkishairlines.com/theme/img/additional-services-card/extra-legroom-seat.svg"
+                        alt=""
+                      />
+                      <p>Extra legroom seat</p>
+                    </div>
+                    <div className="flex items-center gap-2 w-[59.29px]">
+                      <img
+                        src="https://www.turkishairlines.com/theme/img/additional-services-card/exit-seat.svg"
+                        alt=""
+                      />
+                      <p>Exit seat</p>
+                    </div>
+                    <div className="flex items-center gap-2 w-[118.57px]">
+                      <img
+                        src="https://www.turkishairlines.com/theme/img/additional-services-card/full-seat.svg"
+                        alt=""
+                      />
+                      <p>Selected seat</p>
+                    </div>
+                    <div className="flex items-center gap-2 w-[118.57px]">
+                      <img
+                        src="https://www.turkishairlines.com/theme/img/additional-services-card/baby-bassinet-seat.svg"
+                        alt=""
+                      />
+                      <p>Baby Bassinet seat</p>
+                    </div>
+                  </div>
+                  <div className="text-[11px]">
+                    <p className="font-[600]">Boeing 737 MAX 8</p>
+                    <p className="text-right">NARROW BODY</p>
+                  </div>
+                </div>
+
+                {/* Seat Map */}
+                <div className="my-[50px] w-[434px] h-[1576px] flex justify-center">
+                  <div className="pt-[20px] w-[404px] h-[1435px] text-[14px] font-[600]">
+                    <div>
+                      <ul className="flex text-center">
+                        <li className="w-[49px] h-[20px] "></li>
+                        <li className="w-[49px] h-[20px] ">A</li>
+                        <li className="w-[49px] h-[20px] ">B</li>
+                        <li className="w-[49px] h-[20px] ">C</li>
+                        <li className="w-[40px] h-[20px] "></li>
+                        <li className="w-[49px] h-[20px] ">D</li>
+                        <li className="w-[49px] h-[20px] ">E</li>
+                        <li className="w-[49px] h-[20px] ">F</li>
+                      </ul>
+                    </div>
+
+                    <SingleSeat />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
