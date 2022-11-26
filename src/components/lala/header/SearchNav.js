@@ -5,7 +5,7 @@ import user from "../../images/user.png";
 import ccard from "../../images/cc.jpg";
 import "../../rabi/styles/style.css";
 
-const SearchNav = () => {
+const SearchNav = ({ selected }) => {
   return (
     <>
       <div
@@ -24,17 +24,19 @@ const SearchNav = () => {
           <img
             className="search-nav-img w-[35px] h-[35px]"
             src="https://www.turkishairlines.com/theme/img/logo-top-white-small-current.png"
+            alt=""
           />
         </div>
         <div className="searchNav-bar flex justify-content-center w-full max-w-[860px] h-full mx-auto  ">
           <a className=" align-items-center flex px-[20px]">
-            <img className="plane-icon px-[10px]" src={plIcon} />
+            <img className="plane-icon px-[10px]" src={plIcon} alt="" />
             <span>Select Flight</span>
           </a>
           <a className=" align-items-center flex px-[20px]">
             <img
               className="plane-icon px-[10px] h-[30px] w-[40px]"
               src={user}
+              alt=""
             />
             <span>Passenger Details</span>
           </a>
@@ -42,11 +44,12 @@ const SearchNav = () => {
             <img
               className="plane-icon px-[10px] "
               src="https://www.turkishairlines.com/theme/img/header-additional-icon.png"
+              alt=""
             />
             <span>Additional Services</span>
           </a>
           <a className=" align-items-center flex px-[10px]">
-            <img className="plane-icon px-[10px] w-[50px]" src={ccard} />
+            <img className="plane-icon px-[10px] w-[50px]" src={ccard} alt="" />
             <span>Payment</span>
           </a>
         </div>

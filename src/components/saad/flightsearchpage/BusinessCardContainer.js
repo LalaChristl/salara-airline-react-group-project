@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { RiShoppingBagFill } from "react-icons/ri";
 import { MdLuggage } from "react-icons/md";
 import { MdRoomService } from "react-icons/md";
@@ -8,8 +8,10 @@ import { GoStar } from "react-icons/go";
 import { IoMdInformationCircle } from "react-icons/io";
 import business from "../../images/business.png";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../../context/Context";
 
 const BusinessCardContainer = () => {
+  const { state } = useContext(Context);
   const navigate = useNavigate();
   return (
     <div className="business-class-card flex justify-center gap-3">
@@ -23,7 +25,9 @@ const BusinessCardContainer = () => {
           <div className="flex justify-center items-center">
             <div className="price font-[700]">
               <sup className="pr-[6px] text-[13.2px]">EUR</sup>
-              <span className="text-[24px]">585</span>
+              <span className="text-[24px]">
+                {state?.selectedflightobject?.businessPrice}
+              </span>
               <sup className="text-[13.2px]">,48</sup>
             </div>
           </div>
@@ -103,7 +107,9 @@ const BusinessCardContainer = () => {
           <div className="flex justify-center items-center">
             <div className="price font-[700]">
               <sup className="pr-[6px] text-[13.2px]">EUR</sup>
-              <span className="text-[24px]">635</span>
+              <span className="text-[24px]">
+                {state?.selectedflightobject?.businessPrimePrice}
+              </span>
               <sup className="text-[13.2px]">,48</sup>
             </div>
           </div>

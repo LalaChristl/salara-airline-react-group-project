@@ -35,7 +35,7 @@ const FlightCard = () => {
 
   // console.log(filteredArr);
 
-  console.log(state?.itineraryCard);
+  // console.log(state?.itineraryCard);
   return (
     <div>
       {filteredArr.map((item, i) => (
@@ -118,7 +118,7 @@ const FlightCard = () => {
             <div
               onClick={() => {
                 setEconomy({ id: i });
-                // console.log(showCard.id, i);
+                setSelectedValue("a");
                 dispatch({
                   type: "economy",
                   payload: item,
@@ -152,7 +152,9 @@ const FlightCard = () => {
                   <p className="font-[600] text-[10px] text-[#697886]">
                     Per passenger
                   </p>
-                  <p className="text-[16px] font-[700]">EUR {item.ecoFly}</p>
+                  <p className="text-[16px] font-[700]">
+                    EUR {item.ecoFlyPrice}
+                  </p>
                 </div>
                 <div>
                   {showEconomy.id === i && state?.economy?.id1 ? (
@@ -166,7 +168,7 @@ const FlightCard = () => {
             <div
               onClick={() => {
                 setShowBusiness({ id: i });
-                // console.log(showCard.id, i);
+                setSelectedValue("b");
                 dispatch({
                   type: "business",
                   payload: item,
@@ -200,7 +202,9 @@ const FlightCard = () => {
                   <p className="font-[600] text-[10px] text-[#697886]">
                     Per passenger
                   </p>
-                  <p className="text-[16px] font-[700]">EUR {item.business}</p>
+                  <p className="text-[16px] font-[700]">
+                    EUR {item.businessPrice}
+                  </p>
                 </div>
                 <div>
                   {showBusiness.id === i && state?.business?.id1 ? (
