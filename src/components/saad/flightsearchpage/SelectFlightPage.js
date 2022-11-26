@@ -178,6 +178,47 @@ const SelectFlightPage = () => {
           </div>
         </div>
       </div>
+
+      <div className="h-[88px] bg-[#232B38] text-white flex items-center justify-center  ">
+        <div className="w-[426.66px] px-[15px]">
+          <p>Departure</p>
+          <div className="flex items-center ">
+            <p>BRE-IST</p>
+            <p>.</p>
+            <p>15 Dec Thu</p>
+          </div>
+          <div className="flex items-center">
+            <div className="flex items-center">
+              <p>Departure</p>
+              <p>18:15</p>
+            </div>
+            <span>|</span>
+            <div className="flex items-center">
+              <p>Arrival</p>
+              <p>23:20</p>
+            </div>
+          </div>
+        </div>
+        <div className="w-[170.66px] flex">
+          <FaCheckCircle />
+          <p>Hold the price for 20 EUR and pay later.</p>
+          <FaCheckCircle />
+        </div>
+        <div className="w-[256.68px] ">
+          <p>Total price for 1 passenger</p>
+          <div className="flex items-center gap-2">
+            <div>
+              <p>EUR</p>
+              <p>Euro</p>
+            </div>
+            <p>329.42</p>
+          </div>
+        </div>
+        <div className="bg-[#E81932] px-[12px] py-[6px] rounded-[4px] w-[140.66px] h-[68px] flex items-center justify-between text-white">
+          <p className="font-[700] text-[14px]">Continue</p>
+          <MdArrowForwardIos />
+        </div>
+      </div>
     </div>
   );
 };
