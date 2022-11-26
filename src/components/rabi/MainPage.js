@@ -6,6 +6,7 @@ import FooterNav from "./footer/FooterNav";
 import FooterBottom from "./footer/FooterBottom";
 import FooterHero from "./footer/FooterHero";
 import Carousal from "../lala/carousel/Carousel";
+import PassengerDetails from "./passengerDetails/PassengerDetails";
 
 const MainPage = () => {
   return (
@@ -19,6 +20,7 @@ const MainPage = () => {
       <FooterTop />
       <FooterNav />
       <FooterBottom />
+      <PassengerDetails />
     </div>
   );
 };
