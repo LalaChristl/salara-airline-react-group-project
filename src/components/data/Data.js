@@ -3,11 +3,20 @@ export const data = [
   {
     legId: "BRE-IST",
     fareCode: "Economy",
-    ecoFly: "314",
-    extraFly: "329",
-    primeFly: "359",
-    business: "700",
-    businessPrime: "750",
+    economyType: {
+      EcoFly: "EcoFly",
+      ExtraFly: "ExtraFly",
+      PrimeFly: "PrimeFly",
+    },
+    businessType: {
+      BusinessFly: "BusinessFly",
+      BusinessPrime: "BusinessPrime",
+    },
+    ecoFlyPrice: "314",
+    extraFlyPrice: "329",
+    primeFlyPrice: "359",
+    businessPrice: "700",
+    businessPrimePrice: "750",
 
     travelDuration: "3h 5m",
     elapsedDays: 0,
@@ -17,7 +26,12 @@ export const data = [
     // Departure
 
     departureTime: "09:15",
-    actualDepartureTime: '09:15',
+    actualDepartureTime: "09:15",
+    departureAirport: "Bremen Airport",
+    departureAirportTerminal: "Terminal 1",
+    departureAirportGateNumber: "B102",
+    departureBoardingTime: "08 : 55",
+
     departureAirportCode: "(BRE)",
     departureAirportCity: "BREMEN",
     departureAirportLocation: "Bremen, Germany",
@@ -28,6 +42,8 @@ export const data = [
 
     arrivalTime: "14:20",
     actualArrivalTime: "14:20",
+    arrivalAirport: "Istanbul Airport",
+    arrivalAirportTerminal: " International / Dış Hatlar",
     arrivalAirportCode: "(IST)",
     arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
@@ -56,11 +72,20 @@ export const data = [
   {
     legId: "BRE-IST",
     fareCode: "Economy",
-    ecoFly: "472",
-    extraFly: "487",
-    primeFly: "517",
-    business: "720",
-    businessPrime: "770",
+    economyType: {
+      EcoFly: "EcoFly",
+      ExtraFly: "ExtraFly",
+      PrimeFly: "PrimeFly",
+    },
+    businessType: {
+      BusinessFly: "BusinessFly",
+      BusinessPrime: "BusinessPrime",
+    },
+    ecoFlyPrice: "472",
+    extraFlyPrice: "487",
+    primeFlyPrice: "517",
+    businessPrice: "720",
+    businessPrimePrice: "770",
 
     travelDuration: "3h 5m",
     elapsedDays: 0,
@@ -71,6 +96,11 @@ export const data = [
 
     departureTime: "18:15",
     actualDepartureTime: "18:45",
+    departureAirport: "Bremen Airport",
+    departureAirportTerminal: "Terminal 1",
+    departureAirportGateNumber: "B105",
+    departureBoardingTime: "17 : 55",
+
     departureAirportCode: "(BRE)",
     departureAirportCity: "BREMEN",
     departureAirportLocation: "Bremen, Germany",
@@ -81,6 +111,8 @@ export const data = [
 
     arrivalTime: "23:20",
     actualArrivalTime: "23:50",
+    arrivalAirport: "Istanbul Airport",
+    arrivalAirportTerminal: " International / Dış Hatlar",
     arrivalAirportCode: "(IST)",
     arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
@@ -112,11 +144,20 @@ export const data = [
   {
     legId: "BER-IST",
     fareCode: "Economy",
-    ecoFly: "452",
-    extraFly: "467",
-    primeFly: "497",
-    business: "710",
-    businessPrime: "750",
+    economyType: {
+      EcoFly: "EcoFly",
+      ExtraFly: "ExtraFly",
+      PrimeFly: "PrimeFly",
+    },
+    businessType: {
+      BusinessFly: "BusinessFly",
+      BusinessPrime: "BusinessPrime",
+    },
+    ecoFlyPrice: "452",
+    extraFlyPrice: "467",
+    primeFlyPrice: "497",
+    businessPrice: "710",
+    businessPrimePrice: "750",
 
     travelDuration: "2h 50m",
     elapsedDays: 0,
@@ -127,6 +168,10 @@ export const data = [
 
     departureTime: "06:55",
     actualDepartureTime: "07:10",
+    departureAirport: "Berlin Brandenburg Airport",
+    departureAirportTerminal: "Terminal 2",
+    departureAirportGateNumber: "102",
+    departureBoardingTime: "06 : 35",
     departureAirportCode: "(BER)",
     departureAirportCity: "BERLIN",
     departureAirportLocation: "Berlin, Germany",
@@ -137,6 +182,8 @@ export const data = [
 
     arrivalTime: "11:45",
     actualArrivalTime: "12:01",
+    arrivalAirport: "Istanbul Airport",
+    arrivalAirportTerminal: " International / Dış Hatlar",
     arrivalAirportCode: "(IST)",
     arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
@@ -165,11 +212,20 @@ export const data = [
   {
     legId: "BER-IST",
     fareCode: "Economy",
-    ecoFly: "687",
-    extraFly: "702",
-    primeFly: "732",
-    business: "720",
-    businessPrime: "770",
+    economyType: {
+      EcoFly: "EcoFly",
+      ExtraFly: "ExtraFly",
+      PrimeFly: "PrimeFly",
+    },
+    businessType: {
+      BusinessFly: "BusinessFly",
+      BusinessPrime: "BusinessPrime",
+    },
+    ecoFlyPrice: "687",
+    extraFlyPrice: "702",
+    primeFlyPrice: "732",
+    businessPrice: "720",
+    businessPrimePrice: "770",
 
     travelDuration: "2h 55m",
     elapsedDays: 0,
@@ -180,6 +236,10 @@ export const data = [
 
     departureTime: "11:05",
     actualDepartureTime: "11:05",
+    departureAirport: "Berlin Brandenburg Airport",
+    departureAirportTerminal: "Terminal 2",
+    departureAirportGateNumber: "106",
+    departureBoardingTime: "10 : 45",
     departureAirportCode: "(BER)",
     departureAirportCity: "BERLIN",
     departureAirportLocation: "Berlin, Germany",
@@ -190,6 +250,8 @@ export const data = [
 
     arrivalTime: "16:00",
     actualArrivalTime: "16:04",
+    arrivalAirport: "Istanbul Airport",
+    arrivalAirportTerminal: " International / Dış Hatlar",
     arrivalAirportCode: "(IST)",
     arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",
@@ -218,11 +280,20 @@ export const data = [
   {
     legId: "BER-IST",
     fareCode: "Economy",
-    ecoFly: "472",
-    extraFly: "487",
-    primeFly: "517",
-    business: "870",
-    businessPrime: "920",
+    economyType: {
+      EcoFly: "EcoFly",
+      ExtraFly: "ExtraFly",
+      PrimeFly: "PrimeFly",
+    },
+    businessType: {
+      BusinessFly: "BusinessFly",
+      BusinessPrime: "BusinessPrime",
+    },
+    ecoFlyPrice: "472",
+    extraFlyPrice: "487",
+    primeFlyPrice: "517",
+    businessPrice: "870",
+    businessPrimePrice: "920",
 
     travelDuration: "2h 50m",
     elapsedDays: 0,
@@ -232,7 +303,12 @@ export const data = [
     // Departure
 
     departureTime: "18:35",
-    actualDepartureTime: '18:35',
+    actualDepartureTime: "18:35",
+    departureAirport: "Berlin Brandenburg Airport",
+    departureAirportTerminal: "Terminal 2",
+    departureAirportGateNumber: "109",
+    departureBoardingTime: "18 : 15",
+
     departureAirportCode: "(BER)",
     departureAirportCity: "BERLIN",
     departureAirportLocation: "Berlin, Germany",
@@ -242,7 +318,9 @@ export const data = [
     // Arrival
 
     arrivalTime: "23:25",
-    actualArrivalTime: '23:25',
+    actualArrivalTime: "23:25",
+    arrivalAirport: "Istanbul Airport",
+    arrivalAirportTerminal: " International / Dış Hatlar",
     arrivalAirportCode: "(IST)",
     arrivalAirportCity: "ISTANBUL",
     arrivalAirportLocation: "Istanbul, Turkey",

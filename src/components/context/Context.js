@@ -22,6 +22,7 @@ const ContextProvider = ({ children }) => {
     itineraryCard: {},
     flightNumber: "",
     flightDate: "",
+    selectedflightobject: {},
   };
 
   const reducer = (state, action) => {
@@ -60,6 +61,9 @@ const ContextProvider = ({ children }) => {
           endDate: action.endDate,
         };
 
+      case "selectedflightobject":
+        return { ...state, selectedflightobject: action.payload };
+
       case "departure":
         return { ...state, departure: action.payload };
       case "arrival":
@@ -82,8 +86,10 @@ const ContextProvider = ({ children }) => {
         };
 
       case "economy":
+        // console.log(action.payload);
         return {
           ...state,
+          selectedflightobject: action.payload,
           economy: { ...state, id1: !state.economy.id1 },
           business: { ...state, id1: false },
           itinerary: { ...state, id1: false },
@@ -92,6 +98,7 @@ const ContextProvider = ({ children }) => {
       case "business":
         return {
           ...state,
+          selectedflightobject: action.payload,
           business: { ...state, id1: !state.business.id1 },
           economy: { ...state, id1: false },
           itinerary: { ...state, id1: false },

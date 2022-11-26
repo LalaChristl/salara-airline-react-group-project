@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { RiShoppingBagFill } from "react-icons/ri";
 import { MdLuggage } from "react-icons/md";
 import { MdRoomService } from "react-icons/md";
@@ -8,11 +8,17 @@ import { IoMdCloseCircle } from "react-icons/io";
 import { GoStar } from "react-icons/go";
 import { IoMdInformationCircle } from "react-icons/io";
 
-const EconomyCardContainer = () => {
+import { useNavigate } from "react-router-dom";
+import { Context } from "../../context/Context";
+
+const EconomyCardContainer = ({ item }) => {
+  const { state, dispatch } = useContext(Context);
+
+  const navigate = useNavigate();
   return (
-    <div className="business-class-card flex justify-center gap-3">
+    <div className="business-class-card flex justify-center gap-2">
       {/* EcoFly */}
-      <div className=" hover: border-[#2173E2] hover:border-2 hover:cursor-pointer  h-[451px] ">
+      <div className=" hover: border-[#2173E2] hover:border-2 hover:cursor-pointer  h-[453px] ">
         <div className="card-header bg-[#F4F5F8] border-l-[5px] h-[65px] px-[10px] border-[#5199DB] flex justify-between items-center w-[303.33px]">
           <div>
             <p className="text-[#232B38] mb-[8px] font-[700]">EcoFly</p>
@@ -21,7 +27,9 @@ const EconomyCardContainer = () => {
           <div className="flex justify-center items-center">
             <div className="price font-[700]">
               <sup className="pr-[6px] text-[13.2px]">EUR</sup>
-              <span className="text-[24px]">199</span>
+              <span className="text-[24px]">
+                {state?.selectedflightobject?.ecoFlyPrice}
+              </span>
               <sup className="text-[13.2px]">,48</sup>
             </div>
           </div>
@@ -56,7 +64,17 @@ const EconomyCardContainer = () => {
             <li className="flex gap-2 items-center border-t px-[12px] border-gray-300 h-[37px] text-[12px]"></li>
           </ul>
         </div>
-        <div className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer ">
+        <div
+          onClick={() => {
+            dispatch({
+              type: "selectedflightobject",
+              payload: item,
+              selectedPrice: state?.selectedflightobject?.ecoFlyPrice,
+            });
+            navigate("/selectflight");
+          }}
+          className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer "
+        >
           <p className="h-[39px]  text-[14px] font-[500]  flex items-center">
             Select this flight
           </p>
@@ -65,7 +83,7 @@ const EconomyCardContainer = () => {
 
       {/* ExtraFly */}
 
-      <div className="  border-[#2173E2] border-[1px]  hover:cursor-pointer  h-[451px] ">
+      <div className="  border-[#2173E2] border-[2px]  hover:cursor-pointer  h-[453px] ">
         <div className="card-header bg-[#F4F5F8] border-l-[5px] h-[65px] px-[10px] border-[#245E94] flex justify-between  w-[303.33px]">
           <div className="flex flex-col justify-center">
             <p className="text-[#232B38] mb-[8px] font-[700]">ExtraFly</p>
@@ -77,7 +95,9 @@ const EconomyCardContainer = () => {
             </div>
             <div className="price font-[700]">
               <sup className="pr-[6px] text-[13.2px]">EUR</sup>
-              <span className="text-[24px]">214</span>
+              <span className="text-[24px]">
+                {state?.selectedflightobject?.extraFlyPrice}
+              </span>
               <sup className="text-[13.2px]">,48</sup>
             </div>
           </div>
@@ -131,7 +151,13 @@ const EconomyCardContainer = () => {
             {/* <li className="h-[17px] border border-gray-300"></li> */}
           </ul>
         </div>
-        <div className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer ">
+        <div
+          onClick={() => {
+            dispatch({ type: "selectedflightobject", payload: item });
+            navigate("/selectflight");
+          }}
+          className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer "
+        >
           <p className="h-[39px]  text-[14px] font-[500]  flex items-center">
             Select this flight
           </p>
@@ -140,7 +166,7 @@ const EconomyCardContainer = () => {
 
       {/* PrimeFly */}
 
-      <div className=" hover: border-[#2173E2] hover:border-2 hover:cursor-pointer  h-[451px] ">
+      <div className=" hover: border-[#2173E2] hover:border-2 hover:cursor-pointer  h-[453px] ">
         <div className="card-header bg-[#F4F5F8] border-l-[5px] h-[65px] px-[10px] border-[#245E94] flex justify-between items-center w-[303.33px]">
           <div>
             <p className="text-[#232B38] mb-[8px] font-[700]">PrimeFly</p>
@@ -149,7 +175,9 @@ const EconomyCardContainer = () => {
           <div className="flex justify-center items-center">
             <div className="price font-[700]">
               <sup className="pr-[6px] text-[13.2px]">EUR</sup>
-              <span className="text-[24px]">244</span>
+              <span className="text-[24px]">
+                {state?.selectedflightobject?.primeFlyPrice}
+              </span>
               <sup className="text-[13.2px]">,48</sup>
             </div>
           </div>
@@ -218,7 +246,13 @@ const EconomyCardContainer = () => {
             {/* <li className="h-[17px] border border-gray-300"></li> */}
           </ul>
         </div>
-        <div className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer ">
+        <div
+          onClick={() => {
+            dispatch({ type: "selectedflightobject", payload: item });
+            navigate("/selectflight");
+          }}
+          className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer "
+        >
           <p className="h-[39px]  text-[14px] font-[500]  flex items-center">
             Select this flight
           </p>

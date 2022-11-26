@@ -4,7 +4,7 @@ import SearchNav from "../../lala/header/SearchNav";
 import { FaGreaterThan } from "react-icons/fa";
 import { FaLessThan } from "react-icons/fa";
 import FlightCard from "./FlightCard";
-import SelectFlightCard from "./SelectFlightCard";
+import SelectFlightCard from "./SelectFlightPage";
 import BusinessCardContainer from "./BusinessCardContainer";
 import EconomyCardContainer from "./EconomyCardContainer";
 
