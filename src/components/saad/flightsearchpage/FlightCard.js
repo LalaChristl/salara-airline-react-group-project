@@ -7,6 +7,7 @@ import Radio from "@mui/material/Radio";
 import { Context } from "../../context/Context";
 import EconomyCardContainer from "./EconomyCardContainer";
 import BusinessCardContainer from "./BusinessCardContainer";
+import Itinerary from "./Itinerary";
 
 const FlightCard = () => {
   const [selectedValue, setSelectedValue] = React.useState(false);
@@ -23,7 +24,7 @@ const FlightCard = () => {
     console.log(event.target.value);
     setSelectedValue(event.target.value);
   };
-  console.log(selectedValue);
+  // console.log(selectedValue);
 
   const legSearch =
     state?.departure.slice(0, 3).toUpperCase() +
@@ -32,7 +33,7 @@ const FlightCard = () => {
 
   const filteredArr = data.filter((item) => item.legId.includes(legSearch));
 
-  console.log(filteredArr);
+  // console.log(filteredArr);
 
   console.log(state?.itineraryCard);
   return (
@@ -215,107 +216,16 @@ const FlightCard = () => {
             </div>
           </div>
           {showCard.id === i && state?.itinerary?.id1 && (
-            <div className="bg-white z-30 pt-[1rem] shadow-md">
-              <div className="w-[960px] px-[15px] mb-[15px] h-[234.53px]">
-                <table className="w-[927.78px] border-[1px]">
-                  <thead className="bg-[#647286] text-white font-[500] text-[12px] h-[34.22px] ">
-                    <tr>
-                      <th className="px-[25px] py-[8px] border-[1px] border-[#ddd] ">
-                        FLIGHT
-                      </th>
-                      <th className="px-[25px] py-[8px] border-[1px] border-[#ddd]  ">
-                        FROM
-                      </th>
-                      <th className="px-[25px] py-[8px] border-[1px] border-[#ddd]  ">
-                        TO
-                      </th>
-                      <th className="px-[25px] py-[8px] border-[1px] border-[#ddd]  ">
-                        DURATION
-                      </th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    <tr className="border-b-[1px] border-[#ddd] hover:bg-[#f1f1f1] ">
-                      <td className="px-[25px] pt-[5px] pb-[12px] border-r-[1px] border-[#ddd] ">
-                        <div className="flex items-center my-[10px] gap-1 font-[700] text-[16px]">
-                          <img
-                            src="https://www.turkishairlines.com/theme/img/carrierairlines/carriercode_tk.png"
-                            alt=""
-                          />
-                          <h4>
-                            {state?.itineraryCard.airlineCode}
-                            {state?.itineraryCard.flightNumber}
-                          </h4>
-                        </div>
-
-                        <div className="font-[700] text-[14px] text-[#647286]">
-                          <h5>{state?.itineraryCard.airlineName}</h5>
-
-                          <small>
-                            <span className="text-[#0665E4] font-[600]">
-                              {state?.itineraryCard.plane}
-                            </span>{" "}
-                            <span>{state?.itineraryCard.type}</span>
-                          </small>
-                        </div>
-                      </td>
-
-                      <td className="px-[25px] pt-[5px] pb-[12px] border-r-[1px] border-[#ddd] ">
-                        <h4 className="text-[16px] font-[700] mt-[10px] mb-[5px] text-[#0665E4]">
-                          {state?.itineraryCard.departureTime}
-                        </h4>
-
-                        <div>
-                          <div className="text-[14px] font-[700] ">
-                            {state?.itineraryCard.departureAirportCity}{" "}
-                            {state?.itineraryCard.departureAirportCode}
-                          </div>
-                          <div className="text-[12px] font-[500] text-[#647286] ">
-                            {state?.itineraryCard.departureAirportLocation}
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-[25px] pt-[5px] pb-[12px] border-r-[1px] border-[#ddd] ">
-                        <h4 className="text-[16px] font-[700] mt-[10px] mb-[5px] text-[#0665E4]">
-                          {state?.itineraryCard.arrivalTime}
-                        </h4>
-
-                        <div>
-                          <div className="text-[14px] font-[700] ">
-                            {state?.itineraryCard.arrivalAirportCity}{" "}
-                            {state?.itineraryCard.arrivalAirportCode}
-                          </div>
-                          <div className="text-[12px] font-[500] text-[#647286] ">
-                            {state?.itineraryCard.arrivalAirportLocation}
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-[25px] pt-[5px] pb-[12px] text-[16px] font-[900]">
-                        <h4>{state?.itineraryCard.travelDuration}</h4>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div
-                  onClick={() => dispatch({ type: "economy" })}
-                  className="pt-[20px] px-[15px] cursor-pointer  border-b-[1px] border-l-[1px] border-r-[1px]  w-[927.78px] flex justify-end "
-                >
-                  <div className="text-white mb-[15px] bg-[#E81932] rounded-[5px] font-[700] text-[14px] w-[165.5px] h-[48px] flex items-center justify-center  ">
-                    <p>Show prices</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Itinerary item={item} showPrices={true} />
           )}
           {showEconomy.id === i && state?.economy?.id1 && (
             <div className="p-[15px] bg-white mb-[15px] shadow-md">
-              <EconomyCardContainer />
+              <EconomyCardContainer item={item} />
             </div>
           )}
           {showBusiness.id === i && state?.business?.id1 && (
             <div className="p-[15px] bg-white mb-[15px] shadow-md">
-              <BusinessCardContainer />
+              <BusinessCardContainer item={item} />
             </div>
           )}
         </div>

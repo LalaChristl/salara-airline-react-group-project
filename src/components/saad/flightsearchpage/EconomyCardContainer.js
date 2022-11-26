@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { RiShoppingBagFill } from "react-icons/ri";
 import { MdLuggage } from "react-icons/md";
 import { MdRoomService } from "react-icons/md";
@@ -8,7 +8,13 @@ import { IoMdCloseCircle } from "react-icons/io";
 import { GoStar } from "react-icons/go";
 import { IoMdInformationCircle } from "react-icons/io";
 
-const EconomyCardContainer = () => {
+import { useNavigate } from "react-router-dom";
+import { Context } from "../../context/Context";
+
+const EconomyCardContainer = ({ item }) => {
+  const { state, dispatch } = useContext(Context);
+
+  const navigate = useNavigate();
   return (
     <div className="business-class-card flex justify-center gap-2">
       {/* EcoFly */}
@@ -56,7 +62,13 @@ const EconomyCardContainer = () => {
             <li className="flex gap-2 items-center border-t px-[12px] border-gray-300 h-[37px] text-[12px]"></li>
           </ul>
         </div>
-        <div className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer ">
+        <div
+          onClick={() => {
+            dispatch({ type: "selectedflightobject", payload: item });
+            navigate("/selectflight");
+          }}
+          className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer "
+        >
           <p className="h-[39px]  text-[14px] font-[500]  flex items-center">
             Select this flight
           </p>
@@ -131,7 +143,13 @@ const EconomyCardContainer = () => {
             {/* <li className="h-[17px] border border-gray-300"></li> */}
           </ul>
         </div>
-        <div className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer ">
+        <div
+          onClick={() => {
+            dispatch({ type: "selectedflightobject", payload: item });
+            navigate("/selectflight");
+          }}
+          className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer "
+        >
           <p className="h-[39px]  text-[14px] font-[500]  flex items-center">
             Select this flight
           </p>
@@ -218,7 +236,13 @@ const EconomyCardContainer = () => {
             {/* <li className="h-[17px] border border-gray-300"></li> */}
           </ul>
         </div>
-        <div className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer ">
+        <div
+          onClick={() => {
+            dispatch({ type: "selectedflightobject", payload: item });
+            navigate("/selectflight");
+          }}
+          className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer "
+        >
           <p className="h-[39px]  text-[14px] font-[500]  flex items-center">
             Select this flight
           </p>
