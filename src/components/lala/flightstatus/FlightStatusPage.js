@@ -6,6 +6,7 @@ import { AiFillWarning } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import {data} from '../../data/Data';
 import { Context } from "../../context/Context";
+import BoardingPass from "../boarding pass/BoardingPass";
 
 const FlightStatusPage = () => {
 
@@ -19,6 +20,8 @@ const FlightStatusPage = () => {
     return (
     <div>
       <Header />
+      <BoardingPass/>
+
       <div className="mx-auto w-[994px]">
         <div className="flex justify-center">
           <div className="flex justify-end  w-[1010px] px-[15px] gap-5 pt-[30px]">

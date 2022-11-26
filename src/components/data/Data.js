@@ -21,6 +21,8 @@ export const data = [
     departureAirport: 'Bremen Airport',
     departureAirportTerminal: "Terminal 1",
     departureAirportGateNumber: "B102",
+    departureBoardingTime: "08 : 55",
+
     departureAirportCode: "(BRE)",
     departureAirportCity: "BREMEN",
     departureAirportLocation: "Bremen, Germany",
@@ -79,6 +81,8 @@ export const data = [
     departureAirport: 'Bremen Airport',
     departureAirportTerminal: "Terminal 1",
     departureAirportGateNumber: "B105",
+    departureBoardingTime: "17 : 55",
+
     departureAirportCode: "(BRE)",
     departureAirportCity: "BREMEN",
     departureAirportLocation: "Bremen, Germany",
@@ -140,6 +144,7 @@ export const data = [
     departureAirport: 'Berlin Brandenburg Airport',
     departureAirportTerminal: "Terminal 2",
     departureAirportGateNumber: "102",
+    departureBoardingTime: "06 : 35",
     departureAirportCode: "(BER)",
     departureAirportCity: "BERLIN",
     departureAirportLocation: "Berlin, Germany",
@@ -198,6 +203,7 @@ export const data = [
     departureAirport: 'Berlin Brandenburg Airport',
     departureAirportTerminal: "Terminal 2",
     departureAirportGateNumber: "106",
+    departureBoardingTime: "10 : 45",
     departureAirportCode: "(BER)",
     departureAirportCity: "BERLIN",
     departureAirportLocation: "Berlin, Germany",
@@ -256,6 +262,8 @@ export const data = [
     departureAirport: 'Berlin Brandenburg Airport',
     departureAirportTerminal: "Terminal 2",
     departureAirportGateNumber: "109",
+    departureBoardingTime: "18 : 15",
+
     departureAirportCode: "(BER)",
     departureAirportCity: "BERLIN",
     departureAirportLocation: "Berlin, Germany",
