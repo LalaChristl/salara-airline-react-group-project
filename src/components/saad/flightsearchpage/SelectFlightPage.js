@@ -6,8 +6,15 @@ import { FiEdit } from "react-icons/fi";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { BsFillCircleFill } from "react-icons/bs";
+
 import Itinerary from "./Itinerary";
 import { MdArrowForwardIos } from "react-icons/md";
+import { HiOutlineChevronDoubleRight } from "react-icons/hi";
+import { TbMinusVertical } from "react-icons/tb";
+
+import { FaInfoCircle } from "react-icons/fa";
+
 import slctbtn from "../../images/slctbtn.png";
 
 const SelectFlightPage = () => {
@@ -19,7 +26,7 @@ const SelectFlightPage = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <SearchNav />
+      <SearchNav selected={true} />
       <div className="px-[15px] pt-[30px] pb-[5px] w-[1024px] mx-auto mb-[20px] ">
         <div className="flex items-center gap-3 mb-[10px]">
           <p className="bg-[#E81932] text-[#FFFFFF] text-[14px] pt-[7px] text-center pb-[5px] w-[222.23px] font-[700] leading-[15px] ">
@@ -106,8 +113,8 @@ const SelectFlightPage = () => {
               }}
               className=" border-l border-r  border-gray-300 py-[17px] w-[241.04px] justify-center flex items-center gap-2 text-[12px] font-[700] "
             >
-              <p>ECONOMY</p>
-              <p>ExtraFly</p>
+              <p>{state?.selectedflightobject?.fareCode.toUpperCase()}</p>
+              <p>{state?.selectedflightobject?.economyType?.EcoFly}</p>
             </div>
           </div>
           <div
@@ -134,14 +141,14 @@ const SelectFlightPage = () => {
         )}
       </div>
 
-      <div className="px-[15px]  pb-[5px] w-[1024px] mx-auto mb-[20px] flex gap-[10px] ">
+      <div className="px-[15px]  pb-[5px] w-[1024px] bg-[#f9f9f9] mx-auto mb-[20px] flex gap-[10px] ">
         <div>
           <img
             src="https://cdn.turkishairlines.com/m/717eafaa0fc3c36a/original/Ekstra-koltuk-guncel-gorsel.jpg"
             alt=""
           />
         </div>
-        <div className="py-[10px] w-[689.4px] pl-[20px] bg-[#f9f9f9]">
+        <div className="py-[10px] w-[689.4px] pl-[20px] ">
           <h4 className="text-[16px] font-[700]">
             More personal space with the extra seat
           </h4>
@@ -170,7 +177,7 @@ const SelectFlightPage = () => {
           <div className="h-[39.7px] flex items-center justify-between">
             <div className="flex items-center gap-2 text-[#E2001B]">
               <p className="text-[14px] font-[700]">Terms and Conditions</p>
-              <MdArrowForwardIos />
+              <HiOutlineChevronDoubleRight />
             </div>
             <div>
               <img src={slctbtn} alt="" />
@@ -179,44 +186,62 @@ const SelectFlightPage = () => {
         </div>
       </div>
 
-      <div className="h-[88px] bg-[#232B38] text-white flex items-center justify-center  ">
-        <div className="w-[426.66px] px-[15px]">
-          <p>Departure</p>
+      {/* FOOTER */}
+
+      <div className="absolute bottom-0 w-screen">
+        <div className="h-[88px] bg-[#232B38] w-full text-white flex items-center justify-center  ">
           <div className="flex items-center ">
-            <p>BRE-IST</p>
-            <p>.</p>
-            <p>15 Dec Thu</p>
-          </div>
-          <div className="flex items-center">
-            <div className="flex items-center">
-              <p>Departure</p>
-              <p>18:15</p>
+            <div className="w-[426.66px] px-[15px]">
+              <p className="text-[14.67px] font-[700] mb-[10px]">Departure</p>
+              <div className="flex items-center gap-2 text-[12px] font-[500] ">
+                <p>BRE - IST</p>
+                <BsFillCircleFill className="w-[5.16px] h-[6px]" />
+                <p>15 Dec Thu</p>
+              </div>
+              <div className="flex items-center text-[12px] font-[500]">
+                <div className="flex items-center gap-1">
+                  <p>Departure</p>
+                  <p>18:15</p>
+                </div>
+                <TbMinusVertical />
+                <div className="flex items-center gap-1">
+                  <p>Arrival</p>
+                  <p>23:20</p>
+                </div>
+              </div>
             </div>
-            <span>|</span>
-            <div className="flex items-center">
-              <p>Arrival</p>
-              <p>23:20</p>
+            <div className="w-[170.66px] flex">
+              <div className="flex items-center w-[150.66px] ">
+                <span className="w-[30px] h-[20px] rounded-sm border-[#A9A9A9] mr-[18px] border-[2px]"></span>
+                <p className="text-[12px] font-[300] ">
+                  <span className="text-[#E81932]">Hold the price</span> for 20
+                  EUR and pay later.
+                </p>
+              </div>
+              <FaInfoCircle className="w-[17.72px] h-[17px]" />
+            </div>
+            <div className="w-[256.68px] float-right ">
+              <p className="text-[12px] font-[500] text-right">
+                Total price for 1 passenger
+              </p>
+              <div className="flex items-center gap-2 justify-end">
+                <div className="text-[12px] font-[500]">
+                  <p className="h-[12px]">EUR</p>
+                  <p>Euro</p>
+                </div>
+                <p className="text-[22px] font-[700]">329.42</p>
+              </div>
+            </div>
+            <div
+              onClick={() => navigate("/seatselection")}
+              className="px-[15px]"
+            >
+              <div className="bg-[#E81932] px-[12px] py-[6px] rounded-[4px] w-[140.66px] h-[68px] flex items-center justify-between text-white ">
+                <p className="font-[700] text-[14px]">Continue</p>
+                <MdArrowForwardIos />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="w-[170.66px] flex">
-          <FaCheckCircle />
-          <p>Hold the price for 20 EUR and pay later.</p>
-          <FaCheckCircle />
-        </div>
-        <div className="w-[256.68px] ">
-          <p>Total price for 1 passenger</p>
-          <div className="flex items-center gap-2">
-            <div>
-              <p>EUR</p>
-              <p>Euro</p>
-            </div>
-            <p>329.42</p>
-          </div>
-        </div>
-        <div className="bg-[#E81932] px-[12px] py-[6px] rounded-[4px] w-[140.66px] h-[68px] flex items-center justify-between text-white">
-          <p className="font-[700] text-[14px]">Continue</p>
-          <MdArrowForwardIos />
         </div>
       </div>
     </div>

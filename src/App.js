@@ -4,6 +4,7 @@ import "./App.css";
 import FlightSearchPage from "./components/saad/flightsearchpage/FlightSearchPage";
 import FlightStatusPage from "./components/lala/flightstatus/FlightStatusPage";
 import SelectFlightPage from "./components/saad/flightsearchpage/SelectFlightPage";
+import SeatSelection from "./components/saad/seatselection/SeatSelection";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/flightsearch" element={<FlightSearchPage />} />
       <Route path="/flightstatus" element={<FlightStatusPage />} />
       <Route path="/selectflight" element={<SelectFlightPage />} />
+      <Route path="/seatselection" element={<SeatSelection />} />
     </Routes>
   );
 }
