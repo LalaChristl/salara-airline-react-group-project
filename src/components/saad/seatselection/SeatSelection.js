@@ -2,6 +2,10 @@ import React from "react";
 import additional from "../../images/additional.png";
 import SearchNav from "../../lala/header/SearchNav";
 import { FaInfoCircle } from "react-icons/fa";
+import { ExtraLegroom } from "./SingleSeat";
+import { ExitSeat } from "./SingleSeat";
+import { SelectedSeat } from "./SingleSeat";
+import { BabySeat } from "./SingleSeat";
 
 import Radio from "@mui/material/Radio";
 import SingleSeat from "./SingleSeat";
@@ -85,38 +89,26 @@ const SeatAllocationComponent = () => {
 
               <div className="w-[487px] h-[1748.83px] mt-[15px] px-[15px] flex flex-col items-center">
                 {/* Top Seat Types */}
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-2 flex-wrap text-[11px] font-[600] w-[320px] ">
-                    <div className="flex items-center gap-2 w-[118.57px]">
+                <div className="flex items-start justify-between gap-[30px]">
+                  <div className="flex items-center gap-2 flex-wrap text-[11px] font-[600] w-[330px] ">
+                    <div className="flex  gap-2 w-[110.57px]">
                       <SingleSeat />
                       <p>Standard Seat</p>
                     </div>
-                    <div className="flex items-center gap-2 w-[118.57px]">
-                      <img
-                        src="https://www.turkishairlines.com/theme/img/additional-services-card/extra-legroom-seat.svg"
-                        alt=""
-                      />
+                    <div className="flex  gap-2 w-[118.57px]">
+                      <ExtraLegroom />
                       <p>Extra legroom seat</p>
                     </div>
-                    <div className="flex items-center gap-2 w-[59.29px]">
-                      <img
-                        src="https://www.turkishairlines.com/theme/img/additional-services-card/exit-seat.svg"
-                        alt=""
-                      />
+                    <div className="flex  gap-2 w-[75px]">
+                      <ExitSeat />
                       <p>Exit seat</p>
                     </div>
-                    <div className="flex items-center gap-2 w-[118.57px]">
-                      <img
-                        src="https://www.turkishairlines.com/theme/img/additional-services-card/full-seat.svg"
-                        alt=""
-                      />
+                    <div className="flex  gap-2 w-[110.57px]">
+                      <SelectedSeat />
                       <p>Selected seat</p>
                     </div>
-                    <div className="flex items-center gap-2 w-[118.57px]">
-                      <img
-                        src="https://www.turkishairlines.com/theme/img/additional-services-card/baby-bassinet-seat.svg"
-                        alt=""
-                      />
+                    <div className="flex  gap-2 w-[125.57px]">
+                      <BabySeat />
                       <p>Baby Bassinet seat</p>
                     </div>
                   </div>
@@ -127,8 +119,9 @@ const SeatAllocationComponent = () => {
                 </div>
 
                 {/* Seat Map */}
-                <div className="my-[50px] w-[434px] h-[1576px] flex justify-center">
-                  <div className="pt-[20px] w-[404px] h-[1435px] text-[14px] font-[600]">
+                <div className="my-[50px] w-[434px] h-[1576px] shadow-lg flex justify-center">
+                  <div className="pt-[20px] w-[404px] shadow-sm h-[1435px] text-[14px] font-[600]">
+                    {/* A B C D E F */}
                     <div>
                       <ul className="flex text-center">
                         <li className="w-[49px] h-[20px] "></li>
@@ -142,7 +135,173 @@ const SeatAllocationComponent = () => {
                       </ul>
                     </div>
 
-                    <SingleSeat />
+                    {/* Row 5 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          5
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <ExtraLegroom />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <BabySeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <ExtraLegroom />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <ExtraLegroom />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <BabySeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <ExtraLegroom />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 6 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          6
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                      </ul>
+                    </div>
+                    {/* Row 7 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          7
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                      </ul>
+                    </div>
+                    {/* Row 8 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          8
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 9 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          9
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SelectedSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Row 10 */}
+                    <div>
+                      <ul className="flex text-center ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                          10
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[40px] h-[57px] "></li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                          <SingleSeat />
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div></div>
                   </div>
                 </div>
               </div>
