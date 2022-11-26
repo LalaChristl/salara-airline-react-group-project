@@ -22,6 +22,7 @@ const ContextProvider = ({ children }) => {
     itineraryCard: {},
     flightNumber: "",
     flightDate: "",
+    selectedflightobject: {},
   };
 
   const reducer = (state, action) => {
@@ -59,6 +60,9 @@ const ContextProvider = ({ children }) => {
           startDate: action.startDate,
           endDate: action.endDate,
         };
+
+      case "selectedflightobject":
+        return { ...state, selectedflightobject: action.payload };
 
       case "departure":
         return { ...state, departure: action.payload };
