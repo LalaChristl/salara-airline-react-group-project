@@ -7,25 +7,25 @@ import { useEffect, useState } from "react";
 import {data} from '../../data/Data';
 import { Context } from "../../context/Context";
 
-const FlightStatusPage = (props) => {
+const FlightStatusPage = () => {
 
-    const [flight, setFlight] = useState({});
+
 
     const {state, dispatch} = useContext(Context);
-    console.log(state)
 
+    const filterSearch = data.filter(item => +item.flightNumber == +state?.flightNumber)[0];
 
-
-  return (
+    
+    return (
     <div>
       <Header />
       <div className="mx-auto w-[994px]">
         <div className="flex justify-center">
           <div className="flex justify-end  w-[1010px] px-[15px] gap-5 pt-[30px]">
-            <button>Refresh</button>
+            <button className="border-2 py-[6px] px-[12px] text-[14px] font-[700] rounded-md h-[34px]">Refresh</button>
             <div>
-              <p>Last updated</p>
-              <p>11:00</p>
+              <p className="text-[14px] font-[600]">Last updated</p>
+              <p className="text-[19px] font-[600] text-right">11:00</p>
             </div>
           </div>
         </div>
@@ -41,7 +41,8 @@ const FlightStatusPage = (props) => {
               </div>
               <div className=" flex justify-between mt-[.5rem]">
                 <p className=" w-[768px] text-[36px] font-[100] ">
-                  TK{state?.flightNumber} | Istanbul to Hamburg Monday, November 21
+                  TK{state?.flightNumber} |  {filterSearch?.departureAirportCity.slice(0,1)}{filterSearch?.departureAirportCity.slice(1).toLowerCase()} to {}
+                  {filterSearch?.arrivalAirportCity.slice(0,1)}{filterSearch?.arrivalAirportCity.slice(1).toLowerCase()} {state?.flightDate}
                 </p>
                 <p className="text-[20px] text-[#53C172] font-bold">Landed</p>
               </div>
@@ -50,7 +51,7 @@ const FlightStatusPage = (props) => {
             <div className="fs-middle w-[994px] p-[8px] h-[42px] flex items-center bg-[#F5F5F5] border border-[#E6E6E6]">
               <div className="ml-[85px]">
                 <p className="text-[14px] font-normal text-[#808080]">
-                  Scheduled for 09:10
+                  Scheduled for {filterSearch?.departureTime}
                 </p>
               </div>
               <div>
@@ -58,31 +59,31 @@ const FlightStatusPage = (props) => {
               </div>
               <div>
                 <p className="text-[14px] font-normal  text-[#808080]">
-                  Scheduled for 10:35
+                  Scheduled for {filterSearch?.arrivalTime}
                 </p>
               </div>
             </div>
             <div className="fs-bottom h-[109px] border border-[#E6E6E6] flex items-center gap-3 ">
               <div className="mt-4">
-                <p className="text-[14px] font-normal ml-[130px] leading-3">
-                  Actual: 09:19
+                <p className="text-[14px] font-[600] ml-[125px] leading-3">
+                  Actual: {filterSearch?.actualDepartureTime}
                 </p>
                 <p className="text-[12px] text-[#C8C8C8] flex justify-end">
-                  Istanbul (IST)
+                {filterSearch?.departureAirportCity.slice(0,1)}{filterSearch?.departureAirportCity.slice(1).toLowerCase()} {filterSearch?.departureAirportCode}
                 </p>
               </div>
               <div className="flex flex-col items-center">
                 <img className="z-5" src={GreenLine} alt="" />
                 <div className="h-[44px] w-[157px] bg-[#CCFFCC] flex justify-center">
-                  <p className="text-[14px] font-normal">3h 22m</p>
+                  <p className="text-[14px] font-normal">{filterSearch?.travelDuration}</p>
                 </div>
               </div>
 
               <div className="mt-4">
-                <p className="text-[14px] font-normal leading-3">
-                  Actual: 10:41
+                <p className="text-[14px] font-[600] leading-3">
+                  Actual: {filterSearch?.actualArrivalTime}
                 </p>
-                <p className="text-[12px] text-[#C8C8C8]">Hamburg (HAM)</p>
+                <p className="text-[12px] text-[#C8C8C8]">{filterSearch?.arrivalAirportCity.slice(0,1)}{filterSearch?.arrivalAirportCity.slice(1).toLowerCase()} {filterSearch?.arrivalAirportCode}</p>
               </div>
             </div>
           </div>
@@ -112,7 +113,7 @@ const FlightStatusPage = (props) => {
               <tr className="border-b-[1px] border-[#ddd] ">
                 <td className="px-[15px] pt-[5px] pb-[12px] border-r-[1px] border-[#ddd] flex flex-col ">
                   <div className="flex items-center my-[10px] gap-1 font-[700] text-[16px]">
-                    <h4>TK1334</h4>
+                    <h4>TK{state?.flightNumber}</h4>
                   </div>
 
                   <div className="font-[700] text-[14px] text-[#647286]">
@@ -138,23 +139,23 @@ const FlightStatusPage = (props) => {
                 </td>
                 <td className="px-[15px] pt-[5px] pb-[12px] border-r-[1px] border-[#ddd] ">
                   <h4 className="text-[16px] font-[700] mt-[10px] mb-[5px] text-[#0665E4]">
-                    18:15
+                  {filterSearch?.actualDepartureTime}
                   </h4>
                   <h5 className="text-[12px] font-[500]  mb-[15px]">
-                    Scheduled for: 09:10
+                    Scheduled for: {filterSearch?.departureTime}
                   </h5>
 
                   <div>
                     <div className="text-[14px] font-[700] ">
-                      Istanbul, Türkiye
+                      {filterSearch?.departureAirportLocation}
                     </div>
                     <div className="text-[12px] font-[500] text-[#647286] ">
-                      Istanbul Airport (IST)
+                      {filterSearch?.departureAirport} {filterSearch?.departureAirportCode}
                     </div>
                     <div className="text-[11px] font-[700]">
-                      TERMINAL International / Dış Hatlar
+                      TERMINAL {filterSearch?.departureAirportTerminal}
                     </div>
-                    <div className="text-[11px] font-[700]">Gate no: A6</div>
+                    <div className="text-[11px] font-[700]">Gate no: {filterSearch?.departureAirportGateNumber}</div>
                     <div className="text-[11px] font-[700] flex items-center gap-1">
                       <AiFillWarning className=" text-red-500" />
                       <p>
@@ -166,28 +167,28 @@ const FlightStatusPage = (props) => {
                 </td>
                 <td className="px-[15px] pt-[5px] pb-[12px]  border-[#ddd] flex flex-col  ">
                   <h4 className="text-[16px] font-[700] mt-[10px] mb-[5px] text-[#0665E4]">
-                    18:15
+                  {filterSearch?.actualArrivalTime}
                   </h4>
                   <h5 className="text-[12px] font-[500]  mb-[15px]">
-                    Scheduled for: 09:10
+                    Scheduled for: {filterSearch?.arrivalTime}
                   </h5>
 
                   <div>
                     <div className="text-[14px] font-[700] ">
-                      Istanbul, Türkiye
+                      {filterSearch?.arrivalAirportLocation}
                     </div>
                     <div className="text-[12px] font-[500] text-[#647286] ">
-                      Istanbul Airport (IST)
+                      {filterSearch?.arrivalAirport} {filterSearch?.arrivalAirportCode}
                     </div>
                     <div className="text-[11px] font-[700]">
-                      TERMINAL International / Dış Hatlar
+                      TERMINAL {filterSearch?.arrivalAirportTerminal}
                     </div>
                   </div>
                 </td>
 
                 <td className=" pt-[5px] pb-[12px] text-[16px] font-[900] px-0 relative border-[.5px]">
                   <div className="absolute top-[1rem]  left-[2.2rem]  ">
-                    <h4>3h 5m</h4>
+                    <h4>{filterSearch?.travelDuration}</h4>
                   </div>
 
                   <tr className="bg-[#647286] text-white font-[500] w-full text-[12px] h-[34.22px]  ">
@@ -196,7 +197,7 @@ const FlightStatusPage = (props) => {
                     </th>
                   </tr>
                   <h4 className="absolute top-[7rem] left-[1.8rem] text-center">
-                    <p>1960 km</p>
+                    <p>{filterSearch?.totalTravelDistance} {filterSearch?.totalTravelDistanceUnits}</p>
                   </h4>
                 </td>
               </tr>
