@@ -35,7 +35,7 @@ const SeatAllocationComponent = () => {
   const selectedSeat =
     "w-[49px] h-[57px] flex items-center justify-center cursor-not-allowed  ";
 
-  console.log(state?.seatNumber, state?.seatPrice, state?.seatType);
+  // console.log(state?.seatNumber, state?.seatPrice, state?.seatType);
 
   return (
     <div>
@@ -102,7 +102,9 @@ const SeatAllocationComponent = () => {
                       />
                       <div className="pr-[15px]">
                         <p className="text-[13px]">1 Passenger</p>
-                        <p className="text-[12px] font-[600]">Saad Malik</p>
+                        <p className="text-[12px] font-[600]">
+                          {state?.passengerFirstName} {state?.passengerLastName}
+                        </p>
                         <p className="text-[11px] ">Adult</p>
                       </div>
                     </div>
@@ -233,7 +235,10 @@ const SeatAllocationComponent = () => {
                             }}
                             className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[3.4rem] top-2"
                           >
-                            <p>SM</p>
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
                           </div>
                         )}
                         <li
@@ -288,7 +293,10 @@ const SeatAllocationComponent = () => {
                             }}
                             className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[6.4rem] top-2"
                           >
-                            <p>SM</p>
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
                           </div>
                         )}
                         <li
