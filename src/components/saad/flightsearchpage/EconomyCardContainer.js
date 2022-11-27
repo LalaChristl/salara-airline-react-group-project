@@ -27,7 +27,9 @@ const EconomyCardContainer = ({ item }) => {
           <div className="flex justify-center items-center">
             <div className="price font-[700]">
               <sup className="pr-[6px] text-[13.2px]">EUR</sup>
-              <span className="text-[24px]">199</span>
+              <span className="text-[24px]">
+                {state?.selectedflightobject?.ecoFlyPrice}
+              </span>
               <sup className="text-[13.2px]">,48</sup>
             </div>
           </div>
@@ -64,7 +66,17 @@ const EconomyCardContainer = ({ item }) => {
         </div>
         <div
           onClick={() => {
-            dispatch({ type: "selectedflightobject", payload: item });
+            dispatch({
+              type: "selectedflightobject",
+              payload: item,
+            });
+
+            dispatch({
+              type: "selectedClassPrice",
+              selectedPrice: state?.selectedflightobject?.ecoFlyPrice,
+              selectedType: "EcoFly",
+              selectedClass: "ECONOMY",
+            });
             navigate("/selectflight");
           }}
           className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer "
@@ -89,7 +101,9 @@ const EconomyCardContainer = ({ item }) => {
             </div>
             <div className="price font-[700]">
               <sup className="pr-[6px] text-[13.2px]">EUR</sup>
-              <span className="text-[24px]">214</span>
+              <span className="text-[24px]">
+                {state?.selectedflightobject?.extraFlyPrice}
+              </span>
               <sup className="text-[13.2px]">,48</sup>
             </div>
           </div>
@@ -146,6 +160,12 @@ const EconomyCardContainer = ({ item }) => {
         <div
           onClick={() => {
             dispatch({ type: "selectedflightobject", payload: item });
+            dispatch({
+              type: "selectedClassPrice",
+              selectedPrice: state?.selectedflightobject?.extraFlyPrice,
+              selectedType: "ExtraFly",
+              selectedClass: "ECONOMY",
+            });
             navigate("/selectflight");
           }}
           className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer "
@@ -167,7 +187,9 @@ const EconomyCardContainer = ({ item }) => {
           <div className="flex justify-center items-center">
             <div className="price font-[700]">
               <sup className="pr-[6px] text-[13.2px]">EUR</sup>
-              <span className="text-[24px]">244</span>
+              <span className="text-[24px]">
+                {state?.selectedflightobject?.primeFlyPrice}
+              </span>
               <sup className="text-[13.2px]">,48</sup>
             </div>
           </div>
@@ -239,6 +261,12 @@ const EconomyCardContainer = ({ item }) => {
         <div
           onClick={() => {
             dispatch({ type: "selectedflightobject", payload: item });
+            dispatch({
+              type: "selectedClassPrice",
+              selectedPrice: state?.selectedflightobject?.primeFlyPrice,
+              selectedType: "PrimeFly",
+              selectedClass: "ECONOMY",
+            });
             navigate("/selectflight");
           }}
           className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer "
