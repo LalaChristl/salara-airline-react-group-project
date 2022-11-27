@@ -66,23 +66,23 @@ const BoardingPass = () => {
           </div>
           <div className="absolute top-3 left-[11rem] font-[600]">NAME: {state?.passengerFirstName.toUpperCase()} {state?.passengerLastName.toUpperCase()}</div>
           <div className="flex gap-[1.4rem] absolute top-9 right-[8.7rem]">
-            <p>TK {filterSearch?.flightNumber}</p>
+            <p>TK {state?.selectedflightobject?.flightNumber}</p>
             <p>{state?.flightDate}</p>
-            <p>{filterSearch?.departureTime}</p>
-            <p>{filterSearch?.departureAirportCode}</p>
-            <p>{filterSearch?.arrivalAirportCode}</p>
+            <p>{state?.selectedflightobject?.departureTime}</p>
+            <p>{state?.selectedflightobject?.departureAirportCode}</p>
+            <p>{state?.selectedflightobject?.arrivalAirportCode}</p>
           </div>
           <div className="border-2 border-black h-[80px] w-[100px] flex justify-center items-center flex-col absolute top-20 left-[10.5rem]">
             <p className="text-[12px]">GATE/KAPI</p>
             <p className="text-[28px] font-[600]">
-              {filterSearch?.departureAirportGateNumber}
+              {state?.selectedflightobject?.departureAirportGateNumber}
             </p>
           </div>
           <div className="border-2 border-black h-[80px] w-[150px] flex justify-center items-center flex-col absolute top-20 left-[19rem]">
             <p className="text-[12px]">BOARDING TIME</p>
             <p className="text-[12px]">BINIS SAATI</p>
             <p className="text-[28px] font-[600]">
-              {filterSearch?.departureBoardingTime}
+              {state?.selectedflightobject?.departureBoardingTime}
             </p>
           </div>
           <div className="border-2 border-black h-[80px] w-[100px] flex justify-center items-center flex-col absolute top-20 left-[30.7rem]">
@@ -91,7 +91,7 @@ const BoardingPass = () => {
           </div>
           <div className="text-[28px] font-[600] absolute top-[11rem] left-[19.5rem]">
             <p className="tracking-widest">
-              {filterSearch?.arrivalAirportCity}
+              {state?.selectedflightobject?.arrivalAirportCity}
             </p>
           </div>
           <div className="flex ">
@@ -106,7 +106,7 @@ const BoardingPass = () => {
             <p>NO:083</p>
             <p>BAG:0/0</p>
             <p>AGT: SR/P</p>
-            <p>0:TK{filterSearch?.flightNumber}</p>
+            <p>0:TK{state?.selectedflightobject?.flightNumber}</p>
           </div>
           <div className="absolute top-[18rem] left-[10.2rem] text-[10px]">
             <p>
@@ -131,11 +131,11 @@ const BoardingPass = () => {
             </div>
             <div className="absolute top-[3.5rem] left-[43rem] w-[10rem]">
               <p className="text-[10px] font-[700]">FROM / NEREDEN</p>
-              <p>{filterSearch?.departureAirportCity}</p>
+              <p>{state?.selectedflightobject?.departureAirportCity}</p>
             </div>
             <div className="absolute top-[6rem] left-[43rem]">
               <p className="text-[10px] font-[700]">TO / NEREYE</p>
-              <p>{filterSearch?.arrivalAirportCity}</p>
+              <p>{state?.selectedflightobject?.arrivalAirportCity}</p>
             </div>
             <div className="flex gap-3 absolute top-[9.5rem] left-[43rem]">
               <p className="text-[10px] font-[600]">FLIGHT</p>
@@ -151,10 +151,10 @@ const BoardingPass = () => {
             </div>
             <div className="flex gap-2 absolute top-[11rem] left-[43rem] font-[600] w-[15rem]">
               <p>TK</p>
-              <p>{filterSearch?.flightNumber}</p>
+              <p>{state?.selectedflightobject?.flightNumber}</p>
               <p>Y</p>
               <p>{state?.firstDate}</p>
-            <p>{filterSearch?.departureTime}</p>
+            <p>{state?.selectedflightobject?.departureTime}</p>
             </div>
             <div>
               <div className="border-2 border-black h-[60px] w-[90px] flex justify-center items-center gap-2 absolute top-[12.5rem] left-[43rem]">
