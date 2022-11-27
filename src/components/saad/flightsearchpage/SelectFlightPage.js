@@ -22,7 +22,7 @@ const SelectFlightPage = () => {
 
   const [showItinerary, setShowItinerary] = useState(false);
 
-  //   console.log(state?.selectedflightobject);
+  console.log(state);
   const navigate = useNavigate();
   return (
     <div>
@@ -113,8 +113,8 @@ const SelectFlightPage = () => {
               }}
               className=" border-l border-r  border-gray-300 py-[17px] w-[241.04px] justify-center flex items-center gap-2 text-[12px] font-[700] "
             >
-              <p>{state?.selectedflightobject?.fareCode.toUpperCase()}</p>
-              <p>{state?.selectedflightobject?.economyType?.EcoFly}</p>
+              <p>{state?.selectedClass}</p>
+              <p>{state?.selectedType}</p>
             </div>
           </div>
           <div
@@ -188,25 +188,34 @@ const SelectFlightPage = () => {
 
       {/* FOOTER */}
 
-      <div className="absolute bottom-0 w-screen">
+      <div className="fixed bottom-0 w-screen">
         <div className="h-[88px] bg-[#232B38] w-full text-white flex items-center justify-center  ">
           <div className="flex items-center ">
             <div className="w-[426.66px] px-[15px]">
               <p className="text-[14.67px] font-[700] mb-[10px]">Departure</p>
               <div className="flex items-center gap-2 text-[12px] font-[500] ">
-                <p>BRE - IST</p>
+                <p>
+                  {state?.selectedflightobject?.departureAirportCity.slice(
+                    0,
+                    3
+                  )}
+                  -{" "}
+                  {state?.selectedflightobject?.arrivalAirportCity.slice(0, 3)}
+                </p>
                 <BsFillCircleFill className="w-[5.16px] h-[6px]" />
-                <p>15 Dec Thu</p>
+                <p>
+                  {state?.firstDateDay.slice(0, 3)}, {state?.firstDate}
+                </p>
               </div>
-              <div className="flex items-center text-[12px] font-[500]">
+              <div className="flex items-center text-[12px] gap-1 font-[500]">
                 <div className="flex items-center gap-1">
                   <p>Departure</p>
-                  <p>18:15</p>
+                  <p>{state?.selectedflightobject?.departureTime}</p>
                 </div>
                 <TbMinusVertical />
                 <div className="flex items-center gap-1">
                   <p>Arrival</p>
-                  <p>23:20</p>
+                  <p>{state?.selectedflightobject?.arrivalTime}</p>
                 </div>
               </div>
             </div>
@@ -229,12 +238,14 @@ const SelectFlightPage = () => {
                   <p className="h-[12px]">EUR</p>
                   <p>Euro</p>
                 </div>
-                <p className="text-[22px] font-[700]">329.42</p>
+                <p className="text-[22px] font-[700]">
+                  {state?.selectedPrice}.42
+                </p>
               </div>
             </div>
             <div
               onClick={() => navigate("/seatselection")}
-              className="px-[15px]"
+              className="px-[15px] cursor-pointer"
             >
               <div className="bg-[#E81932] px-[12px] py-[6px] rounded-[4px] w-[140.66px] h-[68px] flex items-center justify-between text-white ">
                 <p className="font-[700] text-[14px]">Continue</p>
