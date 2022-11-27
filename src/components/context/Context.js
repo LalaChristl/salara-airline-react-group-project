@@ -28,8 +28,10 @@ const ContextProvider = ({ children }) => {
     selectedClass: "",
 
     seatNumber: "",
+    seatNumberDisplay: "",
     seatType: "",
     seatPrice: "",
+    seatPriceDisplay: "0",
     passengerName: "Saad Malik",
   };
 
@@ -89,6 +91,12 @@ const ContextProvider = ({ children }) => {
           seatNumber: action.seatNumber,
           seatPrice: action.seatPrice,
           seatType: action.seatType,
+        };
+      case "seatNumberDisplay":
+        return {
+          ...state,
+          seatNumberDisplay: action.seatNumber,
+          seatPriceDisplay: action.seatPrice,
         };
 
       case "departure":

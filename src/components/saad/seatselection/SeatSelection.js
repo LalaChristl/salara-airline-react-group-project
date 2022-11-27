@@ -21,6 +21,7 @@ const SeatAllocationComponent = () => {
   const { state, dispatch } = useContext(Context);
 
   const [showSeat, setShowSeat] = useState(true);
+  const [showName, setShowName] = useState(true);
 
   const navigate = useNavigate();
   const [selectedValue, setSelectedValue] = React.useState("a");
@@ -110,13 +111,13 @@ const SeatAllocationComponent = () => {
                         Seat Number
                       </p>
                       <p className="text-[12px] font-[600]">
-                        {state?.seatNumber}
+                        {state?.seatNumberDisplay}
                       </p>
                     </div>
                     <div>
                       <p className="text-[#7C8799] font-[600]">Price</p>
                       <p className="font-[600] text-[12px]">
-                        EUR {state?.seatPrice},00
+                        EUR {state?.seatPriceDisplay},00
                       </p>
                     </div>
                   </div>
@@ -194,6 +195,16 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            // setShowSeat(false);
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "05A",
+
+                              seatPrice: 38,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <ExtraLegroom />
@@ -209,6 +220,22 @@ const SeatAllocationComponent = () => {
                             <SeatInfoCard />
                           )}
                         </div>
+                        {showName && state?.seatNumberDisplay === "05A" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[3.4rem] top-2"
+                          >
+                            <p>SM</p>
+                          </div>
+                        )}
                         <li
                           onMouseEnter={() => {
                             setShowSeat(true);
@@ -221,6 +248,16 @@ const SeatAllocationComponent = () => {
                           }}
                           onMouseLeave={() => {
                             setShowSeat(false);
+                          }}
+                          onClick={() => {
+                            // setShowSeat(false);
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "05B",
+
+                              seatPrice: 38,
+                            });
                           }}
                           className={seatClass}
                         >
@@ -238,6 +275,22 @@ const SeatAllocationComponent = () => {
                             <SeatInfoCard />
                           )}
                         </div>
+                        {showName && state?.seatNumberDisplay === "05B" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[6.4rem] top-2"
+                          >
+                            <p>SM</p>
+                          </div>
+                        )}
                         <li
                           onMouseEnter={() => {
                             setShowSeat(true);
@@ -250,6 +303,15 @@ const SeatAllocationComponent = () => {
                           }}
                           onMouseLeave={() => {
                             setShowSeat(false);
+                          }}
+                          onClick={() => {
+                            setShowSeat(false);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "05C",
+
+                              seatPrice: 38,
+                            });
                           }}
                           className={seatClass}
                         >
@@ -281,6 +343,15 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowSeat(false);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "05D",
+
+                              seatPrice: 38,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <ExtraLegroom />
@@ -308,6 +379,15 @@ const SeatAllocationComponent = () => {
                           }}
                           onMouseLeave={() => {
                             setShowSeat(false);
+                          }}
+                          onClick={() => {
+                            setShowSeat(false);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "05E",
+
+                              seatPrice: 38,
+                            });
                           }}
                           className={seatClass}
                         >
@@ -337,6 +417,15 @@ const SeatAllocationComponent = () => {
                           }}
                           onMouseLeave={() => {
                             setShowSeat(false);
+                          }}
+                          onClick={() => {
+                            setShowSeat(false);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "05F",
+
+                              seatPrice: 38,
+                            });
                           }}
                           className={seatClass}
                         >
@@ -384,6 +473,15 @@ const SeatAllocationComponent = () => {
                           }}
                           onMouseLeave={() => {
                             setShowSeat(false);
+                          }}
+                          onClick={() => {
+                            setShowSeat(false);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "06D",
+
+                              seatPrice: 0,
+                            });
                           }}
                           className={seatClass}
                         >
