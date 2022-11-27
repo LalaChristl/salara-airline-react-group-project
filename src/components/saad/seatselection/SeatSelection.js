@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import additional from "../../images/additional.png";
 import SearchNav from "../../lala/header/SearchNav";
 import { FaInfoCircle } from "react-icons/fa";
@@ -15,9 +15,12 @@ import { BsFillCircleFill } from "react-icons/bs";
 import Radio from "@mui/material/Radio";
 import SingleSeat from "./SingleSeat";
 import { Context } from "../../context/Context";
+import SeatInfoCard from "./SeatInfoCard";
 
 const SeatAllocationComponent = () => {
   const { state, dispatch } = useContext(Context);
+
+  const [showSeat, setShowSeat] = useState(true);
 
   const navigate = useNavigate();
   const [selectedValue, setSelectedValue] = React.useState("a");
@@ -25,6 +28,14 @@ const SeatAllocationComponent = () => {
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
+
+  const seatClass =
+    "w-[49px] h-[57px] flex items-center justify-center cursor-pointer  hover:scale-125  ";
+  const selectedSeat =
+    "w-[49px] h-[57px] flex items-center justify-center cursor-not-allowed  ";
+
+  console.log(state?.seatNumber, state?.seatPrice, state?.seatType);
+
   return (
     <div>
       <SearchNav selected={false} passenger={false} additional={true} />
@@ -158,27 +169,87 @@ const SeatAllocationComponent = () => {
 
                     {/* Row 5 */}
                     <div>
-                      <ul className="flex text-center ">
-                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                      <ul className="flex text-center relative ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
                           5
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(!showSeat);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "05A",
+                              seatType: "Extra legroom seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <ExtraLegroom />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.35rem] shadow "
+                        >
+                          {showSeat && <SeatInfoCard />}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(!showSeat);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "05B",
+                              seatType: "Baby Bassinet seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <BabySeat />
+                          {/* <div
+                            style={{
+                              clipPath:
+                                "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                            }}
+                            className="absolute top-[-8.3rem] shadow "
+                          >
+                            {showSeat && <SeatInfoCard />}
+                          </div> */}
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(!showSeat);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "05C",
+                              seatType: "Extra legroom seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <ExtraLegroom />
                         </li>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={seatClass}>
                           <ExtraLegroom />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={seatClass}>
                           <BabySeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={seatClass}>
                           <ExtraLegroom />
                         </li>
                       </ul>
@@ -190,23 +261,23 @@ const SeatAllocationComponent = () => {
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           6
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={seatClass}>
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
                       </ul>
@@ -217,23 +288,23 @@ const SeatAllocationComponent = () => {
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           7
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={seatClass}>
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={seatClass}>
                           <SingleSeat />
                         </li>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={seatClass}>
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
                       </ul>
