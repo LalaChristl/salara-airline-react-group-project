@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import additional from "../../images/additional.png";
 import SearchNav from "../../lala/header/SearchNav";
 import { FaInfoCircle } from "react-icons/fa";
@@ -6,11 +6,20 @@ import { ExtraLegroom } from "./SingleSeat";
 import { ExitSeat } from "./SingleSeat";
 import { SelectedSeat } from "./SingleSeat";
 import { BabySeat } from "./SingleSeat";
+import { MdArrowForwardIos } from "react-icons/md";
+import { HiOutlineChevronDoubleRight } from "react-icons/hi";
+import { TbMinusVertical } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
+import { BsFillCircleFill } from "react-icons/bs";
 
 import Radio from "@mui/material/Radio";
 import SingleSeat from "./SingleSeat";
+import { Context } from "../../context/Context";
 
 const SeatAllocationComponent = () => {
+  const { state, dispatch } = useContext(Context);
+
+  const navigate = useNavigate();
   const [selectedValue, setSelectedValue] = React.useState("a");
 
   const handleChange = (event) => {
@@ -38,23 +47,35 @@ const SeatAllocationComponent = () => {
             <div className="flex">
               <div className="w-[487px] px-[15px] bg-[#F4F5F8] border-2 h-[305.44px] pb-[15px] mb-[15px]">
                 <div className="text-center mt-[20px] font-[600] mb-[30px]">
-                  Bremen - Istanbul Flight
+                  {state?.selectedflightobject?.departureAirportCity} -{" "}
+                  {state?.selectedflightobject?.arrivalAirportCity} Flight
                 </div>
                 <div className="bg-white mt-[5px] py-[15px] px-[20px] ">
                   <p className="font-[600] text-[#232B38]">1. Flight</p>
                   <div className="flex items-center gap-2 text-[11px] font-[600] mt-[5px]">
-                    <p>BREMEN (BRE)</p>
+                    <p>
+                      {state?.selectedflightobject?.departureAirportCity}{" "}
+                      {state?.selectedflightobject?.departureAirportCode}
+                    </p>
                     <div className="mx-[10px]">
                       <img
                         src="https://www.turkishairlines.com/theme/img/additional-services-card/plane-icon.svg"
                         alt=""
                       />
                     </div>
-                    <p>ISTANBUL (IST)</p>
+                    <p>
+                      {state?.selectedflightobject?.arrivalAirportCity}{" "}
+                      {state?.selectedflightobject?.arrivalAirportCode}
+                    </p>
                   </div>
                   <div className="flex items-center gap-2 font-[600] text-[14px] mt-[5px]">
-                    <p>Date</p>
-                    <p>Time</p>
+                    <p>
+                      {state?.firstDate.slice(3)} {state?.firstDate.slice(0, 3)}{" "}
+                      {state?.firstDateDay.slice(0, 3)}
+                    </p>
+                    <TbMinusVertical />
+                    <p>{state?.selectedflightobject?.departureTime}</p>
+                    <TbMinusVertical />
                     <p>1 Passenger</p>
                   </div>
                   <hr className="my-[15px]" />
@@ -798,6 +819,67 @@ const SeatAllocationComponent = () => {
                     {/* Row End */}
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* FOOTER */}
+
+      <div className="fixed bottom-0 w-screen">
+        <div className="h-[88px] bg-[#232B38] w-full text-white flex items-center justify-center  ">
+          <div className="flex items-center ">
+            <div className="w-[426.66px] px-[15px]">
+              <p className="text-[14.67px] font-[700] mb-[10px]">Departure</p>
+              <div className="flex items-center gap-2 text-[12px] font-[500] ">
+                <p>
+                  {state?.selectedflightobject?.departureAirportCity.slice(
+                    0,
+                    3
+                  )}
+                  -{" "}
+                  {state?.selectedflightobject?.arrivalAirportCity.slice(0, 3)}
+                </p>
+                <BsFillCircleFill className="w-[5.16px] h-[6px]" />
+                <p>
+                  {state?.firstDateDay.slice(0, 3)}, {state?.firstDate}
+                </p>
+              </div>
+              <div className="flex items-center text-[12px] gap-1 font-[500]">
+                <div className="flex items-center gap-1">
+                  <p>Departure</p>
+                  <p>{state?.selectedflightobject?.departureTime}</p>
+                </div>
+                <TbMinusVertical />
+                <div className="flex items-center gap-1">
+                  <p>Arrival</p>
+                  <p>{state?.selectedflightobject?.arrivalTime}</p>
+                </div>
+              </div>
+            </div>
+            <div className="w-[170.66px] flex"></div>
+            <div className="w-[256.68px] float-right ">
+              <p className="text-[12px] font-[500] text-right">
+                Total price for 1 passenger
+              </p>
+              <div className="flex items-center gap-2 justify-end">
+                <div className="text-[12px] font-[500]">
+                  <p className="h-[12px]">EUR</p>
+                  <p>Euro</p>
+                </div>
+                <p className="text-[22px] font-[700]">
+                  {state?.selectedPrice}.42
+                </p>
+              </div>
+            </div>
+            <div
+              onClick={() => navigate("/paymentpage")}
+              className="px-[15px] cursor-pointer"
+            >
+              <div className="bg-[#E81932] px-[12px] py-[6px] rounded-[4px] w-[140.66px] h-[68px] flex items-center justify-between text-white ">
+                <p className="font-[700] text-[14px]">Continue</p>
+                <MdArrowForwardIos />
               </div>
             </div>
           </div>

@@ -4,8 +4,10 @@ import plIcon from "../../images/pl-icon.ico";
 import user from "../../images/user.png";
 import ccard from "../../images/cc.jpg";
 import "../../rabi/styles/style.css";
+import { useNavigate } from "react-router-dom";
 
 const SearchNav = ({ selected }) => {
+  const navigate = useNavigate();
   return (
     <>
       <div
@@ -18,7 +20,8 @@ const SearchNav = ({ selected }) => {
         }}
       >
         <div
-          className="search-nav-logo"
+          onClick={() => navigate("/")}
+          className="search-nav-logo cursor-pointer"
           style={{ padding: "13px 25px 12px 14px" }}
         >
           <img

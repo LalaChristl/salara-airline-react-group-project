@@ -2,15 +2,27 @@ import React from "react";
 import logo from "../../images/logo.png";
 import { AiOutlineMore } from "react-icons/ai";
 import { FaUserAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const BottomNav = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-[#232B38] h-[60.14px] flex items-center justify-between">
-      <div className="ml-4 flex items-center gap-5">
-        <div>
-          <img className="h-[35px]" src={logo} alt="" />
+      <div className="ml-4 flex items-center gap-1">
+        <div
+          onClick={() => navigate("/")}
+          className="search-nav-logo cursor-pointer"
+          style={{ padding: "13px 5px 12px 14px" }}
+        >
+          <img
+            className="search-nav-img w-[35px] h-[35px]"
+            src="https://www.turkishairlines.com/theme/img/logo-top-white-small-current.png"
+            alt=""
+          />
         </div>
-        <h4 className="text-[#FFFFFF] text-[25px]">SALARA AIRLINES</h4>
+        <h4 className="text-[#FFFFFF] text-[22px] font-[700]">
+          SALARA AIRLINES
+        </h4>
       </div>
       <div className="flex items-center">
         <ul className="flex flex-row gap-3 items-center text-[#FFFFFF] text-[15px] mr-5">
@@ -18,9 +30,13 @@ const BottomNav = () => {
             PLAN & BOOK
           </li>
           <AiOutlineMore />
-          <li className="text-[14px] h-[60px] w-[118.92px] hover:bg-black flex items-center justify-center hover:border-b-4 border-orange-700">FLY DIFFERENT</li>
+          <li className="text-[14px] h-[60px] w-[118.92px] hover:bg-black flex items-center justify-center hover:border-b-4 border-orange-700">
+            FLY DIFFERENT
+          </li>
           <AiOutlineMore />
-          <li className="text-[14px] h-[60px] w-[118.92px] hover:bg-black flex items-center justify-center hover:border-b-4 border-orange-700">DISCOVER</li>
+          <li className="text-[14px] h-[60px] w-[118.92px] hover:bg-black flex items-center justify-center hover:border-b-4 border-orange-700">
+            DISCOVER
+          </li>
           <AiOutlineMore />
           <li className="text-[14px]">Sign up</li>
         </ul>

@@ -33,9 +33,6 @@ const FlightCard = () => {
 
   const filteredArr = data.filter((item) => item.legId.includes(legSearch));
 
-  // console.log(filteredArr);
-
-  // console.log(state?.itineraryCard);
   return (
     <div>
       {filteredArr.map((item, i) => (
@@ -220,7 +217,11 @@ const FlightCard = () => {
             </div>
           </div>
           {showCard.id === i && state?.itinerary?.id1 && (
-            <Itinerary item={item} showPrices={true} />
+            <Itinerary
+              item={item}
+              showPrices={true}
+              setSelectedValue={setSelectedValue}
+            />
           )}
           {showEconomy.id === i && state?.economy?.id1 && (
             <div className="p-[15px] bg-white mb-[15px] shadow-md">

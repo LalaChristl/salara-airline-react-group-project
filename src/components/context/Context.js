@@ -23,6 +23,9 @@ const ContextProvider = ({ children }) => {
     flightNumber: "",
     flightDate: "",
     selectedflightobject: {},
+    selectedPrice: "",
+    selectedType: "",
+    selectedClass: "",
   };
 
   const reducer = (state, action) => {
@@ -62,7 +65,18 @@ const ContextProvider = ({ children }) => {
         };
 
       case "selectedflightobject":
-        return { ...state, selectedflightobject: action.payload };
+        return {
+          ...state,
+          selectedflightobject: action.payload,
+        };
+      case "selectedClassPrice":
+        return {
+          ...state,
+
+          selectedPrice: action.selectedPrice,
+          selectedType: action.selectedType,
+          selectedClass: action.selectedClass,
+        };
 
       case "departure":
         return { ...state, departure: action.payload };

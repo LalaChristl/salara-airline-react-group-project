@@ -69,7 +69,13 @@ const EconomyCardContainer = ({ item }) => {
             dispatch({
               type: "selectedflightobject",
               payload: item,
+            });
+
+            dispatch({
+              type: "selectedClassPrice",
               selectedPrice: state?.selectedflightobject?.ecoFlyPrice,
+              selectedType: "EcoFly",
+              selectedClass: "ECONOMY",
             });
             navigate("/selectflight");
           }}
@@ -154,6 +160,12 @@ const EconomyCardContainer = ({ item }) => {
         <div
           onClick={() => {
             dispatch({ type: "selectedflightobject", payload: item });
+            dispatch({
+              type: "selectedClassPrice",
+              selectedPrice: state?.selectedflightobject?.extraFlyPrice,
+              selectedType: "ExtraFly",
+              selectedClass: "ECONOMY",
+            });
             navigate("/selectflight");
           }}
           className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer "
@@ -249,6 +261,12 @@ const EconomyCardContainer = ({ item }) => {
         <div
           onClick={() => {
             dispatch({ type: "selectedflightobject", payload: item });
+            dispatch({
+              type: "selectedClassPrice",
+              selectedPrice: state?.selectedflightobject?.primeFlyPrice,
+              selectedType: "PrimeFly",
+              selectedClass: "ECONOMY",
+            });
             navigate("/selectflight");
           }}
           className="card-footer w-[303.33px]  bg-[#E81932] flex  justify-center  hover:text-white  hover:bg-[#93272c] text-white cursor-pointer "

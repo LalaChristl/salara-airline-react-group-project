@@ -2,7 +2,7 @@ import React from "react";
 
 import { Context } from "../../context/Context";
 
-const Itinerary = ({ item, showPrices }) => {
+const Itinerary = ({ item, showPrices, setSelectedValue }) => {
   const { state, dispatch } = React.useContext(Context);
 
   return (
@@ -96,7 +96,10 @@ const Itinerary = ({ item, showPrices }) => {
         </table>
         {showPrices && (
           <div
-            onClick={() => dispatch({ type: "economy" })}
+            onClick={() => {
+              setSelectedValue("a");
+              dispatch({ type: "economy", payload: item });
+            }}
             className="pt-[20px] px-[15px] cursor-pointer  border-b-[1px] border-l-[1px] border-r-[1px]  w-[927.78px] flex justify-end "
           >
             <div className="text-white mb-[15px] bg-[#E81932] rounded-[5px] font-[700] text-[14px] w-[165.5px] h-[48px] flex items-center justify-center  ">
