@@ -12,8 +12,9 @@ const BoardingPass = () => {
   )[0];
 
   return (
-    <div className="flex justify-center mt-5 relative">
-      <div className="h-[400px] w-[900px] border-2 border-gray-400 rounded-xl relative">
+    <div className="flex flex-col justify-center relative items-center h-screen bg-[#232B38]">
+        <h1 className="text-white text-[32px] absolute top-[5rem]">Your boarding pass is ready!</h1>
+      <div className="h-[400px] w-[900px] rounded-xl bg-white relative">
         <div className="bp-header h-[50px] bg-[#BB3219] rounded-tl-lg rounded-tr-lg flex items-center px-3">
           <div className="leading-4">
             <p className="text-white font-[600]">SALARA</p>
@@ -63,8 +64,8 @@ const BoardingPass = () => {
           <div className="absolute left-[3rem] top-5">
             <img className="h-[280px]" src={Barcode} alt="" />
           </div>
-          <div className="absolute top-3 left-[11rem] font-[600]">NAME: {state?.passengerFirstName} {state?.passengerLastName}</div>
-          <div className="flex gap-11 absolute top-9 right-[8.7rem]">
+          <div className="absolute top-3 left-[11rem] font-[600]">NAME: {state?.passengerFirstName.toUpperCase()} {state?.passengerLastName.toUpperCase()}</div>
+          <div className="flex gap-[1.4rem] absolute top-9 right-[8.7rem]">
             <p>TK {filterSearch?.flightNumber}</p>
             <p>{state?.flightDate}</p>
             <p>{filterSearch?.departureTime}</p>
@@ -126,7 +127,7 @@ const BoardingPass = () => {
               <p className="absolute top-3 left-[43rem] text-[10px] w-[10rem] font-[700]">
                 NAME / ISIM
               </p>
-              <p className="absolute top-[1.5rem] left-[43rem] w-[20rem]">{state?.passengerFirstName} {state?.passengerLastName}</p>
+              <p className="absolute top-[1.5rem] left-[43rem] w-[20rem]">{state?.passengerFirstName.toUpperCase()} {state?.passengerLastName.toUpperCase()}</p>
             </div>
             <div className="absolute top-[3.5rem] left-[43rem] w-[10rem]">
               <p className="text-[10px] font-[700]">FROM / NEREDEN</p>
@@ -148,11 +149,11 @@ const BoardingPass = () => {
               <p className="text-[10px] absolute top-[10.3rem] left-[49.4rem]">TARİH</p>
               <p className="text-[10px] absolute top-[10.3rem] left-[52.1rem]">SAAT</p>
             </div>
-            <div className="flex gap-2 absolute top-[11rem] left-[43rem] font-[600]">
+            <div className="flex gap-2 absolute top-[11rem] left-[43rem] font-[600] w-[15rem]">
               <p>TK</p>
               <p>{filterSearch?.flightNumber}</p>
               <p>Y</p>
-              <p>{state?.flightDate}</p>
+              <p>{state?.firstDate}</p>
             <p>{filterSearch?.departureTime}</p>
             </div>
             <div>
@@ -161,8 +162,8 @@ const BoardingPass = () => {
                 <p className="text-[26px]">B</p>
               </div>
               <div className="border-2 border-black h-[60px] w-[85px] flex justify-center items-center flex-col absolute top-[12.5rem] left-[49.2rem]">
-                <p className="text-[10px]">SEAT/KOLTUK</p>
-                <p className="text-[28px] font-[600]">{state?.seatNumberDisplay}</p>
+                <p className="text-[10px] absolute top-[.4rem]">SEAT/KOLTUK</p>
+                <p className="text-[28px] font-[600] absolute top-[.9rem]">{state?.seatNumberDisplay}</p>
               </div>
               <div className="flex gap-4 absolute top-[16.9rem] left-[43.5rem]">
                 <p className="text-[10px]">0/0</p>

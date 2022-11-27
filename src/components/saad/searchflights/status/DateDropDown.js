@@ -43,11 +43,11 @@ const DateDropDown = () => {
         onChange={(e) => dispatch({type: 'flightDate', payload: e.target.value})}
         defaultValue={`${nextDay(0)}, ${nextDate(0)} ${month}`}
       >
-        <option value={`${nextDay(-2)}, ${nextDate(-2)} ${month}`}>
+        {/* <option value={`${nextDay(-2)}, ${nextDate(-2)} ${month}`}>
           <p className="p-2">
             {nextDay(-2)}, {nextDate(-2)} {month}
           </p>
-        </option>
+        </option> */}
         <option value={`${nextDay(-1)}, ${nextDate(-1)} ${month}`}>
           {nextDay(-1)}, {nextDate(-1)} {month}
         </option>
