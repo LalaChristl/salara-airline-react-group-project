@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import React from "react";
+// import Seatmap from "react-seatmap";
+=======
 import React, { useContext } from "react";
 import additional from "../../images/additional.png";
 import SearchNav from "../../lala/header/SearchNav";
@@ -15,6 +19,7 @@ import { BsFillCircleFill } from "react-icons/bs";
 import Radio from "@mui/material/Radio";
 import SingleSeat from "./SingleSeat";
 import { Context } from "../../context/Context";
+>>>>>>> 92df3fb68b9a35debd95f18f0c19f8a89582c9ec
 
 const SeatAllocationComponent = () => {
   const { state, dispatch } = useContext(Context);
@@ -27,6 +32,11 @@ const SeatAllocationComponent = () => {
   };
   return (
     <div>
+<<<<<<< HEAD
+      <h1>Seat Picker</h1>
+      <div style={{ marginTop: "100px" }}>
+        {/* <Seatmap rows={rows} maxReservableSeats={3} alpha />, */}
+=======
       <SearchNav selected={false} passenger={false} additional={true} />
       <div className="w-[1024px] mx-auto">
         <div className="pt-[30px]">
@@ -884,6 +894,7 @@ const SeatAllocationComponent = () => {
             </div>
           </div>
         </div>
+>>>>>>> 92df3fb68b9a35debd95f18f0c19f8a89582c9ec
       </div>
     </div>
   );
