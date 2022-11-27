@@ -3728,7 +3728,7 @@ const SeatAllocationComponent = () => {
               </div>
             </div>
             <div
-              onClick={() => navigate("/paymentpage")}
+              onClick={() => navigate("/payment")}
               className="px-[15px] cursor-pointer"
             >
               <div className="bg-[#E81932] px-[12px] py-[6px] rounded-[4px] w-[140.66px] h-[68px] flex items-center justify-between text-white ">
