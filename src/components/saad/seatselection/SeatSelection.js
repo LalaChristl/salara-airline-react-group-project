@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React from "react";
-// import Seatmap from "react-seatmap";
-=======
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import additional from "../../images/additional.png";
 import SearchNav from "../../lala/header/SearchNav";
 import { FaInfoCircle } from "react-icons/fa";
@@ -19,10 +15,13 @@ import { BsFillCircleFill } from "react-icons/bs";
 import Radio from "@mui/material/Radio";
 import SingleSeat from "./SingleSeat";
 import { Context } from "../../context/Context";
->>>>>>> 92df3fb68b9a35debd95f18f0c19f8a89582c9ec
+import SeatInfoCard from "./SeatInfoCard";
 
 const SeatAllocationComponent = () => {
   const { state, dispatch } = useContext(Context);
+
+  const [showSeat, setShowSeat] = useState(true);
+  const [showName, setShowName] = useState(true);
 
   const navigate = useNavigate();
   const [selectedValue, setSelectedValue] = React.useState("a");
@@ -30,13 +29,16 @@ const SeatAllocationComponent = () => {
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
+
+  const seatClass =
+    "w-[49px] h-[57px] flex items-center justify-center cursor-pointer  hover:scale-125 relative ";
+  const selectedSeat =
+    "w-[49px] h-[57px] flex items-center justify-center cursor-not-allowed  ";
+
+  console.log(state?.seatNumber, state?.seatPrice, state?.seatType);
+
   return (
     <div>
-<<<<<<< HEAD
-      <h1>Seat Picker</h1>
-      <div style={{ marginTop: "100px" }}>
-        {/* <Seatmap rows={rows} maxReservableSeats={3} alpha />, */}
-=======
       <SearchNav selected={false} passenger={false} additional={true} />
       <div className="w-[1024px] mx-auto">
         <div className="pt-[30px]">
@@ -108,11 +110,15 @@ const SeatAllocationComponent = () => {
                       <p className="w-[48.83px] text-[14px] font-[600] text-[#7C8799]">
                         Seat Number
                       </p>
-                      <p className="text-[12px] font-[600]">05E</p>
+                      <p className="text-[12px] font-[600]">
+                        {state?.seatNumberDisplay}
+                      </p>
                     </div>
                     <div>
                       <p className="text-[#7C8799] font-[600]">Price</p>
-                      <p className="font-[600] text-[12px]">EUR 0,00</p>
+                      <p className="font-[600] text-[12px]">
+                        EUR {state?.seatPriceDisplay},00
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -144,8 +150,12 @@ const SeatAllocationComponent = () => {
                     </div>
                   </div>
                   <div className="text-[11px]">
-                    <p className="font-[600]">Boeing 737 MAX 8</p>
-                    <p className="text-right">NARROW BODY</p>
+                    <p className="font-[600] text-right">
+                      {state?.selectedflightobject?.plane.toUpperCase()}
+                    </p>
+                    <p className="text-right">
+                      {state?.selectedflightobject?.type.toUpperCase()}
+                    </p>
                   </div>
                 </div>
 
@@ -168,89 +178,439 @@ const SeatAllocationComponent = () => {
 
                     {/* Row 5 */}
                     <div>
-                      <ul className="flex text-center ">
-                        <li className="w-[49px] h-[57px] flex items-center justify-center   ">
+                      <ul className="flex text-center relative ">
+                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
                           5
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "05A",
+                              seatType: "Extra legroom seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          onClick={() => {
+                            // setShowSeat(false);
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "05A",
+
+                              seatPrice: 38,
+                            });
+                          }}
+                          className={seatClass}
+                        >
                           <ExtraLegroom />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow hover:scale-100 "
+                        >
+                          {showSeat && state?.seatNumber === "05A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        {showName && state?.seatNumberDisplay === "05A" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[3.4rem] top-2"
+                          >
+                            <p>SM</p>
+                          </div>
+                        )}
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "05B",
+                              seatType: "Baby Bassinet seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          onClick={() => {
+                            // setShowSeat(false);
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "05B",
+
+                              seatPrice: 38,
+                            });
+                          }}
+                          className={seatClass}
+                        >
                           <BabySeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow hover:scale-100 "
+                        >
+                          {showSeat && state?.seatNumber === "05B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        {showName && state?.seatNumberDisplay === "05B" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[6.4rem] top-2"
+                          >
+                            <p>SM</p>
+                          </div>
+                        )}
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "05C",
+                              seatType: "Extra legroom seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          onClick={() => {
+                            setShowSeat(false);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "05C",
+
+                              seatPrice: 38,
+                            });
+                          }}
+                          className={seatClass}
+                        >
                           <ExtraLegroom />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow hover:scale-100 "
+                        >
+                          {showSeat && state?.seatNumber === "05C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "05D",
+                              seatType: "Extra legroom seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          onClick={() => {
+                            setShowSeat(false);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "05D",
+
+                              seatPrice: 38,
+                            });
+                          }}
+                          className={seatClass}
+                        >
                           <ExtraLegroom />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "05D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "05E",
+                              seatType: "Baby Bassinet seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          onClick={() => {
+                            setShowSeat(false);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "05E",
+
+                              seatPrice: 38,
+                            });
+                          }}
+                          className={seatClass}
+                        >
                           <BabySeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "05E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "05F",
+                              seatType: "Extra legroom seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          onClick={() => {
+                            setShowSeat(false);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "05F",
+
+                              seatPrice: 38,
+                            });
+                          }}
+                          className={seatClass}
+                        >
                           <ExtraLegroom />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow "
+                        >
+                          {showSeat && state?.seatNumber === "05F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 6 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           6
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "06D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          onClick={() => {
+                            setShowSeat(false);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "06D",
+
+                              seatPrice: 0,
+                            });
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "06D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
                       </ul>
                     </div>
                     {/* Row 7 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           7
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "07B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "07B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "07C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "07C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "07D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "07D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
                       </ul>
                     </div>
                     {/* Row 8 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           8
                         </li>
@@ -260,16 +620,91 @@ const SeatAllocationComponent = () => {
                         <li className="w-[49px] h-[57px] flex items-center justify-center  ">
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "08C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "08C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "08D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "08D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "08E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "08E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[49px] h-[57px] flex items-center justify-center  ">
                           <SelectedSeat />
                         </li>
@@ -278,57 +713,332 @@ const SeatAllocationComponent = () => {
 
                     {/* Row 9 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           9
                         </li>
                         <li className="w-[49px] h-[57px] flex items-center justify-center  ">
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "09B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "09B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "09C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "09C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "09D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "09D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "09E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "09E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "09F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "09F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 10 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           10
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "10A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "10A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "10B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "10B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "10C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "10C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "10D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "10D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "10E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "10E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "10F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "10F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
@@ -346,23 +1056,98 @@ const SeatAllocationComponent = () => {
 
                     {/* Row 11 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           11
                         </li>
                         <li className="w-[49px] h-[57px] flex items-center justify-center  ">
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "11B",
+                              seatType: "Exit seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <ExitSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "11B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "11C",
+                              seatType: "Exit seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <ExitSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "11C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "11D",
+                              seatType: "Exit seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <ExitSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "11D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[49px] h-[57px] flex items-center justify-center  ">
                           <SelectedSeat />
                         </li>
@@ -386,23 +1171,123 @@ const SeatAllocationComponent = () => {
 
                     {/* Row 12 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           12
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "12A",
+                              seatType: "Exit seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <ExitSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "12A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "12B",
+                              seatType: "Exit seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <ExitSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "12B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "12C",
+                              seatType: "Exit seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <ExitSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "12C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "12D",
+                              seatType: "Exit seat",
+                              seatPrice: 38,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <ExitSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "12D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[49px] h-[57px] flex items-center justify-center  ">
                           <SelectedSeat />
                         </li>
@@ -414,47 +1299,248 @@ const SeatAllocationComponent = () => {
 
                     {/* Row 13 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           13
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "13A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "13A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "13B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "13B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
+
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "13D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "13D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "13E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "13E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "13F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "13F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 14 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           14
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "14A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "14A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "14B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "14B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "14C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "14C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
                         <li className="w-[49px] h-[57px] flex items-center justify-center  ">
                           <SelectedSeat />
@@ -470,7 +1556,7 @@ const SeatAllocationComponent = () => {
 
                     {/* Row 15 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           15
                         </li>
@@ -480,181 +1566,1131 @@ const SeatAllocationComponent = () => {
                         <li className="w-[49px] h-[57px] flex items-center justify-center  ">
                           <SelectedSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "15C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "15C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "15D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "15D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "15E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "15E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "15F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "15F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 16 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           16
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "16A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "16A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "16B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "16B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "16C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "16C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "16D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "16D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "16E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "16E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "16F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "16F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 17 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           17
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "17A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "17A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "17B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "17B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "17C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "17C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "17D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "17D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "17E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "17E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "17F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "17F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 18 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           18
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "18A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "18A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "18B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "18B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "18C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "18C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "18D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "18D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "18E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "18E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "18F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "18F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 19 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           19
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "19A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "19A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "19B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "19B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "19C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "19C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "19D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "19D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "19E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "19E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "19F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "19F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 20*/}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           20
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "20A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "20A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "20B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "20B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "20C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "20C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "20D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "20D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "20E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "20E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "20F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "20F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 21*/}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           21
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "21A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "21A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "21B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "21B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "21C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "21C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "21D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "21D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[49px] h-[57px] flex items-center justify-center  ">
                           <SelectedSeat />
                         </li>
@@ -666,26 +2702,151 @@ const SeatAllocationComponent = () => {
 
                     {/* Row 22*/}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           22
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "22A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "22A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "22B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "22B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "22C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "22C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "22D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "22D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "22E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "22E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[49px] h-[57px] flex items-center justify-center  ">
                           <SelectedSeat />
                         </li>
@@ -694,119 +2855,719 @@ const SeatAllocationComponent = () => {
 
                     {/* Row 23 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           23
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "23A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "23A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "23B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "23B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "23C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "23C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "23D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "23D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "23E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "23E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "23F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "23F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 24 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           24
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "24A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "24A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "24B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "24B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "24C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "24C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "24D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "24D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "24E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "24E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "24F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "24F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 25 */}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           25
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "25A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "25A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "25B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "25B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "25C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "25C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "25D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "25D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "25E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "25E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "25F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "25F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 26*/}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           26
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "26A",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[-0.7rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "26A" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "26B",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[2.3rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "26B" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "26C",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[5.4rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "26C" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "26D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "26D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "26E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "26E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "26F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "26F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
                     {/* Row 27*/}
                     <div>
-                      <ul className="flex text-center ">
+                      <ul className="flex text-center relative ">
                         <li className="w-[49px] h-[57px] flex items-center justify-center   ">
                           27
                         </li>
@@ -814,15 +3575,90 @@ const SeatAllocationComponent = () => {
                         <li className="w-[49px] h-[57px] flex items-center justify-center  "></li>
                         <li className="w-[49px] h-[57px] flex items-center justify-center  "></li>
                         <li className="w-[40px] h-[57px] "></li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "27D",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[10.9rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "27D" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "27E",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
-                        <li className="w-[49px] h-[57px] flex items-center justify-center  ">
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[14rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "27E" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
+                        <li
+                          onMouseEnter={() => {
+                            setShowSeat(true);
+                            dispatch({
+                              type: "seatNumber",
+                              seatNumber: "27F",
+                              seatType: "Standard seat",
+                              seatPrice: 0,
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            setShowSeat(false);
+                          }}
+                          className={seatClass}
+                        >
                           <SingleSeat />
                         </li>
+                        <div
+                          style={{
+                            clipPath:
+                              "polygon(0% 0%, 100% 0%, 100% 75%, 55% 75%, 50% 81%, 45% 75%, 0% 75%)",
+                          }}
+                          className="absolute top-[-8.7rem] left-[17rem] shadow  "
+                        >
+                          {showSeat && state?.seatNumber === "27F" && (
+                            <SeatInfoCard />
+                          )}
+                        </div>
                       </ul>
                     </div>
 
@@ -894,7 +3730,6 @@ const SeatAllocationComponent = () => {
             </div>
           </div>
         </div>
->>>>>>> 92df3fb68b9a35debd95f18f0c19f8a89582c9ec
       </div>
     </div>
   );

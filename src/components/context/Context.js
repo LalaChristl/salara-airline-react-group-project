@@ -26,6 +26,13 @@ const ContextProvider = ({ children }) => {
     selectedPrice: "",
     selectedType: "",
     selectedClass: "",
+
+    seatNumber: "",
+    seatNumberDisplay: "",
+    seatType: "",
+    seatPrice: "",
+    seatPriceDisplay: "0",
+    passengerName: "Saad Malik",
   };
 
   const reducer = (state, action) => {
@@ -76,6 +83,20 @@ const ContextProvider = ({ children }) => {
           selectedPrice: action.selectedPrice,
           selectedType: action.selectedType,
           selectedClass: action.selectedClass,
+        };
+
+      case "seatNumber":
+        return {
+          ...state,
+          seatNumber: action.seatNumber,
+          seatPrice: action.seatPrice,
+          seatType: action.seatType,
+        };
+      case "seatNumberDisplay":
+        return {
+          ...state,
+          seatNumberDisplay: action.seatNumber,
+          seatPriceDisplay: action.seatPrice,
         };
 
       case "departure":
