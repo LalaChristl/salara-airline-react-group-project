@@ -20,7 +20,7 @@ const BoardingPass = () => {
             <p className="text-white font-[600]">AIRLINES</p>
           </div>
           <div
-            className="search-nav-logo"
+            className="search-nav-logo absolute left-[5.3rem]"
             style={{ padding: "13px 25px 12px 14px" }}
           >
             <img
@@ -29,7 +29,7 @@ const BoardingPass = () => {
             />
           </div>
           <div>
-            <p className="text-white font-[600]">BOARDING PASS | BİNİŞ KARTI</p>
+            <p className="text-white font-[600] absolute left-[12rem]">BOARDING PASS | BİNİŞ KARTI</p>
           </div>
           <div>
             <p className="text-white text-[10px] font-[600]">
@@ -38,12 +38,22 @@ const BoardingPass = () => {
           </div>
           <div className="leading-4">
             <div>
-              <p className="text-white font-[600] text-[14px]">SALARA</p>
-              <p className="text-white font-[600] text-[14px]">AIRLINES</p>
+              <p className="text-white font-[600] text-[14px] absolute right-[6rem] top-[.3rem]">SALARA</p>
+              <p className="text-white font-[600] text-[14px] absolute right-[6rem] top-[1rem]">AIRLINES</p>
             </div>
+            <div
+            className="search-nav-logo absolute right-[2rem] top-[-.7rem]"
+            style={{ padding: "13px 25px 12px 14px" }}
+          >
+            <img
+              className="search-nav-img w-[35px] h-[35px]"
+              src="https://www.turkishairlines.com/theme/img/logo-top-white-small-current.png"
+            />
+          </div>
+            
 
             <div>
-              <p className="text-white font-[600] text-[11px]">
+              <p className="text-white font-[600] text-[11px] absolute right-[2rem] top-[2.2rem]">
                 BOARDING PASS | BİNİŞ KARTI
               </p>
             </div>

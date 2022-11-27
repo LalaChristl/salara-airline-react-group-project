@@ -218,6 +218,8 @@ const FlightStatusPage = () => {
           </div>
         </div>
       </div>
+    
+
     </div>
   );
 };
