@@ -7,6 +7,7 @@ import SelectFlightPage from "./components/saad/flightsearchpage/SelectFlightPag
 import PaymentForm from "./components/lala/paymentform/PaymentForm";
 import SeatSelection from "./components/saad/seatselection/SeatSelection";
 import PassengerD2 from "./components/rabi/passengerDetails/PassengerD2";
+import BoardingPass from "./components/lala/boarding pass/BoardingPass";
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
       <Route path="/flightsearch" element={<FlightSearchPage />} />
       <Route path="/flightstatus" element={<FlightStatusPage />} />
       <Route path="/selectflight" element={<SelectFlightPage />} />
-      <Route path="/payment" element={<PaymentForm/>} />
-      
+      <Route path="/payment" element={<PaymentForm />} />
+      <Route path="/boardingpass" element={<BoardingPass />} />
+
       <Route path="/passengerdetails" element={<PassengerD2 />} />
       <Route path="/seatselection" element={<SeatSelection />} />
     </Routes>
