@@ -1,5 +1,5 @@
 import React from "react";
-import Seatmap from "react-seatmap";
+// import Seatmap from "react-seatmap";
 
 const SeatAllocationComponent = () => {
   const rows = [
@@ -62,7 +62,7 @@ const SeatAllocationComponent = () => {
     <div>
       <h1>Seat Picker</h1>
       <div style={{ marginTop: "100px" }}>
-        <Seatmap rows={rows} maxReservableSeats={3} alpha />,
+        {/* <Seatmap rows={rows} maxReservableSeats={3} alpha />, */}
       </div>
     </div>
   );
