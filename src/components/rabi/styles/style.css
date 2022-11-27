@@ -1,4 +1,6 @@
 @import url(https://db.onlinewebfonts.com/c/b1de76f2d448dcdf44d092114d6ba04a?family=Museo+Sans+700);
+@import url(https://db.onlinewebfonts.com/c/b1de76f2d448dcdf44d092114d6ba04a?family=Museo+Sans+300);
+@import url(https://db.onlinewebfonts.com/c/b1de76f2d448dcdf44d092114d6ba04a?family=Museo+Sans+500);
 
 body {
   margin: 0;
@@ -140,18 +142,19 @@ body {
   border-left: 1px solid #232b38;
 }
 /* searchNav css part start from here ====================================================*/
-.searchNav-bar span {
-  padding-right: 20px;
-}
+/* .searchNav-bar span {
+  padding-right: 0px;
+} */
 .footer-bottom a:hover {
   color: #c3cbd7;
   text-decoration: underline dotted;
 }
-.searchNav-bar a:hover {
+/* .searchNav-bar a {
   clip-path: polygon(75% 0%, 85% 50%, 75% 100%, 0% 100%, 8% 50%, 0% 0%);
   background-color: red;
+  padding: 0 4rem 0 1rem;
+} */
+/* 
+.searchNav-bar a:hover {
   color: white;
-  padding: 0 40px 0 20px;
-  display: flex;
-  align-items: center;
-}
+} */
