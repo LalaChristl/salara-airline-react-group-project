@@ -13,7 +13,9 @@ const SeatInfoCard = () => {
       </div>
       <div className="bg-gray-200 h-[140px] rounded-bl-md rounded-br-md text-left px-[10px] pt-[2px]">
         <p>1. Passenger</p>
-        <p className="text-gray-500 hover:underline">{state?.passengerName}</p>
+        <p className="text-gray-500 hover:underline">
+          {state?.passengerFirstName} {state?.passengerLastName}
+        </p>
         <p>{state?.seatType}</p>
         <p>EUR {state?.seatPrice} </p>
       </div>

@@ -5,6 +5,7 @@ import FlightSearchPage from "./components/saad/flightsearchpage/FlightSearchPag
 import FlightStatusPage from "./components/lala/flightstatus/FlightStatusPage";
 import SelectFlightPage from "./components/saad/flightsearchpage/SelectFlightPage";
 import SeatSelection from "./components/saad/seatselection/SeatSelection";
+import PassengerD2 from "./components/rabi/passengerDetails/PassengerD2";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/flightsearch" element={<FlightSearchPage />} />
       <Route path="/flightstatus" element={<FlightStatusPage />} />
       <Route path="/selectflight" element={<SelectFlightPage />} />
+      <Route path="/passengerdetails" element={<PassengerD2 />} />
       <Route path="/seatselection" element={<SeatSelection />} />
     </Routes>
   );

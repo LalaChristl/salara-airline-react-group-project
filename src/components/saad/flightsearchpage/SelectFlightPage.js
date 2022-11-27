@@ -26,7 +26,12 @@ const SelectFlightPage = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <SearchNav selected={true} />
+      <SearchNav
+        selected={true}
+        passenger={false}
+        payment={false}
+        additional={false}
+      />
       <div className="px-[15px] pt-[30px] pb-[5px] w-[1024px] mx-auto mb-[20px] ">
         <div className="flex items-center gap-3 mb-[10px]">
           <p className="bg-[#E81932] text-[#FFFFFF] text-[14px] pt-[7px] text-center pb-[5px] w-[222.23px] font-[700] leading-[15px] ">
@@ -244,7 +249,7 @@ const SelectFlightPage = () => {
               </div>
             </div>
             <div
-              onClick={() => navigate("/seatselection")}
+              onClick={() => navigate("/passengerdetails")}
               className="px-[15px] cursor-pointer"
             >
               <div className="bg-[#E81932] px-[12px] py-[6px] rounded-[4px] w-[140.66px] h-[68px] flex items-center justify-between text-white ">

@@ -6,7 +6,7 @@ import ccard from "../../images/cc.jpg";
 import "../../rabi/styles/style.css";
 import { useNavigate } from "react-router-dom";
 
-const SearchNav = ({ selected, additional }) => {
+const SearchNav = ({ selected, additional, passenger, payment }) => {
   const navigate = useNavigate();
   return (
     <>
@@ -55,7 +55,9 @@ const SearchNav = ({ selected, additional }) => {
               clipPath:
                 "polygon(75% 0%, 85% 50%, 75% 100%, 0% 100%, 8% 50%, 0% 0%)",
             }}
-            className=" align-items-center flex "
+            className={` align-items-center flex ${
+              passenger && "bg-red-600"
+            }  clip`}
           >
             <img
               className="plane-icon px-[10px] h-[30px] w-[40px]"
@@ -88,7 +90,9 @@ const SearchNav = ({ selected, additional }) => {
               clipPath:
                 "polygon(75% 0%, 85% 50%, 75% 100%, 0% 100%, 8% 50%, 0% 0%)",
             }}
-            className=" align-items-center flex  clip"
+            className={` align-items-center flex ${
+              payment && "bg-red-600"
+            }  clip`}
           >
             <img className="plane-icon px-[10px] w-[50px]" src={ccard} alt="" />
             <span>Payment</span>

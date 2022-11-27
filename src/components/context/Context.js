@@ -32,7 +32,8 @@ const ContextProvider = ({ children }) => {
     seatType: "",
     seatPrice: "",
     seatPriceDisplay: "0",
-    passengerName: "Saad Malik",
+    passengerFirstName: "",
+    passengerLastName: "",
   };
 
   const reducer = (state, action) => {
@@ -99,6 +100,13 @@ const ContextProvider = ({ children }) => {
           seatPriceDisplay: action.seatPrice,
         };
 
+      case "firstLastName":
+        console.log(action.firstName, action.lastName);
+        return {
+          ...state,
+          passengerFirstName: action.firstName,
+          passengerLastName: action.lastName,
+        };
       case "departure":
         return { ...state, departure: action.payload };
       case "arrival":
