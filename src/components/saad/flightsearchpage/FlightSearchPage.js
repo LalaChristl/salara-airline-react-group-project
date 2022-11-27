@@ -13,7 +13,7 @@ const FlightSearchPage = () => {
 
   return (
     <div>
-      <SearchNav />
+      <SearchNav selected={true} passenger={false} additional={false} />
 
       <div className="px-[15px] pt-[30px] pb-[5px] w-[1024px] mx-auto mb-[20px] ">
         <p className="bg-[#E81932] text-[#FFFFFF] text-[14px] mb-[10px] pt-[7px] text-center pb-[5px] w-[222.23px] font-[700] leading-[15px] ">

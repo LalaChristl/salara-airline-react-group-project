@@ -27,7 +27,7 @@ const SeatAllocationComponent = () => {
   };
   return (
     <div>
-      <SearchNav />
+      <SearchNav selected={false} passenger={false} additional={true} />
       <div className="w-[1024px] mx-auto">
         <div className="pt-[30px]">
           <img src={additional} alt="" />
