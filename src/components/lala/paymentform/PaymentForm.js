@@ -76,24 +76,27 @@ class PaymentFormClass extends React.Component {
         />
         <div key="Payment">
           <div className="App-payment mt-5">
-            <Card
-              number={number}
-              name={name}
-              expiry={expiry}
-              cvc={cvc}
-              focused={focused}
-              callback={this.handleCallback}
-            />
+            <div className="flex justify-center">
+              <Card
+                className="w-[290px]"
+                number={number}
+                name={name}
+                expiry={expiry}
+                cvc={cvc}
+                focused={focused}
+                callback={this.handleCallback}
+              />
+            </div>
             {/* <h1>Enter your payment details</h1>
                          <h4>please input your information below</h4> */}
             <div className="flex justify-center mt-4">
               <form ref={(c) => (this.form = c)} onSubmit={this.handleSubmit}>
-                <div className="form-group w-[20rem]">
-                  <p className="font-[700]">Name on card:</p>
+                <div className="form-group">
+                  <p className="font-[700] pl-1">Name on card:</p>
                   <input
                     type="text"
                     name="name"
-                    className="form-control"
+                    className="form-control w-[290px]"
                     placeholder="Name"
                     pattern="[a-z A-Z-]+"
                     required
@@ -101,12 +104,12 @@ class PaymentFormClass extends React.Component {
                     onFocus={this.handleInputFocus}
                   />
                 </div>
-                <div className="form-group w-[20rem]">
-                  <p className="font-[700]">Card Number:</p>
+                <div className="form-group w-[22rem]">
+                  <p className="font-[700] pl-1">Card Number:</p>
                   <input
                     type="tel"
                     name="number"
-                    className="form-control"
+                    className="form-control w-[290px]"
                     placeholder="Card Number"
                     pattern="[\d| ]{16,22}"
                     maxLength="19"
@@ -116,11 +119,11 @@ class PaymentFormClass extends React.Component {
                   />
                 </div>
                 <div className="form-group w-[20rem]">
-                  <p className="font-[700]">Expiration Date:</p>
+                  <p className="font-[700] pl-1">Expiration Date:</p>
                   <input
                     type="tel"
                     name="expiry"
-                    className="form-control"
+                    className="form-control w-[290px]"
                     placeholder="Valid Thru"
                     pattern="\d\d/\d\d"
                     required
@@ -129,11 +132,11 @@ class PaymentFormClass extends React.Component {
                   />
                 </div>
                 <div className="form-group w-[5rem]">
-                  <p className="font-[700]">CVC:</p>
+                  <p className="font-[700] pl-1">CVC:</p>
                   <input
                     type="tel"
                     name="cvc"
-                    className="form-control"
+                    className="form-control w-[290px]"
                     placeholder="CVC"
                     pattern="\d{3}"
                     required
@@ -146,7 +149,7 @@ class PaymentFormClass extends React.Component {
                   onClick={() => navigation("/boardingpass")}
                   className="form-actions flex justify-center "
                 >
-                  <button className="border-2 p-2 bg-[#232B38] text-white font-[600] rounded-md mt-4 w-[20rem]">
+                  <button className="border-2 p-2 bg-[#232B38] text-white font-[600] rounded-md mt-4 w-[290px]">
                     Submit
                   </button>
                 </div>

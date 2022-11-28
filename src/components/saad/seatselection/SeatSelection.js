@@ -198,7 +198,6 @@ const SeatAllocationComponent = () => {
                             setShowSeat(false);
                           }}
                           onClick={() => {
-                            // setShowSeat(false);
                             setShowName(true);
                             dispatch({
                               type: "seatNumberDisplay",
@@ -255,7 +254,6 @@ const SeatAllocationComponent = () => {
                             setShowSeat(false);
                           }}
                           onClick={() => {
-                            // setShowSeat(false);
                             setShowName(true);
                             dispatch({
                               type: "seatNumberDisplay",
@@ -313,7 +311,7 @@ const SeatAllocationComponent = () => {
                             setShowSeat(false);
                           }}
                           onClick={() => {
-                            setShowSeat(false);
+                            setShowName(true);
                             dispatch({
                               type: "seatNumberDisplay",
                               seatNumber: "05C",
@@ -337,6 +335,26 @@ const SeatAllocationComponent = () => {
                           )}
                         </div>
 
+                        {showName && state?.seatNumberDisplay === "05C" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[9.5rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
+
                         <li className="w-[40px] h-[57px] "></li>
                         <li
                           onMouseEnter={() => {
@@ -352,7 +370,7 @@ const SeatAllocationComponent = () => {
                             setShowSeat(false);
                           }}
                           onClick={() => {
-                            setShowSeat(false);
+                            setShowName(true);
                             dispatch({
                               type: "seatNumberDisplay",
                               seatNumber: "05D",
@@ -375,6 +393,26 @@ const SeatAllocationComponent = () => {
                             <SeatInfoCard />
                           )}
                         </div>
+                        {showName && state?.seatNumberDisplay === "05D" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[15.1rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
+
                         <li
                           onMouseEnter={() => {
                             setShowSeat(true);
@@ -389,7 +427,7 @@ const SeatAllocationComponent = () => {
                             setShowSeat(false);
                           }}
                           onClick={() => {
-                            setShowSeat(false);
+                            setShowName(true);
                             dispatch({
                               type: "seatNumberDisplay",
                               seatNumber: "05E",
@@ -413,6 +451,26 @@ const SeatAllocationComponent = () => {
                             <SeatInfoCard />
                           )}
                         </div>
+
+                        {showName && state?.seatNumberDisplay === "05E" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[18.1rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <li
                           onMouseEnter={() => {
                             setShowSeat(true);
@@ -427,7 +485,7 @@ const SeatAllocationComponent = () => {
                             setShowSeat(false);
                           }}
                           onClick={() => {
-                            setShowSeat(false);
+                            setShowName(true);
                             dispatch({
                               type: "seatNumberDisplay",
                               seatNumber: "05F",
@@ -450,6 +508,26 @@ const SeatAllocationComponent = () => {
                             <SeatInfoCard />
                           )}
                         </div>
+
+                        {showName && state?.seatNumberDisplay === "05F" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[21.2rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                       </ul>
                     </div>
 
@@ -483,7 +561,7 @@ const SeatAllocationComponent = () => {
                             setShowSeat(false);
                           }}
                           onClick={() => {
-                            setShowSeat(false);
+                            setShowName(true);
                             dispatch({
                               type: "seatNumberDisplay",
                               seatNumber: "06D",
@@ -506,6 +584,26 @@ const SeatAllocationComponent = () => {
                             <SeatInfoCard />
                           )}
                         </div>
+
+                        {showName && state?.seatNumberDisplay === "06D" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[15.1rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <li className={selectedSeat}>
                           <SelectedSeat />
                         </li>
@@ -514,6 +612,7 @@ const SeatAllocationComponent = () => {
                         </li>
                       </ul>
                     </div>
+
                     {/* Row 7 */}
                     <div>
                       <ul className="flex text-center relative">
@@ -536,10 +635,40 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "07B",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "07B" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[6.4rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
+
                         <div
                           style={{
                             clipPath:
@@ -551,6 +680,7 @@ const SeatAllocationComponent = () => {
                             <SeatInfoCard />
                           )}
                         </div>
+
                         <li
                           onMouseEnter={() => {
                             setShowSeat(true);
@@ -564,10 +694,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "07C",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "07C" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[9.5rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -593,10 +752,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "07D",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "07D" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[15.1rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -641,10 +829,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "08C",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "08C" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[9.5rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -670,10 +887,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "08D",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "08D" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[15.1rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -698,10 +944,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "08E",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "08E" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[18.1rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -741,10 +1016,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "09B",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "09B" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[6.4rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -769,10 +1073,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "09C",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "09C" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[9.5rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -798,10 +1131,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "09D",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "09D" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[15.1rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -826,10 +1188,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "09E",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "09E" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[18.1rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -854,10 +1245,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "09F",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "09F" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[21.2rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -891,10 +1311,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "10A",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "10A" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[3.4rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -919,10 +1368,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "10B",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "10B" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[6.4rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -947,10 +1425,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "10C",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "10C" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[9.5rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -976,10 +1483,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "10D",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "10D" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[15.1rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -1004,10 +1540,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "10E",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "10E" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[18.1rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:
@@ -1032,10 +1597,39 @@ const SeatAllocationComponent = () => {
                           onMouseLeave={() => {
                             setShowSeat(false);
                           }}
+                          onClick={() => {
+                            setShowName(true);
+                            dispatch({
+                              type: "seatNumberDisplay",
+                              seatNumber: "10F",
+
+                              seatPrice: 0,
+                            });
+                          }}
                           className={seatClass}
                         >
                           <SingleSeat />
                         </li>
+
+                        {showName && state?.seatNumberDisplay === "10F" && (
+                          <div
+                            onClick={() => {
+                              setShowName(false);
+                              dispatch({
+                                type: "seatNumberDisplay",
+                                seatNumber: "",
+
+                                seatPrice: 0,
+                              });
+                            }}
+                            className=" cursor-pointer w-[40px] h-[40px] bg-blue-600 text-white rounded-full flex items-center justify-center absolute left-[21.2rem] top-2"
+                          >
+                            <p>
+                              {state?.passengerFirstName.slice(0, 1)}
+                              {state?.passengerLastName.slice(0, 1)}
+                            </p>
+                          </div>
+                        )}
                         <div
                           style={{
                             clipPath:

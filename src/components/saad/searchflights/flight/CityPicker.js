@@ -16,6 +16,8 @@ const CityDate = () => {
 
   const [showDate, setShowDate] = useState(false);
 
+  // console.log(state);
+
   return (
     <div>
       {" "}
@@ -29,27 +31,42 @@ const CityDate = () => {
               </p>
               <select
                 onChange={(e) =>
-                  dispatch({ type: "departure", payload: e.target.value })
+                  dispatch({
+                    type: "departure",
+                    payload: e.target.value,
+                    plane: false,
+                  })
                 }
-                className={`w-[187.49px] h-[66px] text-[16px] font-bold pl-[3.2rem] rounded-lg ${" focus:border-red-500 focus:ring-red-500 border-red-500"}`}
-                // {...register("departure", {
-                //   required: {
-                //     value: true,
-                //     message: "Departure is required",
-                //   },
-                // })}
+                className={`w-[187.49px] relative h-[66px] text-right text-[16px] font-bold pr-[.5rem] rounded-lg ${" focus:border-red-500 focus:ring-red-500 border-red-500"}`}
                 defaultValue="Select Airport"
               >
                 <option value="Select Airport" disabled hidden>
                   Select Airport
                 </option>
-                <option value="Berlin"> Berlin Airport (BER)</option>
-                <option value="Bremen"> Bremen Airport (BRE)</option>
-                <option value="Munich"> Munich Airport (MUN)</option>
-                <option value="Hamburg"> Hamburg Airport (HAM)</option>
-                <option value="Istanbul"> Istanbul Airport (IST)</option>
+                <option className=" text-left" value="Berlin">
+                  {" "}
+                  <p>Berlin Airport (BER)</p>
+                </option>
+                <option className=" text-left" value="Bremen">
+                  {" "}
+                  Bremen Airport (BRE)
+                </option>
+                <option className=" text-left" value="Munich">
+                  {" "}
+                  Munich Airport (MUN)
+                </option>
+                <option className=" text-left" value="Hamburg">
+                  {" "}
+                  Hamburg Airport (HAM)
+                </option>
+                <option className=" text-left" value="Istanbul">
+                  {" "}
+                  Istanbul Airport (IST)
+                </option>
               </select>
-              <FaPlaneDeparture className="text-2xl absolute left-5 top-10 " />
+              {state?.departure === "" && state?.showPlaneDeparture && (
+                <FaPlaneDeparture className="text-2xl absolute left-5 top-10 " />
+              )}
             </div>
           </div>
         </div>
@@ -63,21 +80,42 @@ const CityDate = () => {
               </p>
               <select
                 onChange={(e) =>
-                  dispatch({ type: "arrival", payload: e.target.value })
+                  dispatch({
+                    type: "arrival",
+                    payload: e.target.value,
+                    plane: false,
+                  })
                 }
-                className={`w-[187.49px] h-[66px] text-[16px] font-bold pl-[3.2rem]  rounded-lg ${" focus:border-red-500 focus:ring-red-500 border-red-500"}`}
+                className={`w-[187.49px] relative h-[66px] text-right text-[16px] font-bold pr-[.5rem] rounded-lg ${" focus:border-red-500 focus:ring-red-500 border-red-500"}`}
                 defaultValue="Select Airport"
               >
                 <option value="Select Airport" disabled hidden>
                   Select Airport
                 </option>
-                <option value="Berlin"> Berlin Airport (BER)</option>
-                <option value="Bremen"> Bremen Airport (BRE)</option>
-                <option value="Munich"> Munich Airport (MUN)</option>
-                <option value="Hamburg"> Hamburg Airport (HAM)</option>
-                <option value="Istanbul"> Istanbul Airport (IST)</option>
+                <option className=" text-left" value="Berlin">
+                  {" "}
+                  <p>Berlin Airport (BER)</p>
+                </option>
+                <option className=" text-left" value="Bremen">
+                  {" "}
+                  Bremen Airport (BRE)
+                </option>
+                <option className=" text-left" value="Munich">
+                  {" "}
+                  Munich Airport (MUN)
+                </option>
+                <option className=" text-left" value="Hamburg">
+                  {" "}
+                  Hamburg Airport (HAM)
+                </option>
+                <option className=" text-left" value="Istanbul">
+                  {" "}
+                  Istanbul Airport (IST)
+                </option>
               </select>
-              <FaPlaneArrival className="text-2xl absolute left-5 top-10 " />
+              {state?.arrival === "" && state?.showPlaneArrival && (
+                <FaPlaneArrival className="text-2xl absolute left-5 top-10 " />
+              )}
             </div>
             <div></div>
           </div>

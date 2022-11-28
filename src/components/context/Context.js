@@ -27,6 +27,8 @@ const ContextProvider = ({ children }) => {
     selectedType: "",
     selectedClass: "",
 
+    showPlaneArrival: true,
+    showPlaneDeparture: true,
     seatNumber: "",
     seatNumberDisplay: "",
     seatType: "",
@@ -108,9 +110,18 @@ const ContextProvider = ({ children }) => {
           passengerLastName: action.lastName,
         };
       case "departure":
-        return { ...state, departure: action.payload };
+        return {
+          ...state,
+          departure: action.payload,
+          showPlaneDeparture: action.showPlaneDeparture,
+        };
+
       case "arrival":
-        return { ...state, arrival: action.payload };
+        return {
+          ...state,
+          arrival: action.payload,
+          showPlaneArrival: action.showPlaneArrival,
+        };
 
       case "radio":
         return {
@@ -155,6 +166,15 @@ const ContextProvider = ({ children }) => {
         return {
           ...state,
           flightDate: action.payload,
+        };
+      case "RESET-AIRPORT":
+        console.log("Reset Here");
+        return {
+          ...state,
+          showPlaneArrival: action.showPlaneArrival,
+          showPlaneDeparture: action.showPlaneDeparture,
+          departure: "",
+          arrival: "",
         };
 
       default:
