@@ -100,7 +100,7 @@ const SearchNav = ({ selected, additional, passenger, payment }) => {
         </div>
         <span className="euro-icon  ">&#8364;</span>
         <span className="euro p-[10px]"> EUR </span>
-        <i className="fa fa-angle-down fs-18 text-danger "></i>
+        <i className="fa fa-angle-down fs-18 text-danger pr-2 "></i>
       </div>
     </>
   );
