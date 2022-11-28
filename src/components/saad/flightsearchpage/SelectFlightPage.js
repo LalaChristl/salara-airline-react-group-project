@@ -22,7 +22,7 @@ const SelectFlightPage = () => {
 
   const [showItinerary, setShowItinerary] = useState(false);
 
-  console.log(state);
+  // console.log(state);
   const navigate = useNavigate();
   return (
     <div>
