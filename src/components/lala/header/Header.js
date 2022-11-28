@@ -7,8 +7,10 @@ import ImageHeader from "./ImageHeader";
 const Header = () => {
   return (
     <div>
-      <TopNav />
-      <BottomNav />
+      <div className="sticky top-0 z-30">
+        <TopNav />
+        <BottomNav />
+      </div>
       <ImageHeader />
       {/* <CarouselFunction /> */}
     </div>
