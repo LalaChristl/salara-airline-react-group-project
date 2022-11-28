@@ -9,7 +9,7 @@ Salara Airlines is a flight booking website that uses a built-in data set. It is
 
 Live version: https://salara-airline-react-group-project.vercel.app/
 
-![live-map](https://user-images.githubusercontent.com/73485164/201769525-7d52ccbc-ac59-4a65-8f64-9f619df7a4c6.png)
+![Screenshot from 2022-11-28 10-07-38](https://user-images.githubusercontent.com/40118542/204242812-b5f0d114-28d5-445c-93c0-24239266ea79.png)
 
 ---
 
