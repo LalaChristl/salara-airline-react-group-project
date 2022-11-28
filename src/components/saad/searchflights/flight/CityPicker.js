@@ -16,7 +16,7 @@ const CityDate = () => {
 
   const [showDate, setShowDate] = useState(false);
 
-  console.log(state);
+  // console.log(state);
 
   return (
     <div>

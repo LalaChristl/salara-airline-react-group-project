@@ -167,6 +167,15 @@ const ContextProvider = ({ children }) => {
           ...state,
           flightDate: action.payload,
         };
+      case "RESET-AIRPORT":
+        console.log("Reset Here");
+        return {
+          ...state,
+          showPlaneArrival: action.showPlaneArrival,
+          showPlaneDeparture: action.showPlaneDeparture,
+          departure: "",
+          arrival: "",
+        };
 
       default:
         return;
