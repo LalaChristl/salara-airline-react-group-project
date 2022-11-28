@@ -32,7 +32,9 @@ Live version: https://salara-airline-react-group-project.vercel.app/
 
 ## Initial Sketch
 
-![memories-app-plan](https://user-images.githubusercontent.com/73485164/201916207-a1bab250-6a88-41c7-9d1c-ca636dccfb3d.svg)
+![Screenshot from 2022-11-28 10-28-48](https://user-images.githubusercontent.com/40118542/204243594-6fe75d87-a921-4920-bb9c-5fabf284cd7a.png)
+
+![Screenshot from 2022-11-28 10-31-12](https://user-images.githubusercontent.com/40118542/204243630-1939d18d-f8f6-44ea-9155-26741c7aeeb3.png)
 
 
 ---
