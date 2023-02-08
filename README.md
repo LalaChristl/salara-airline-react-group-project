@@ -52,4 +52,4 @@ Salara Airlines is a flight booking website that uses a built-in data set. It is
 ---
 
 ## More about us
-We are a group of students persuing our certificate for Full-Stack Web Development. This is our second and final React group project. We hope you enjoy our app!
+We are a group of students persuing our certificate for Full-Stack Web Development. This is our second React group project. We hope you enjoy our app!
