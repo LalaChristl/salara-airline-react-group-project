@@ -7,7 +7,6 @@ Team: Saad Malik, Lesley-Ann Christl & Rabi Sanaye
 
 Salara Airlines is a flight booking website that uses a built-in data set. It is replica of a popular website built using React, Tailwind, Bootstrap and CSS. It includes a flight booking page, flight status page, passenger information form, seat selection page, credit card form and passenger boarding pass. 
 
-Live version: https://salara-airline-react-group-project.vercel.app/
 
 ![Screenshot from 2022-11-28 10-07-38](https://user-images.githubusercontent.com/40118542/204242812-b5f0d114-28d5-445c-93c0-24239266ea79.png)
 
@@ -17,6 +16,10 @@ Live version: https://salara-airline-react-group-project.vercel.app/
 - clone repository 
 - npm install
 - npm start
+
+---
+
+![Screenshot from 2023-02-08 09-27-59](https://user-images.githubusercontent.com/73485164/217476754-55f54017-66db-4369-a5ca-4afb63dde168.png)
 
 ---
 
@@ -30,12 +33,11 @@ Live version: https://salara-airline-react-group-project.vercel.app/
 
 ---
 
-## Initial Sketch
 
-![Screenshot from 2022-11-28 10-28-48](https://user-images.githubusercontent.com/40118542/204243594-6fe75d87-a921-4920-bb9c-5fabf284cd7a.png)
+![Screenshot from 2023-02-08 09-30-06](https://user-images.githubusercontent.com/73485164/217476616-f1d46dc1-c823-41d2-9b5e-70c59f66c39a.png)
 
-![Screenshot from 2022-11-28 10-31-12](https://user-images.githubusercontent.com/40118542/204243630-1939d18d-f8f6-44ea-9155-26741c7aeeb3.png)
 
+![Screenshot from 2023-02-08 09-32-07](https://user-images.githubusercontent.com/73485164/217476519-cb31eafa-fe75-4e11-8cc8-bf2046083397.png)
 
 ---
 
